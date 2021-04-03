@@ -1,0 +1,51 @@
+
+#outdiv h3{
+    text-align: center;
+    padding: 20px;
+}
+#profile{
+    float: left;
+    width: 600px;
+    margin: 10px;
+    margin-left: 20px;
+    padding: 40px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    background-color: #f3f3f3;
+    color: white;
+    background: linear-gradient(#0F2027, #203A43,#2C5364);
+    
+}
+
+#p1{
+    text-align: left;
+    padding: 3px;
+}
+#leaves{
+    margin: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    background-color: #f3f3f3;
+    background: linear-gradient(#005AA7,#FFFDE4);
+    float: left;
+    height: 137px;
+    width: 350px;
+    text-align: center;
+}
+#p1 >label{
+    font-weight: 700;
+    font-size: 1.04em;
+    width: 250px;
+    text-align: right;
+}
+#p2{
+    padding: 10px;
+    font-weight: 500;
+    font-size: 1.3em;
+}
+#numl{
+    text-align: center;
+    display: block;
+    font-size: 1.3em;
+    color: linear-gradient(#141e30, #243b55);;
+}
+

@@ -2,6 +2,9 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Department from './Department';
 
+import '../styles/addDeptForm.css'
+import '../styles/deptTable.css'
+
 function DepartmentsBranch(props) {
   const [loading,setLoading] = useState(true);
   const [depts,setDepts] = useState([]);
@@ -59,15 +62,45 @@ function DepartmentsBranch(props) {
       <div>
         {error&&<p>{error}</p>}
       </div>
-      <div>
-        <form>
-          <input type="text" placeholder="code" value={deptCode} onChange={e=>setDeptCode(e.target.value)} />
-          <input type="text" placeholder="name" value={deptName} onChange={e=>setDeptName(e.target.value)} />
-          <input type="text" placeholder="shortname" value={deptShortName} onChange={e=>setDeptShortName(e.target.value)} />
-          <input type="button" value={adding ? 'Adding' : 'Add'} onClick={handleAddDept} disabled={adding} />
-        </form>
+      <div className="formboxD">  
+                <h4>Add Department</h4>
+                <form >
+                    <div className="rowD">
+                        <div className="forminpD">
+                            <label>Code</label>
+                            <input type="text" required value={deptCode} onChange={e=>setDeptCode(e.target.value)}/>
+                        </div>
+                        <div className="forminpD">
+                            <label>Name</label>
+                            <input type="text" required value={deptName} onChange={e=>setDeptName(e.target.value)}/>  
+                        </div>
+                        <div className="forminpD">
+                            <label>Short name</label>
+                            <input type="text" required value={deptShortName} onChange={e=>setDeptShortName(e.target.value)}/>
+                        </div>
+                        <div className="forminpD">
+                            <input type="button" value={adding ? 'Adding' : 'Add'} onClick={handleAddDept} disabled={adding}/>
+                        </div>
+                    </div>
+                </form>
       </div>
-      {depts&&depts.map((dept)=><Department key={dept.code} dept={dept}/>)}
+      <div id="d">
+      <table>
+        <thead>
+          <tr>
+            <th>CODE</th>
+            <th>NAME</th>
+            <th>SHORT NAME</th>
+            <th>UPDATE</th>
+            <th>DELETE</th>
+          </tr>
+        </thead>
+        <tbody>
+            {depts&&depts.map((dept)=><Department key={dept.code} dept={dept}/>)}
+        </tbody>
+        </table>
+      </div>
+      
     </div>
   );
   

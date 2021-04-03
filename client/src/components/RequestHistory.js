@@ -4,13 +4,15 @@ import moment from 'moment';
 import ReactPaginate from 'react-paginate';
 import axios from 'axios';
  
+import '../styles/table.css'
+
 function RequestHistory() {
   const [loading, setLoading] = useState(true);
   const [reqs,setReqs] = useState([]);
   const [error,setError] = useState(false);
   const [offset, setOffset] = useState(0);
   const [data, setData] = useState([]);
-  const [perPage] = useState(3);
+  const [perPage] = useState(5);
   const [pageCount, setPageCount] = useState(0)
 
   useEffect(()=>{
@@ -35,7 +37,7 @@ function RequestHistory() {
   },[])
 
   const getData = () => {
-    const slice = reqs.slice(offset, offset + perPage)
+    const slice = reqs.slice(offset*perPage, offset*perPage + perPage)
     setData([...slice])
 }
 
@@ -46,7 +48,7 @@ useEffect(() => {
 
 const handlePageClick = (e) => {
   const selectedPage = e.selected;
-  setOffset(selectedPage + 1)
+  setOffset(selectedPage )
 };
 
   if(loading)
@@ -56,43 +58,56 @@ const handlePageClick = (e) => {
   else
   return (
     <div>
+    <div class="table">
       <div>
         {error&&<p>{error}</p>}
       </div>
-      <div>
+      <div id="e">
+      <table>
+        <tbody>
+        {data&&data.map((req)=><div id="single">
+          <tr>
+            <th>Request ID</th>
+            <th>From Date</th>
+            <th>To Date</th>
+            <th>Days</th>
+            <th>Type</th>
+            <th>Status</th>
+          </tr>
+          <tr>
+            <td>{req.leave_id}</td>
+            <td>{moment(req.from_date).format('YYYY-MM-DD')}</td>
+            <td>{moment(req.to_date).format('YYYY-MM-DD')}</td>
+            <td>{req.days}</td>
+            <td>{req.type}</td>
+            <td>{req.status}</td>
+          </tr>
+          <tr>
+            <th>Description</th>
+            <td colSpan="5">{req.description}</td>
+          </tr>
+          <tr>
+            <th>Remarks</th>
+            <td colSpan="5">{req.admin_remarks}</td>
+          </tr>
+          </div>)}
+        </tbody>
+        </table>
+      </div>
+    <div id="pagination" ><ReactPaginate
+      previousLabel={"prev"}
+      nextLabel={"next"}
+      breakLabel={"..."}
+      breakClassName={"break-me"}
+      pageCount={pageCount}
+      marginPagesDisplayed={2}
+      pageRangeDisplayed={5}
+      onPageChange={handlePageClick}
+      containerClassName={"pagination"}
+      subContainerClassName={"pages pagination"}
+      activeClassName={"active"}
+    /></div>
       
-      {data&&data.map((req)=><div>
-        <div>
-            ReqID:{req.leave_id}
-        </div>
-        <div>
-            From:{moment(req.from_date).format('MMMM Do YYYY')}
-            To:{moment(req.to_date).format('MMMM Do YYYY')}
-        </div>
-        <div>
-            Type:{req.type}
-            Desc:{req.description}
-        </div>
-        <div>
-            DAYS:{req.days}
-        </div>
-        <div>
-            Status:{req.status}
-            Admin Remarks:{req.admin_remarks}
-        </div>
-    </div>)}
-      <ReactPaginate
-                    previousLabel={"prev"}
-                    nextLabel={"next"}
-                    breakLabel={"..."}
-                    breakClassName={"break-me"}
-                    pageCount={pageCount}
-                    marginPagesDisplayed={2}
-                    pageRangeDisplayed={5}
-                    onPageChange={handlePageClick}
-                    containerClassName={"pagination"}
-                    subContainerClassName={"pages pagination"}
-                    activeClassName={"active"}/>
     </div>
     </div>
   )

@@ -3,7 +3,7 @@ import Calendar from 'react-calendar'
 import 'react-calendar/dist/Calendar.css';
 import moment from 'moment';
 import axios from 'axios';
-
+import '../styles/addHolidays.css'
 
 function UpdateHolidays(){
     const [holiday,setHoliday] = useState('');
@@ -70,49 +70,61 @@ function UpdateHolidays(){
     }
 
     return (
-        <div>
-        
-        <Calendar
-            onChange={(value, event) =>{
-                var d=(moment(value).format('YYYY-MM-DD'))
-                setHoliday(d);
-            } }
-            value={new Date()}
-            tileDisabled={({date})=>{
-            var d=(moment(date).format('YYYY-MM-DD'))
-            if( date.getDay() === 0 || date.getDay() === 6)
-                return true;
-            if(holiday===d)
-                return true;
-            if(addedHolidays.indexOf(d)!==-1)
-                return true;
-            return false;
-            }}
-        />
-        <div>
-        <h3>Holiday to be added</h3>
-        <h4>{holiday}</h4>
-        <input type="text" value={desc} onChange={e=>setDesc(e.target.value)}/>
-        <button onClick={handleAdd}>add</button>
+        <div id="wrap">
+        <h3>Add holidays</h3>
+        <div id="add">
+            Pick a date to be added as a holiday
         </div>
-        <div>
+        <div id="Holidays">
+        <h5>Holidays are blocked in the calendar</h5>
         <h3>Added Holidays</h3>
-        <table >
-            <tr>
-                <th>S.No</th>
-                <th>Date</th>
-                <th>Event</th>
-            </tr>
-            {holidays&&holidays.map((holiday,i)=>
-                <tr>
-                    <td>{i+1}</td>
-                    <td>{moment(holiday.date).format('YYYY-MM-DD')}</td>
-                    <td>{holiday.event}</td>
-                    <td><button onClick={()=>handleDel(moment(holiday.date).format('YYYY-MM-DD'))} >delete</button></td>
-                </tr>
-            )}
-        </table>
-        </div>
+                <table>
+                    <tr id="tablerow">
+                        <th id="sno">S.No</th>
+                        <th id="dat">Date</th>
+                        <th id="eve">Event</th>
+                        <th></th>
+                    </tr>
+                    {holidays&&holidays.map((holiday,i)=>
+                        <tr id="tablerow">
+                            <td>{i+1}</td>
+                            <td>{moment(holiday.date).format('YYYY-MM-DD')}</td>
+                            <td>{holiday.event}</td>
+                            <td><button onClick={()=>handleDel(moment(holiday.date).format('YYYY-MM-DD'))} >delete</button></td>
+                        </tr>
+                    )}
+                </table>
+            </div>
+            <div id="calen">
+                <div id="calenderpic"> 
+                    <Calendar
+                        onChange={(value, event) =>{
+                            var d=(moment(value).format('YYYY-MM-DD'))
+                            setHoliday(d);
+                        } }
+                        value={new Date()}
+                        tileDisabled={({date})=>{
+                        var d=(moment(date).format('YYYY-MM-DD'))
+                        if( date.getDay() === 0 || date.getDay() === 6)
+                            return true;
+                        if(holiday===d)
+                            return true;
+                        if(addedHolidays.indexOf(d)!==-1)
+                            return true;
+                        return false;
+                        }}
+                    />
+                </div>
+               <div id="description">
+                    <label>Selected Date</label>
+                    <h4>{holiday}</h4>
+               </div>
+                <div id="description">
+                    <label>Description of holiday</label>
+                    <input type="text" value={desc} onChange={e=>setDesc(e.target.value)}/>
+                </div>
+                <button id="sub" onClick={handleAdd}>add</button>
+            </div>
         </div>
     )
     

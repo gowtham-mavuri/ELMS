@@ -1,0 +1,93 @@
+*
+{
+    margin: 0;
+    padding: 0;
+}
+#loginbody
+{
+	background: no-repeat center center fixed;
+	background-image: linear-gradient(to top right, rgb(71, 157, 236), rgb(221, 49, 178));
+}
+.wrapper1 {
+	padding-top: 5%;
+	padding-bottom: 5%;
+    height: 100%;
+    width: 100%;
+	padding-left: 0px;
+	padding-right: 43px;
+    align-items: stretch;
+}
+#loginbox{
+	background-color: #fff;
+	box-shadow: 5px 5px 5px rgba(5, 3, 3, 0.8);
+	width: 400px;
+	height: 500px;
+	padding-top: 56px;
+	padding-left: 45px;
+}
+
+#loginbox h4{
+	color: rgb(59, 156, 248);
+	font-size: 40px;
+}
+.loginform{
+	padding-top: 20px;
+}
+#box select:required:invalid {
+	color: gray;
+  }
+#box select{
+	margin-top: 8px;
+	width: 310px;
+	height: 30px;
+	border-radius: 0px;
+	border-color: black;
+	font-size: 14px;
+}
+
+#box select option:not(:first-child){
+	color:black;
+}
+
+#box label{
+	padding-top: 10px;
+	font-size: 21px;
+}
+
+.loginform input[type="text"], input[type="password"]
+{
+	border: none;
+	border-bottom: 1px solid #000;
+	background: transparent;
+	outline: none;
+	height: 30px;
+	width: 310px;
+	font-size:14px;
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+}
+
+#loginbutton[type="submit"]{
+	width: 310px;
+	border:none;
+	outline:none;
+	height:40px;
+	background-image: linear-gradient(to top right, rgb(71, 157, 236), rgb(221, 49, 178));
+	color:rgb(255, 255, 255);
+	font-size:18px;
+}
+
+#box select:focus{
+	border:none;
+	outline: 0.6mm solid #7490db;
+}
+#box input[type="password"]:focus {
+	border-bottom: 2px solid #7490db;
+}
+#box input[type="text"]:focus{
+	border-bottom: 2px solid #7490db;
+}
+#loginbutton:hover
+{
+	cursor:pointer;
+	background:#5b87ff;
+}

@@ -1,0 +1,31 @@
+#topbar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+  }
+  
+  #topbar li {
+    float: left;
+  }
+  
+  #topbar li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+  
+  #topbar li a:hover {
+    background-color: #111;
+  }
+
+  #header1{
+    background-image: linear-gradient(#141e30, #243b55);;
+    padding: 15px;
+    text-align: center;
+    margin: 0px;
+    color: white;
+}

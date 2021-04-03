@@ -12,7 +12,8 @@ import UpdateBranch from '../UpdateBranch';
 import BranchComponent from './BranchComponent';
 import UpdateHolidays from '../UpdateHolidays';
 
-import '../sidebar.css'
+import '../nav.css'
+import logo from '../logopic.png'
 
 function AdminDashboard(props) {
   let { path, url } = useRouteMatch();
@@ -25,10 +26,12 @@ function AdminDashboard(props) {
  
   return (
     <div>
-    <div><h3 id="header">SHRI CHANDRA BULK CARGO SERVICES PVT.LTD</h3></div>
-    <div className="wrapper">
-      <nav id="sidebar">
-        <ul className="list-unstyled components">
+    <div id="header">
+        <img id="#logo" src={logo} alt="Logo" />
+        <h3 id="name">SHRI CHANDRA BULK CARGO SERVICES PVT.LTD</h3>
+    </div>
+    <div id="topbar">
+        <ul >
           <li >
             <Link to={`${url}/branches`}>Branches</Link>
           </li>
@@ -38,16 +41,12 @@ function AdminDashboard(props) {
           <li>
             <Link to={`${url}/holidays`}>Add Holidays</Link>
           </li>
+          <li>
+                <a onClick={handleLogout}>Logout</a>
+          </li>
         </ul>
-      </nav>
     </div>
     <div>
-      <button onClick={handleLogout}>Logout</button>
-    </div>
-      
-    <div>
-      <h1>Welcome Admin!</h1>
-    </div>
       <Switch>
               <Route exact path={path}>
                 <Branches />
@@ -62,6 +61,7 @@ function AdminDashboard(props) {
               <Route path={`${path}/branch/:id`} component={BranchComponent} />
               <Route path={`${path}/holidays`} component={UpdateHolidays} />
       </Switch>
+    </div>
     </div>
     
     

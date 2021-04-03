@@ -15,6 +15,9 @@ import EmployeeUpdate from '../EmployeeUpdate';
 import EmployeeCreate from '../EmployeeCreate';
 import EmployeeRequests from '../EmployeeRequests';
 
+import '../sidebar.css'
+import logo from '../logopic.png'
+
 function SubadminDashboard(props) {
   let { path, url } = useRouteMatch();
 
@@ -24,13 +27,16 @@ function SubadminDashboard(props) {
     props.history.push('/');
   }
  
+
   return (
     <div>
-          <div>
-              <input type="button" onClick={handleLogout} value="Logout" />
-          </div>
-          <div>
-            <ul>
+    <div id="header">
+        <img id="logo" src={logo} alt="Logo" />
+        <h3 id="name">SHRI CHANDRA BULK CARGO SERVICES PVT.LTD</h3>
+    </div>
+    <div id="total">
+      <nav id="sidebar">
+            <ul className="list-unstyled components">
               <li>
                 <Link to={`${url}/departments`}>Departments</Link>
               </li>
@@ -46,11 +52,12 @@ function SubadminDashboard(props) {
               <li>
                 <Link to={`${url}/AddEmployee`}>Add Employee</Link>
               </li>
+              <li>
+                <a onClick={handleLogout}>Logout</a>
+              </li>
             </ul>
-            <div>
-                <h1>Welcome Subadmin </h1>
-            </div>
-            <Switch>
+      </nav>
+      <Switch>
               <Route exact path={path} component={DepartmentsBranch} />
               <Route path={`${path}/departments`} component={DepartmentsBranch} />
 
@@ -62,11 +69,10 @@ function SubadminDashboard(props) {
               <Route exact path={`${path}/emp/:emp_id`} component={EmployeeUpdate} />
               <Route exact path={`${path}/emp/reqs/:emp_id`} component={EmployeeRequests} />
               <Route path={`${path}/AddEmployee`} component={EmployeeCreate} />
-            </Switch>
-        </div>  
+      </Switch>
     </div>
-    
-  );
+    </div>
+  )
 }
  
 export default SubadminDashboard;

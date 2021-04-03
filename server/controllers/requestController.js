@@ -42,8 +42,9 @@ exports.request_list=(req,res)=>{
          branchId=req.user.id;
     else if(role === "admin")
         branchId=req.body.id;
-    const q="SELECT * FROM leave_request JOIN employee ON employee.emp_id = leave_request.emp_id JOIN department ON employee.dept_code=department.code WHERE employee.branch_id=? ORDER BY leave_request.from_date DESC";
-    db.query(q,[branchId]).then(result=>{
+    var status = "pending"
+    const q="SELECT * FROM leave_request JOIN employee ON employee.emp_id = leave_request.emp_id JOIN department ON employee.dept_code=department.code WHERE employee.branch_id=? AND leave_request.status!=? ORDER BY leave_request.from_date DESC";
+    db.query(q,[branchId,status]).then(result=>{
         result=JSON.parse(JSON.stringify(result[0]));
         res.send({
             error:false,

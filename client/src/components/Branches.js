@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Branch from './Branch';
 
+import '../styles/branchTable.css'
+
 function Branches() {
   const [loading,setLoading] = useState(true);
   const [branchList,setBranchList] = useState([]);
@@ -32,8 +34,24 @@ function Branches() {
       <div>
         {error&&<p>Error Occured</p>}
       </div>
-      <div>
-        {branchList&&branchList.map((branch)=><Branch key={branch.id} branch={branch}/>)}
+      <div id="b">
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Location</th>
+            <th>Admin</th>
+            <th>Admin Email</th>
+            <th>Update</th>
+            <th>Manage</th>
+            <th>Delete</th>
+          </tr>
+        </thead>
+        <tbody>
+          {branchList&&branchList.map((branch)=><Branch key={branch.id} branch={branch}/>)}
+        </tbody>
+        </table>
       </div>
     </div>
   );

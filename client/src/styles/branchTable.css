@@ -1,0 +1,39 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,600);
+
+
+
+#b table {
+  background: #012B39;
+  width: 1200px;
+  border-radius: 0.25em;
+  border-collapse: collapse;
+  margin: 1em;
+  align-content: center;
+}
+#b th {
+  border-bottom: 1px solid #364043;
+  color: #E2B842;
+  font-size: 0.85em;
+  font-weight: 600;
+  padding: 0.5em 1em;
+  text-align: center;
+}
+#b td {
+  color: #fff;
+  font-weight: 400;
+  padding: 0.65em 1em;
+  text-align: center;
+}
+
+#b tbody tr {
+  transition: background 0.25s ease;
+}
+#b tbody tr:hover {
+  background: #014055;
+}
+
+#b td button {
+    background-color:#012B39;
+    color: white;
+  }
+

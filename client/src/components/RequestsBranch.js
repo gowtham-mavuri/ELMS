@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Request from './Request';
-
+import '../styles/Request.css'
 function RequestsBranch(props) {
   const [loading,setLoading] = useState(true);
   const [reqs,setReqs] = useState([]);
@@ -27,7 +27,7 @@ function RequestsBranch(props) {
   }
   else
   return (
-    <div>
+    <div id="cards">
       {reqs&&reqs.map((req)=><Request role="admin" id={req.leave_id} req={req} branchId={id}/>)}
     </div>
   );

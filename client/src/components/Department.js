@@ -9,7 +9,6 @@ function Department(props) {
     const [deptName,setDeptName] = useState(dept.name);
     const [deptShortName,setDeptShortName]= useState(dept.short_name);
     const [loading,setLoading] = useState(false);
-    const [error,setError]= useState('');
 
     const handleUpdateDept = (props) => {
         setLoading(true);
@@ -20,7 +19,7 @@ function Department(props) {
             shortName:deptShortName
         }).then(res=>{
             if(res.data.error)
-                setError(res.data.message);
+                {}
             else
                 setDept(res.data.result[0]);
             setLoading(false);setUpdate(false);
@@ -37,7 +36,7 @@ function Department(props) {
             code:dept.code
         }).then(res=>{
             if(res.data.error)
-                setError(res.data.message);
+                {}
             else
                 setDel(true);
             setLoading(false);
@@ -52,29 +51,23 @@ function Department(props) {
     else
     if(update)
         return (
-            <div>
-            <div>
-                {error&&<p>{error}</p>}
-            </div>
-            <form>
-                <p>{dept.code}</p>
-                <input type="text" value={deptName} onChange={e=>setDeptName(e.target.value)} />
-                <input type="text" value={deptShortName} onChange={e=>setDeptShortName(e.target.value)} />
-                <input type="button" value="Update" onClick={handleUpdateDept} />
-            </form>
-            </div>
+            <tr>
+                <td>{dept.code}</td>
+                <td><input type="text" value={deptName} onChange={e=>setDeptName(e.target.value)} /></td>
+                <td><input type="text" value={deptShortName} onChange={e=>setDeptShortName(e.target.value)} /> </td>
+                <td><input type="button" value="Update" onClick={handleUpdateDept} /></td>
+                <td><button disabled={true} onClick={handleDeleteDept}>delete</button></td>
+            </tr>
         )
     else
         return (
-            <div>
-                <div>
-                    {error&&<p>{error}</p>}
-                </div>
-                <h3>{dept.code}  {dept.name}  {dept.short_name} 
-                    <button onClick={()=>setUpdate(true)}>update</button>
-                    <button onClick={handleDeleteDept}>delete</button>
-                </h3>
-            </div>
+            <tr>
+                <td>{dept.code}</td>
+                <td>{dept.name}</td>
+                <td>{dept.short_name} </td>
+                <td><button onClick={()=>setUpdate(true)}>update</button></td>
+                <td><button onClick={handleDeleteDept}>delete</button></td>
+            </tr>
         )
 }
 

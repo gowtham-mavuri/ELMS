@@ -13,34 +13,35 @@ import OldRequestBranch from '../OldRequestsBranch';
 import EmployeeUpdate from '../EmployeeUpdate';
 import EmployeeCreate from '../EmployeeCreate';
 import EmployeeRequests from '../EmployeeRequests';
-
+import '../sidebar.css'
 function BranchComponent(props) {
     let { path, url } = useRouteMatch();
+
+
+
     return (
-      <div>
-        <div>
-            <ul>
-                <li>
+      <div id="total">
+    
+      <nav id="sidebar">
+            <ul className="list-unstyled components">
+              <li>
                 <Link to={`${url}/departments`}>Departments</Link>
-                </li>
-                <li>
+              </li>
+              <li>
                 <Link to={`${url}/empList`}>Employee List</Link>
-                </li>
-                <li>
+              </li>
+              <li>
                 <Link to={`${url}/requests`}>Leave Request</Link>
-                </li>
-                <li>
+              </li>
+              <li>
                 <Link to={`${url}/oldrequests`}>Old Request</Link>
-                </li>
-                <li>
+              </li>
+              <li>
                 <Link to={`${url}/AddEmployee`}>Add Employee</Link>
-                </li>
+              </li>
             </ul>
-        </div>
-        <div>
-                <h1>Branch Page</h1>
-        </div>
-            <Switch>
+      </nav>
+      <Switch>
               <Route exact path={path} component={DepartmentsBranch} />
               <Route path={`${path}/departments`} component={DepartmentsBranch} />
               <Route path={`${path}/empList`} component={EmployeesBranch} />
@@ -49,9 +50,10 @@ function BranchComponent(props) {
               <Route exact path={`${path}/emp/:emp_id`} component={EmployeeUpdate} />
               <Route path={`${path}/AddEmployee`} component={EmployeeCreate} />
               <Route exact path={`${path}/emp/reqs/:emp_id`} component={EmployeeRequests} />
-            </Switch>
-      </div>
-    );
+      </Switch>
+    </div>
+   
+    )
   }
    
 export default BranchComponent;

@@ -4,6 +4,8 @@ import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import {yupResolver} from '@hookform/resolvers/yup';
 
+import '../styles/login.css'
+
 const LoginSchema = yup.object().shape({
   role:  yup.mixed().oneOf(["admin","subadmin","employee"],"Choose a role"),
   email : yup.string().email().required(),
@@ -27,7 +29,7 @@ function Login(props)
         }).then(res=>{
             if(res.data.error)
             {
-                setError(res.data.message);
+                setError("wrong username password");
                 setLoading(false);
             }
             else
@@ -43,47 +45,49 @@ function Login(props)
             }
         }).catch(err=>{
           console.log(err);
+          setError("wrong username&&password");
           setLoading(false);
         })
   }
 
   return (
-    <div >
-        <div>Login</div>
-        <br />
-        <br />
-        <form onSubmit={handleSubmit(onSubmit)}>
-          <div>
-            <label >Role</label>
-            <select  name="role" ref={register} >
-              <option hidden disabled selected value> -- select an option -- </option>
-              <option value="admin">admin</option>
-              <option value="subadmin">subadmin</option>
-              <option value="employee">employee</option>
-            </select>
-            {errors.role && <p>{errors.role.message}</p>}
+    <div id="loginbody">
+    <div className="wrapper1">
+		<div id="loginbox"class="container-fluid ">
+			<h4>Login</h4>
+				<form className="loginform" onSubmit={handleSubmit(onSubmit)}>
+					<div id="box">
+						<label>Role</label>
+						<br></br>
+						<select name="role" ref={register} required>
+							<option disabled hidden selected value="">--select an option--</option>
+							<option id="op1" value="admin">Admin</option>
+							<option id="op2" value="subadmin">Subadmin</option>
+							<option id="op3" value="employee">Employee</option>
+					    </select>
+              {errors.role && <p>{errors.role.message}</p>}
+					</div>
+					<div id="box">
+              <label>Email</label>
+              <input type="text" name="email" placeholder="Enter Email" ref={register} />
+              {errors.email && <p>{errors.email.message}</p>}
+				  </div>
+		      <div id="box">
+              <label>Password</label>
+              <input type="password" name="password" placeholder="Enter password"  ref={register}/>
+              {errors.password && <p>{errors.password.message}</p>}
           </div>
-
-          <div >
-                <label>Email</label>
-                <input type="text" name="email" ref={register} />
-                {errors.email && <p>{errors.email.message}</p>}
-          </div>
-
-          <div >
-                <label>Password</label>
-                <input type="text" name="password" ref={register} />
-                {errors.password && <p>{errors.password.message}</p>}
-          </div>
-
-          <input type="submit" value={loading ? 'Loading...' : 'Login'} disabled={loading}/>
-        </form>
-  
-        <div>
           {error&&<p>{error}</p>}
-        </div>
+					<br></br>
+          <input id="loginbutton" type="submit" value={loading ? 'Loading...' : 'Login'} disabled={loading}/>
+				</form>
+        
+			</div>
+		</div>
     </div>
-  );
+  )
+
+  
 }
 
  

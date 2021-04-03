@@ -10,7 +10,8 @@ import {
 import EmployeeProfile from '../EmployeeProfile';
 import ApplyLeave from '../ApplyLeave';
 import RequestHistory from '../RequestHistory';
-
+import '../sidebar.css'
+import logo from '../logopic.png'
 function EmployeeDashboard(props) {
   let { path, url } = useRouteMatch();
  
@@ -22,25 +23,27 @@ function EmployeeDashboard(props) {
  
   return (
     <div>
-      <div>
-        <input type="button" onClick={handleLogout} value="Logout" />
-      </div>
-      <div>
-        <ul>
-          <li>
-            <Link to={`${url}/profile`}>Profile</Link>
-          </li>
-          <li>
-            <Link to={`${url}/leave`}>Apply Leave</Link>
-          </li>
-          <li>
-            <Link to={`${url}/requests`}>Leave History</Link>
-          </li>
-        </ul>
-      </div>
-      <div>
-        <h1>Welcome Employee!</h1>
-      </div>
+    <div id="header">
+        <img id="logo" src={logo} alt="Logo" />
+        <h3 id="name">SHRI CHANDRA BULK CARGO SERVICES PVT.LTD</h3>
+    </div>
+    <div id="total">
+      <nav id="sidebar">
+            <ul className="list-unstyled components">
+            <li>
+              <Link to={`${url}/profile`}>Profile</Link>
+            </li>
+            <li>
+              <Link to={`${url}/leave`}>Apply Leave</Link>
+            </li>
+            <li>
+              <Link to={`${url}/requests`}>Leave History</Link>
+            </li>
+            <li>
+              <a onClick={handleLogout}>Logout</a>
+            </li>
+            </ul>
+      </nav>
       <Switch>
               <Route exact path={path}>
                 <EmployeeProfile />
@@ -55,6 +58,7 @@ function EmployeeDashboard(props) {
                 <RequestHistory />
               </Route>
       </Switch>
+    </div>
     </div>
   );
 }

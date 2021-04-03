@@ -7,7 +7,7 @@ function Branch(props) {
     const b=props.branch;
     const [del,setDel]= useState(false);
     const [loading,setLoading] = useState(false);
-    const [error,setError]= useState('');
+  
     const handleDelete=()=>{
         setLoading(true);
         axios.post('http://localhost:5000/admin/branchDel',{
@@ -15,7 +15,7 @@ function Branch(props) {
             branchId:b.branch_id
         }).then(res=>{
             if(res.data.error)
-                setError(res.data.message);
+                {}
             else
                 setDel(true);
             setLoading(false)
@@ -28,21 +28,16 @@ function Branch(props) {
 
     if(del) return <div></div>
     return (
-        <div>
-            <ul>
-                <li>ID : {b.branch_id}</li>
-                <li>NAME : {b.name}</li>
-                <li>LOCATION : {b.location}</li>
-                <li>ADMIN : {b.admin_name}</li>
-                <li>ADMIN EMAIL : {b.admin_email}</li>
-                <Link to={`/AdminDashboard/update/${b.branch_id}`}>Update</Link>
-                <Link to={`/AdminDashboard/branch/${b.branch_id}`}>Details</Link>
-                <button onClick={handleDelete} disabled={loading}>delete</button>
-                <div>
-                    {error&&<p>{error}</p>}
-                </div>
-            </ul>
-        </div>
+        <tr>
+            <td>{b.branch_id}</td>
+            <td>{b.name}</td>
+            <td>{b.location}</td>
+            <td>{b.admin_name}</td>
+            <td>{b.admin_email}</td>
+            <td><Link to={`/AdminDashboard/update/${b.branch_id}`}>Update</Link></td>
+            <td><Link to={`/AdminDashboard/branch/${b.branch_id}`}>Details</Link></td>
+            <td><button onClick={handleDelete} disabled={loading}>delete</button></td>
+        </tr>
     )
 }
 

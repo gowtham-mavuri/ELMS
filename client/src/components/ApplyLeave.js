@@ -10,6 +10,7 @@ import * as yup from "yup";
 import {yupResolver} from '@hookform/resolvers/yup';
 import moment from 'moment';
 
+import '../styles/applyLeave.css'
 
 function ApplyLeave(props) {
   const LeaveSchema = yup.object().shape({
@@ -97,11 +98,93 @@ function ApplyLeave(props) {
   return <div>SUBMITTED YOUR REQUEST SUCCESSFULLY  :~)
 
   </div>
+  return (
+    <div id="formboxLeave">  
+                <h3>Apply Leave</h3>
+                <form onSubmit={handleSubmit(onSubmit)}>
+                    <div >
+                        <div id="forminpLeave">
+                            <label>Type</label>
+                            <select required name="type" ref={register}>
+                                <option disabled hidden selected value="">--select leave type--</option>
+                                <option value="sick" id="sick">Sick Leave</option>
+                                <option value="casual" id="casual">Casual Leave</option>
+                            </select>    
+                        </div>
+                        
+                        <div id="forminpLeave"> 
+                            <div id="leavecalender">
+                                <h4>Leave Calender</h4>
+                                <Calendar />
+                            </div> 
+                        </div>
+                    </div>  
+                    <div id="forminpLeave">
+                            <label>Description</label>
+                            <textarea  name="desc" ref={register}></textarea>
+                    </div>
+                    <div id="forminpLeave">
+                        
+                            <label>From To calender</label>
+                            <DateRange
+                                  editableDateInputs={true}
+                                  onChange={item => {
+                                    setState([item.selection])
+                                  }}
+                                  moveRangeOnFirstSelection={false}
+                                  ranges={state}
+                            />
+                       
+                    </div>
+                    <input type="submit" />
+                </form>
+        </div>
+  )
 
+  return (
+    <div id="formboxLeave">  
+                <h3>Apply Leave</h3>
+                <form onSubmit={handleSubmit(onSubmit)}>
+                    <div id="row">
+                        <div id="forminpLeave"> 
+                            <div id="leavecalender">
+                                <h4>Leave Calender</h4>
+                                <Calendar />
+                            </div> 
+                        </div>
+                        <div id="forminpLeave">
+                            <label>Type</label>
+                            <select required name="type" ref={register}>
+                                <option disabled hidden selected value="">--select leave type--</option>
+                                <option value="sick" id="sick">Sick Leave</option>
+                                <option value="casual" id="casual">Casual Leave</option>
+                            </select>    
+                        </div>
+                        <div id="forminpLeave">
+                            <label>Description</label>
+                            <textarea  name="desc"></textarea>
+                        </div>
+                    </div>  
+                    <div id="forminpLeave">
+                        <div id="choosecalender">
+                            <label>From To calender</label>
+                            <DateRange
+                                  editableDateInputs={true}
+                                  onChange={item => {
+                                    setState([item.selection])
+                                  }}
+                                  moveRangeOnFirstSelection={false}
+                                  ranges={state}
+                            />
+                        </div> 
+                    </div>
+                    <input type="submit" />
+                </form>
+        </div>
+  )
 
   return (
     <div>
-      Welcome to the ApplyLeave Page!
       <div>
           <form onSubmit={handleSubmit(onSubmit)}>
 
