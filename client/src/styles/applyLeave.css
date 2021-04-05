@@ -14,7 +14,7 @@ form{
 
 #formboxLeave{
     width: 100%;
-    background-color: #f3f3f3;
+    background-color: #f7f7f7;
     padding: 30px;
     height: 100%;
 }
@@ -43,6 +43,9 @@ form{
     width: 300px;
     float: right;
     margin-right: 15px;
+    padding: 15px;
+    border: transparent;
+    box-shadow: 0 9px 8px 0 rgba(0, 0, 0, 0.2);
 }
 #forminpLeave select,option{
     display: block;

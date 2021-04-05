@@ -1,3 +1,5 @@
+
+
 *{
     margin: 0;
     padding: 0;
@@ -5,7 +7,7 @@
 @import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
 body
 {
-    font-family: sans-serif;
+    font-family: serif;
 }
 #total {
     display: flex;
@@ -15,48 +17,67 @@ body
 }
 img{
     float: left;
-    background-color:white;
+    height: 70px;
+    padding-left: 30px;
+    padding-right: 40px;
+    margin-bottom: 0%;
+    vertical-align: middle;
 }
 #name{
-    text-align: center;
-    padding-top: 25px;
+    text-align: left;
+    padding-top: 20px;
     padding-bottom: 20px;
-    height: 100px;
+    height: auto;
     margin: 0px;
-    font-size: 2em;
+    padding-left: 80px;
+    font-size: 1.6em;
+    margin-left: 15%;
 }
 #sidebar {
-
-    max-width: 215px;
-    min-width: 215px;
+    width: 350px;
+    top: 0px;
     transition: all 0.1s;
 }
+.openbtn {
+    font-size: 20px;
+    cursor: pointer;
+    padding: 5px 7px;
+    border: none;
+    float:left;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    margin-left: 70px;
+    background: transparent;
+    color: white;
+  }
 #sidebar.active {
     margin-left: -250px;
 }
 #header{  
-    background: linear-gradient(#141e30, #243b55);
+    background: linear-gradient(to right, #00c5fb 0%, #0253cc 100%);
     color: white;
     margin-bottom: 0%;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 #sidebar ul.components {
-    background-image: linear-gradient(#141e30, #243b55);;
+    background-color: #34444c;
     height: 100%;
 }
 #sidebar ul li a  {
     padding: 10px;
-    font-size: 1.1em;
+    margin-left: 10px;
+    font-size: 1em;
     display: block;
-    color:white;
+    color:#b7c0cd;
     text-decoration: none;
     transition:all 0.5s;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 #sidebar ul li a:hover {
-    color: #0a0707;
-    background: #fff;
+    color: #fff;
 }
 
-#sidebar ul li.active > a{
+#sidebar ul li a.active{
     color: #fff;
     background: #354fe0;
 }
@@ -65,7 +86,7 @@ a, a:hover, a:focus {
     text-decoration: none;
     transition: all 0.2s;
 }
-@media (max-width:963px){
+/*@media (max-width:963px){
     #name{
         font-size: 1.7em;
     }
@@ -76,9 +97,9 @@ a, a:hover, a:focus {
     #sidebar{
         width: 200px;
     }
-}
-@media (max-width:705px){
-    img{
+}*/
+/*@media (max-width:995px){
+    /*img{
         width:170px;
         height: 100px;
     }
@@ -86,7 +107,23 @@ a, a:hover, a:focus {
         font-size: 1.5em;
         padding-bottom: 0px;
     }
-    #sidebar{
-        width: 170px;
+    #total{
+        width: 0px;
+        margin-left: 0%;
+        padding: 0%;
     }
-}
+}*/
+@media only screen and (max-width: 991.98px){
+    #sidebar {
+        margin-left: -225px;
+        width: 225px;
+        -webkit-transition: all 0.4s ease;
+        -moz-transition: all 0.4s ease;
+        transition: all 0.4s ease;
+        z-index: 1041;
+    }}
+    @media only screen and (min-width: 991px){
+        .openbtn {
+          background-color:transparent;
+            float: left;
+        }}

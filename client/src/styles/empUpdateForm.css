@@ -16,7 +16,7 @@ form{
 }
 #formbox{
     width: 100%;
-    background-color: #f3f3f3;
+    background-color:white;
     padding: 30px;
 }
 #formbox h3{
@@ -45,7 +45,7 @@ form{
     width: 300px;
     padding: 12px 20px;
     margin: 0px 25px 0px 0px;
-    border: 1px solid #ccc;
+    border: 1px solid rgb(184, 178, 178);
     box-sizing: border-box;
     height: 35px;
 }
@@ -55,6 +55,7 @@ form{
     padding: 12px 20px;
     margin: 0px 25px 0px 0px;
     border: 1px solid #ccc;
+    border-radius: 5px;
     box-sizing: border-box;
     height: 35px;
 }

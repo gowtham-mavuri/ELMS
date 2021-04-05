@@ -25,10 +25,12 @@ function EmployeeDashboard(props) {
     <div>
     <div id="header">
         <img id="logo" src={logo} alt="Logo" />
-        <h3 id="name">SHRI CHANDRA BULK CARGO SERVICES PVT.LTD</h3>
+        <button id="main" class="openbtn" onclick="openNav()">&#9776;</button>
+        <h3 id="name">Shri Chandra Bulk Cargo Services Pvt.Ltd</h3>
     </div>
     <div id="total">
       <nav id="sidebar">
+     
             <ul className="list-unstyled components">
             <li>
               <Link to={`${url}/profile`}>Profile</Link>

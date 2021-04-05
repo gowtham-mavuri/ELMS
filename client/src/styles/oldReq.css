@@ -10,7 +10,7 @@
 
 #reqs{
     width: 100%;
-    background-color: white;
+    background-color: #f7f7f7;
 }
 #req{
     float: left;
@@ -20,7 +20,7 @@
     width: 500px;
     margin:10px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    background-color: #f3f3f3;
+    background-color: white;
 }
 #line6 label{
     clear: left;
@@ -40,6 +40,7 @@
     border: 1px solid #ccc;
     box-sizing: border-box;
     height: 30px;
+    
 }
 #req select,option{
     width: 170px;
