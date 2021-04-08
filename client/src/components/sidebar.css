@@ -17,9 +17,7 @@ body
 *, ::after, ::before {
     box-sizing: border-box;
 }
-div {
-    display: block;
-}
+
 .header {
     background: #00c5fb;
     background: -moz-linear-gradient(left, #00c5fb 0%, #0253cc 100%);
