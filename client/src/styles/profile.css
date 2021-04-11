@@ -2,6 +2,7 @@
 #outdiv{
     position: relative;
   left: 230px;
+  top:60px;
 }
 #outdiv h3{
     text-align: center;
