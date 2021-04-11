@@ -51,29 +51,45 @@ const handlePageClick = (e) => {
   setOffset(selectedPage )
 };
 
-  if(loading)
-  {
-    return(<div>Loading</div>)
-  }
-  else
-  return (
+/*
+            require followin statements
+</div>
+<div id="leaves">
+    <div><label id="p2">Casual Leaves Remaining</label><label id="numl">{emp.casual_leaves}</label></div>
+</div>
+<div id="leaves">
+    <div><label id="p2">Sick Leaves Remaining</label><label id="numl">{emp.sick_leaves}</label></div>
+</div>
+<div id="leaves">
+    <div><label id="p2">Unpaid Leaves Taken</label><label id="numl">{emp.unpaid_leaves} </label></div>
+</div>*/
+
+
+if(loading)
+{
+  return(<div>Loading</div>)
+}
+else
+return (
+  <div>
+  <div class="table">
     <div>
-    <div class="table">
-      <div>
-        {error&&<p>{error}</p>}
-      </div>
-      <div id="e">
+      {error&&<p>{error}</p>}
+    </div>
+    <div id="e">
       <table>
         <tbody>
-        {data&&data.map((req)=><div id="single">
           <tr>
-            <th>Request ID</th>
+           <th>Request ID</th> 
             <th>From Date</th>
             <th>To Date</th>
             <th>Days</th>
             <th>Type</th>
             <th>Status</th>
+            <th>Description</th>
+            <th>Remarks</th>
           </tr>
+          {data&&data.map((req)=> <div id="single">
           <tr>
             <td>{req.leave_id}</td>
             <td>{moment(req.from_date).format('YYYY-MM-DD')}</td>
@@ -81,6 +97,8 @@ const handlePageClick = (e) => {
             <td>{req.days}</td>
             <td>{req.type}</td>
             <td>{req.status}</td>
+            <td>{req.description}</td>
+            <td>{req.admin_remarks}</td>
           </tr>
           <tr>
             <th>Description</th>
@@ -96,26 +114,26 @@ const handlePageClick = (e) => {
           </tr>
           </div>)}
         </tbody>
-        </table>
-      </div>
-    <div id="pagination" ><ReactPaginate
-      previousLabel={"prev"}
-      nextLabel={"next"}
-      breakLabel={"..."}
-      breakClassName={"break-me"}
-      pageCount={pageCount}
-      marginPagesDisplayed={2}
-      pageRangeDisplayed={5}
-      onPageChange={handlePageClick}
-      containerClassName={"pagination"}
-      subContainerClassName={"pages pagination"}
-      activeClassName={"active"}
-    /></div>
-      
+      </table>
     </div>
-    </div>
-  )
+  <div id="pagination" ><ReactPaginate
+    previousLabel={"prev"}
+    nextLabel={"next"}
+    breakLabel={"..."}
+    breakClassName={"break-me"}
+    pageCount={pageCount}
+    marginPagesDisplayed={2}
+    pageRangeDisplayed={5}
+    onPageChange={handlePageClick}
+    containerClassName={"pagination"}
+    subContainerClassName={"pages pagination"}
+    activeClassName={"active"}
+  /></div>
+    
+  </div>
+  </div>
+)
 }
 
- 
+
 export default RequestHistory;
