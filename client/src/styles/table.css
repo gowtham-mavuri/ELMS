@@ -1,6 +1,9 @@
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,600);
 
-
+#history{
+  position: relative;
+  left: 230px;
+}
 
 #e table {
    background: whitesmoke; 
@@ -37,7 +40,11 @@
 tr:nth-child(odd) {
   background-color: #f0ecec;
 }
-
+@media only screen and (max-width: 991.98px){
+  #history{
+    left: 0;
+  }
+}
 /*
 #leaves{
   margin: 10px;

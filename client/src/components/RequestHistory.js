@@ -71,7 +71,7 @@ if(loading)
 }
 else
 return (
-  <div>
+  <div id="history" class="container-fluid">
   <div class="table">
     <div>
       {error&&<p>{error}</p>}

@@ -103,6 +103,7 @@ img {
     transition: all 0.2s ease-in-out 0s;
     width: 230px;
     z-index: 1001;
+    float: left;
 }
 .sidebar-inner {
     height: 100%;

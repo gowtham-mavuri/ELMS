@@ -1,4 +1,8 @@
 
+#outdiv{
+    position: relative;
+  left: 230px;
+}
 #outdiv h3{
     text-align: center;
     padding: 20px;
@@ -56,4 +60,9 @@
     font-size: 1.3em;
     color: linear-gradient(#141e30, #243b55);;
 }
+@media only screen and (max-width: 991.98px){
+    #outdiv{
+      left: 0;
+    }
+  }
 
