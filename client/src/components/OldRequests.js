@@ -1,92 +1,91 @@
 import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 import moment from 'moment';
 import ReactPaginate from 'react-paginate';
-import axios from 'axios';
 import '../styles/pagination.css';
 import '../styles/oldReq.css'
-
-function EmployeeRequests(props) {
-  var empId=props.match.params.emp_id;
+function OldRequestsBranch(props) {
   const [loading,setLoading] = useState(true);
-  const [reqs,setReqs] = useState([]);
   const [offset, setOffset] = useState(0);
   const [data, setData] = useState([]);
   const [perPage] = useState(6);
   const [pageCount, setPageCount] = useState(0)
-  const [emp,setEmp] = useState("");
-
+  const [reqs,setReqs] = useState([]);
+  const [searchBranch,setSearchBranch] = useState("");
+  const [branches,setBranches] = useState([]);
   useEffect(()=>{
-    axios.post('http://localhost:5000/branch/emp',{
-        token:localStorage.getItem('token'),
-        empId
-    }).then(res=>{
-            var d=res.data.result;
-            setEmp(d[0]);
-            setLoading(false);
-        }).catch(err=>{
-          console.log(err);
-         
-          setLoading(false);
-        })
-        // eslint-disable-next-line
-  },[])
+    setLoading(true);
+    axios.get('http://localhost:5000/admin/fetchBranches').then(res=>{
+        setBranches(res.data.result);
+        setLoading(false);
+    }).catch(err=>{
+        console.log(err);
+        setLoading(false);
+      })
+      // eslint-disable-next-line
+    },[])
 
-  useEffect(()=>{
-    axios.post('http://localhost:5000/branch/empReqs',{
-        token:localStorage.getItem('token'),
-        empId
-    }).then(res=>{
-            var d=res.data.result;
-            setReqs(res.data.result);
-            const slice = d.slice(offset, offset + perPage)
-            setData([...slice])
-            setPageCount(Math.ceil(d.length / perPage))  
-            setLoading(false);
-        }).catch(err=>{
-          console.log(err);
-         
-          setLoading(false);
-        })
-        // eslint-disable-next-line
-  },[])
+  useEffect(() => {
+    axios.post('http://localhost:5000/branch/reqs',{
+      token:localStorage.getItem('token'),
+      id:searchBranch
+    }).then(res=>{     
+      var d=res.data.result;
+      setReqs(res.data.result);
+      const slice = d.slice(offset, offset + perPage)
+      setData([...slice])
+      setPageCount(Math.ceil(d.length / perPage))     
+      setLoading(false);
+    }).catch(err=>{
+      console.log(err);
+      setLoading(false);
+    })
+   // eslint-disable-next-line
+  }, [searchBranch])
 
-  const getData = () => {
-    const slice = reqs.slice(offset, offset + perPage)
+const getData = () => {
+    const slice = reqs.slice(offset*perPage, offset*perPage + perPage)
     setData([...slice])
 }
+
+
+
+  const handlePageClick = (e) => {
+    const selectedPage = e.selected;
+    setOffset(selectedPage )
+};
 
 useEffect(() => {
   getData()
  // eslint-disable-next-line
 }, [offset])
 
-const handlePageClick = (e) => {
-  const selectedPage = e.selected;
-  setOffset(selectedPage + 1)
-};
-
-
   if(loading)
   {
     return(<div>Loading</div>)
   }
   
+
+  
+  
   return (
     <div id="oldRequests">
-      <div>
-        Emp ID : {emp.emp_id} <br/>
-        Name : {emp.first_name + emp.last_name} <br/>
-        Branch : {emp.name} <br/>
-        Department : {emp.short_name} <br/>
-        Sick Leaves Remaining : {emp.sick_leaves} <br/>
-        Casual Leaves Remaining : {emp.casual_leaves} <br/>
-        Unpaid Leaves Taken : {emp.unpaid_leaves} <br/>
-      </div>
+        <div>
+            <select onChange={(e)=>setSearchBranch(e.target.value)} >
+              <option selected value="ALL" id="ALL"> Select A Branch </option>
+              { branches.map((branch)=><option value={branch.branch_id} id={branch.branch_id}>{branch.name}</option>) }
+            </select>
+        </div>
       <div id="reqs">
       {data&&data.map((req)=><div id="req">
       <ul>
         <div id="directdiv">
             <label id="line2"><label>ReqID:&nbsp;&nbsp;</label>{req.leave_id}</label>
+            <label id="line2"><label>EmpID:&nbsp;&nbsp;</label>{req.emp_id}</label>
+            <label id="line2"><label>Dept Code:&nbsp;&nbsp;</label>{req.dept_code}</label>
+        </div>
+        <div id="line3div">
+            <label id="line3"><label>Name:&nbsp;&nbsp;</label>{req.first_name+' '+req.last_name}</label>
         </div>
         <div id="directdiv">
             <label id="line4"><label>From:&nbsp;&nbsp;</label>{moment(req.from_date).format('MM Do YYYY')}</label>
@@ -105,10 +104,10 @@ const handlePageClick = (e) => {
         </div>
         <div id="line3div">
         <label id="line2"><label>Admin Remarks:&nbsp;&nbsp;</label>{req.admin_remarks}</label>
-        </div>        
+        </div>     
         <div id="line3div">
         <label id="line2"><label>Manager Remarks:&nbsp;&nbsp;</label>{req.branch_manager_remarks}</label>
-        </div>                              
+        </div>                        
       </ul>
     </div>)}
     </div>
@@ -129,7 +128,8 @@ const handlePageClick = (e) => {
     </div>
     
   );
-  
+
 }
  
-export default EmployeeRequests;
+ 
+export default OldRequestsBranch;

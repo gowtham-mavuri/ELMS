@@ -87,8 +87,12 @@ const handlePageClick = (e) => {
             <td colSpan="5">{req.description}</td>
           </tr>
           <tr>
-            <th>Remarks</th>
+            <th>Admin Remarks</th>
             <td colSpan="5">{req.admin_remarks}</td>
+          </tr>
+          <tr>
+            <th>Manager Remarks</th>
+            <td colSpan="5">{req.branch_manager_remarks}</td>
           </tr>
           </div>)}
         </tbody>

@@ -8,10 +8,6 @@ import '../styles/deptTable.css'
 function DepartmentsBranch(props) {
   const [loading,setLoading] = useState(true);
   const [depts,setDepts] = useState([]);
-  const [adding,setAdding] = useState(false);
-  const [deptCode,setDeptCode] = useState('');
-  const [deptName,setDeptName] = useState('');
-  const [deptShortName,setDeptShortName]= useState('');
   const [error,setError]= useState('');
 
   useEffect(()=>{
@@ -23,34 +19,11 @@ function DepartmentsBranch(props) {
             setLoading(false);
         }).catch(err=>{
           console.log(err);
+          setError('Error Occurd')
           setLoading(false);
         })
         // eslint-disable-next-line
   },[])
-
-  const handleAddDept = () => {
-    setAdding(true);
-    axios.post('http://localhost:5000/branch/addDept',{
-        token:localStorage.getItem('token'),
-        id:props.match.params.id,
-        code:deptCode,
-        name:deptName,
-        shortName:deptShortName
-    }).then(res=>{
-        setAdding(false);
-        if(res.data.error)
-            setError(res.data.message);
-        else{
-          setDepts([...depts,...res.data.result]);
-          setDeptCode('');
-          setDeptName('');
-          setDeptShortName('');
-        }
-    }).catch(err=>{
-          console.log(err);
-          setAdding(false);
-    })
-  }
 
   if(loading)
   {
@@ -61,28 +34,6 @@ function DepartmentsBranch(props) {
     <div>
       <div>
         {error&&<p>{error}</p>}
-      </div>
-      <div className="formboxD">  
-                <h4>Add Department</h4>
-                <form >
-                    <div className="rowD">
-                        <div className="forminpD">
-                            <label>Code</label>
-                            <input type="text" required value={deptCode} onChange={e=>setDeptCode(e.target.value)}/>
-                        </div>
-                        <div className="forminpD">
-                            <label>Name</label>
-                            <input type="text" required value={deptName} onChange={e=>setDeptName(e.target.value)}/>  
-                        </div>
-                        <div className="forminpD">
-                            <label>Short name</label>
-                            <input type="text" required value={deptShortName} onChange={e=>setDeptShortName(e.target.value)}/>
-                        </div>
-                        <div className="forminpD">
-                            <input type="button" value={adding ? 'Adding' : 'Add'} onClick={handleAddDept} disabled={adding}/>
-                        </div>
-                    </div>
-                </form>
       </div>
       <div id="d">
       <table>

@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import EmployeeRow from './EmployeeRow';
+import EmployeeContainer from './EmployeeContainer';
 
 function EmployessBranch(props) {
   const [loading,setLoading] = useState(true);
   const [emps,setEmps] = useState([]);
+  const [searchTerm,setSearchTerm] = useState("");
   const branch_id= props.match.params.id;
   useEffect(()=>{
     axios.post('http://localhost:5000/branch/emps',{
@@ -20,6 +21,11 @@ function EmployessBranch(props) {
         // eslint-disable-next-line
   },[])
 
+  const dynamicSearch = () => {
+    if(searchTerm==="")
+      return emps;
+    return emps.filter(emp =>(emp.first_name+emp.last_name).toLowerCase().includes(searchTerm.toLowerCase()))
+  }
 
   if(loading)
   {
@@ -29,7 +35,11 @@ function EmployessBranch(props) {
   return (
     <div>
       <div>
-          {emps&&emps.map((emp)=><EmployeeRow key={emp.emp_id} emp={emp} id={branch_id}/>)}
+        <h3>Search For An Employee</h3>
+        <input  type="text" value={searchTerm} onChange={(e)=>setSearchTerm(e.target.value)} placeholder="Search for an employee name"/>
+      </div>
+      <div>
+          <EmployeeContainer emps={dynamicSearch() } branch_id={branch_id} />
       </div>
     </div>
   );

@@ -29,5 +29,5 @@ router.post('/empReqs',utils.verifyToken,req.req_list_emp);
 router.post('/reqs',utils.verifyToken,req.request_list);
 router.post('/reqs/pending',utils.verifyToken,req.request_list_pending);
 router.post('/reqUpdate',utils.verifyToken,req.put_request);//req_id also affects to change leave counts
-
+router.post('/reqUpdateRemarks',utils.verifyToken,req.put_request_remarks);
 module.exports = router;

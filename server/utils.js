@@ -12,7 +12,6 @@ var generateToken=(user)=> {
   var u = {
     id: user.id,
     role: user.role,
-    email: user.email
   };
  
   return jwt.sign(u, process.env.JWT_SECRET, {
@@ -40,16 +39,16 @@ var verifyToken = (req, res,next) => {
     var role = decoded.role;
     var q;
     if( role === 'admin')
-      q="SELECT * FROM admin WHERE email=?";
+      q="SELECT * FROM admin WHERE id=?";
     else if( role === 'subadmin' )
-      q="SELECT * FROM branch WHERE admin_email=?";
+      q="SELECT * FROM branch WHERE branch_id=?";
     else if( role === 'employee')
-      q="SELECT * FROM employee WHERE email=?"
+      q="SELECT * FROM employee WHERE emp_id=?"
     else
     {
       res.send({ error: true, message: "Invalid Token" });
     }
-    db.query(q,[decoded.email]).then((result)=>
+    db.query(q,[decoded.id]).then((result)=>
     {
       result=JSON.parse(JSON.stringify(result[0]))[0];
       
@@ -60,20 +59,6 @@ var verifyToken = (req, res,next) => {
           message: "Invalid User."
         })
       }
-      var email ;
-      if(role === 'admin')
-        email= result.email;
-      else if(role === 'subadmin')
-        email= result.admin_email;
-      else if(role === 'employee')
-        email= result.email;
-        // return 401 status if the userId does not match.
-        if (email !== decoded.email) {
-          return res.status(401).json({
-            error: true,
-            message: "Invalid user."
-          });
-        }
         // get basic user details
         req.user=decoded;
         next();

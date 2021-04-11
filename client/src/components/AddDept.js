@@ -1,4 +1,4 @@
-import React,{useState} from 'react';
+import React,{useState , useEffect} from 'react';
 import axios from 'axios';
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
@@ -6,27 +6,23 @@ import {yupResolver} from '@hookform/resolvers/yup';
 
 import '../styles/form.css'
 
-const BranchSchema = yup.object().shape({
-    id : yup.number().required(),
+const DeptSchema = yup.object().shape({
+    code : yup.number().required(),
     name : yup.string().required(),
-    location : yup.string().required(),
-    password :yup.string().min(5).required()
+    shortName : yup.string().required()
   });
 
-function AddBranch(props) {
-    const { register, handleSubmit, errors } = useForm({resolver:yupResolver( BranchSchema )});
+function AddDept(props) {
+    const { register, handleSubmit, errors } = useForm({resolver:yupResolver( DeptSchema )});
     const [error,setError] = useState(false);
     const [loading,setLoading] = useState(false);
     const [added,setAdded] = useState(false);
-    const [branch,setBranch]=useState('');
 
     const onSubmit=data=>{
         setLoading(true);
-        var { id,name,location,password } = data;
-        setBranch(name);    
-        axios.post('http://localhost:5000/admin/branchAdd',{
-            token:localStorage.getItem('token'),id,
-            name,location,password
+        var { code,name,shortName } = data;
+        axios.post('http://localhost:5000/admin/deptAdd',{
+            token:localStorage.getItem('token'),code,name,shortName
         }).then(res=>{
             if(res.data.error)
                 setError(true);
@@ -41,21 +37,22 @@ function AddBranch(props) {
     }
 
     if(added)
-        return <div>Added {branch} Branch Succesfully</div>
+        return <div>Added Department Succesfully</div>
     if(loading)
         return <div>Loading</div>
     return (
         <div id="formbox">  
                 <div>
-                    {error && <h3>ID has been assigned to another branch</h3>}
+                    {error && <h3>error occured</h3>}
                 </div>
                 <form onSubmit={handleSubmit(onSubmit)}>
-                <h2> ADD BRANCH</h2>
+
+                <h2> ADD DEPARTMENT</h2>
                     <div id="row">
                         <div id="forminp">
-                            <label>Branch ID</label>
-                            <input type="number" name="id" ref={register} />   
-                            {errors.id && <p>{errors.id.message}</p>}  
+                            <label>Code</label>
+                            <input type="number" name="code" ref={register} />
+                            {errors.code && <p>{errors.code.message}</p>}   
                         </div>
                     </div>
                     <div id="row">
@@ -67,22 +64,16 @@ function AddBranch(props) {
                     </div>
                     <div id="row">
                         <div id="forminp">
-                            <label>Location</label>
-                             <input type="text" name="location" ref={register} /> 
-                             {errors.location && <p>{errors.location.message}</p>}
+                            <label>Short Name</label>
+                             <input type="text" name="shortName" ref={register} /> 
+                             {errors.shortName && <p>{errors.shortName.message}</p>}
                         </div>
                     </div>
-                    <div id="row">
-                        <div id="forminp">
-                            <label>Branch Manager Password</label>
-                            <input type="text" name="password" ref={register} />
-                            {errors.password && <p>{errors.password.message}</p>}   
-                        </div>
-                    </div>
+                    
                     <input type="submit" />
                 </form>
         </div>
     )
 }
 
-export default AddBranch;
+export default AddDept;

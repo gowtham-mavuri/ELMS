@@ -1,7 +1,7 @@
 var db = require('../db');
 var utils =require('../utils');
 
-exports.login=(req, res)=>{
+exports.login1=(req, res)=>{
     const role = req.body.role;
     const email = req.body.email;
     const pwd = req.body.password;
@@ -64,4 +64,83 @@ exports.login=(req, res)=>{
       console.log(err);
       res.send({ error: true, message: "DB Error" });
     });
+}
+
+exports.login=(req,res)=>{
+  const role = req.body.role;
+  if(role == "admin")
+    this.adminLogin(req,res);
+  else if(role == "subadmin")
+    this.subadminLogin(req,res);
+  else if(role == "employee")
+    this.employeeLogin(req,res);
+}
+
+exports.adminLogin=(req,res) => {
+  const role = req.body.role;
+  const pwd = req.body.password;
+  const q = "SELECT * FROM admin where password=?";
+  db.query(q,[pwd]).then((result)=>{
+    result=JSON.parse(JSON.stringify(result[0]))[0];
+    if(!result)
+    {
+      return res.send({
+        error: true,
+        message: "Wrong Password"
+      })
+    }
+    const id = result.id;
+    var user ={ role , id }
+    const token = utils.generateToken(user);
+    return res.json({  error: false,role, token });
+  }).catch((err)=>{
+    console.log(err);
+    res.send({ error: true, message: "DB Error" });
+  });
+}
+
+exports.subadminLogin=(req,res) => {
+  const role = req.body.role;
+  const id = req.body.branch;
+  const pwd = req.body.password;
+  const q = "SELECT * FROM branch where branch_id=?";
+  db.query(q,[id]).then((result)=>{
+    result=JSON.parse(JSON.stringify(result[0]))[0];
+    if(!result||result.password!=pwd)
+    {
+      return res.send({
+        error: true,
+        message: "Wrong Password"
+      })
+    }
+    var user ={ role , id }
+    const token = utils.generateToken(user);
+    return res.json({  error: false,role, token });
+  }).catch((err)=>{
+    console.log(err);
+    res.send({ error: true, message: "DB Error" });
+  });
+}
+
+exports.employeeLogin=(req,res) => {
+  const role = req.body.role;
+  const id = req.body.username;
+  const pwd = req.body.password;
+  const q = "SELECT * FROM employee where emp_id=?";
+  db.query(q,[id]).then((result)=>{
+    result=JSON.parse(JSON.stringify(result[0]))[0];
+    if(!result||result.password!=pwd)
+    {
+      return res.send({
+        error: true,
+        message: "Wrong Password"
+      })
+    }
+    var user ={ role , id }
+    const token = utils.generateToken(user);
+    return res.json({  error: false,role, token });
+  }).catch((err)=>{
+    console.log(err);
+    res.send({ error: true, message: "DB Error" });
+  });
 }

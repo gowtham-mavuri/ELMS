@@ -1,4 +1,4 @@
-import React, {  useState } from 'react';
+import React, {  useEffect, useState } from 'react';
 import axios from 'axios';
 
 
@@ -36,7 +36,9 @@ function Department(props) {
             code:dept.code
         }).then(res=>{
             if(res.data.error)
-                {}
+                {
+                    alert("Department can't be deleted when employees are assigned")
+                }
             else
                 setDel(true);
             setLoading(false);

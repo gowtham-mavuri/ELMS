@@ -26,6 +26,24 @@ exports.department_list=(req,res)=>{
     })
 }
 
+exports.department_list_all=(req,res)=>{
+    
+    const q="SELECT * FROM department ";
+    db.query(q).then(result=>{
+        result=JSON.parse(JSON.stringify(result[0]));
+        res.send({
+            error:false,
+            result,
+        });
+    }).catch(err=>{
+        console.log(err.sqlMessage);
+        res.send({
+            error:true,
+            message:err.sqlMessage
+        });
+    })
+}
+
 //used
 exports.add_department=(req,res)=>{
     var branchId;

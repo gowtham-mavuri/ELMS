@@ -24,6 +24,23 @@ exports.emp_list=(req,res)=>{
     })
 }
 
+exports.emp_list_all=(req,res)=>{
+    const q="SELECT * FROM employee ORDER BY dept_code";
+    db.query(q).then((result)=>{
+        result=JSON.parse(JSON.stringify(result[0]));
+        res.send({
+            error:false,
+            result
+        });
+    }).catch(err=>{
+        console.log(err.sqlMessage);
+        res.send({
+            error:true,
+            message:err.sqlMessage
+        });
+    })
+}
+
 exports.emp_id=(req,res)=>{
     var role = req.user.role;
     var emp_id,q;
@@ -36,7 +53,7 @@ exports.emp_id=(req,res)=>{
     else 
     {
         emp_id=req.body.empId;
-        q="SELECT * FROM employee WHERE emp_id=? ";
+        q="SELECT * FROM employee JOIN department ON employee.dept_code=department.code JOIN branch ON employee.branch_id=branch.branch_id WHERE employee.emp_id=? ";
     }
     db.query(q,emp_id).then(result=>{
         result=JSON.parse(JSON.stringify(result[0]));

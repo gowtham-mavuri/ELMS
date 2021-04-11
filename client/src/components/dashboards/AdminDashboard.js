@@ -7,15 +7,22 @@ import {
 } from "react-router-dom";
 
 import Branches from '../Branches';
-import AddBranch from '../AddBranch';
 import UpdateBranch from '../UpdateBranch';
-import BranchComponent from './BranchComponent';
 import UpdateHolidays from '../UpdateHolidays';
-
-
+import AddDepartment from '../AddDepartment';
+import Departments from '../Departments';
+import AddEmployee from '../AddEmployee';
+import UpdateEmployee from '../UpdateEmployee';
+import AddBranch from '../AddBranch';
+import OldRequests from '../OldRequests';
 import '../sidebar.css'
 import '../nav.css'
 import logo from '../logopic.png'
+import Employees from '../Employees';
+import Requests from '../Requests';
+import EmployeeRequests from '../EmployeeRequests';
+
+
 
 function AdminDashboard(props) {
   let { path, url } = useRouteMatch();
@@ -38,7 +45,25 @@ function AdminDashboard(props) {
             <Link to={`${url}/branches`}>Branches</Link>
           </li>
           <li>
-            <Link to={`${url}/add`}>Add Branch</Link>
+            <Link to={`${url}/addBranch`}>Add Branch</Link>
+          </li>
+          <li>
+            <Link to={`${url}/addDept`}>Add Department</Link>
+          </li>
+          <li>
+            <Link to={`${url}/Depts`}>Departments List</Link>
+          </li>
+          <li>
+            <Link to={`${url}/addEmp`}>Add Employee</Link>
+          </li>
+          <li>
+            <Link to={`${url}/Emps`}>Employee List</Link>
+          </li>
+          <li>
+            <Link to={`${url}/Reqs`}>Request List</Link>
+          </li>
+          <li>
+            <Link to={`${url}/OldReqs`}>Old Request List</Link>
           </li>
           <li>
             <Link to={`${url}/holidays`}>Add Holidays</Link>
@@ -56,11 +81,30 @@ function AdminDashboard(props) {
               <Route path={`${path}/branches`}>
                 <Branches />
               </Route>
-              <Route path={`${path}/add`}>
+              <Route path={`${path}/addBranch`}>
                 <AddBranch />
               </Route>
+              <Route path={`${path}/addDept`}>
+                <AddDepartment />
+              </Route>
+              <Route path={`${path}/Depts`}>
+                <Departments />
+              </Route>
+              <Route path={`${path}/Emps`}>
+                <Employees />
+              </Route>
+              <Route path={`${path}/addEmp`}>
+                <AddEmployee />
+              </Route>
+              <Route path={`${path}/Reqs`}>
+                <Requests />
+              </Route>
+              <Route path={`${path}/OldReqs`}>
+                <OldRequests />
+              </Route>
+              <Route path={`${path}/updateEmp/:id`} component={UpdateEmployee} />
+              <Route path={`${path}/emp/reqs/:emp_id`} component={EmployeeRequests} />
               <Route path={`${path}/update/:id`} component={UpdateBranch} />
-              <Route path={`${path}/branch/:id`} component={BranchComponent} />
               <Route path={`${path}/holidays`} component={UpdateHolidays} />
       </Switch>
     </div>

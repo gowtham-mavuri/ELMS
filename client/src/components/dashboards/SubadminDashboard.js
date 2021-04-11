@@ -17,6 +17,7 @@ import EmployeeRequests from '../EmployeeRequests';
 
 import '../sidebar.css'
 import logo from '../logopic.png'
+import AddDept from '../AddDept';
 
 function SubadminDashboard(props) {
   let { path, url } = useRouteMatch();
@@ -38,20 +39,25 @@ function SubadminDashboard(props) {
       <nav id="sidebar">
             <ul className="list-unstyled components">
               <li>
-                <Link to={`${url}/departments`}>Departments</Link>
-              </li>
-              <li>
-                <Link to={`${url}/empList`}>Employee List</Link>
-              </li>
-              <li>
-                <Link to={`${url}/requests`}>Leave Request</Link>
-              </li>
-              <li>
-                <Link to={`${url}/oldrequests`}>Old Request</Link>
-                </li>
-              <li>
                 <Link to={`${url}/AddEmployee`}>Add Employee</Link>
               </li>
+              <li>
+                <Link to={`${url}/empList`}>Manage Employee</Link>
+              </li>
+              <li>
+                <Link to={`${url}/AddDept`}>Add Department</Link>
+              </li>
+              <li>
+                <Link to={`${url}/departments`}>Manage Departments</Link>
+              </li>            
+              <li>
+                <Link to={`${url}/requests`}>New Leave Requests</Link>
+              </li>
+              <li>
+                <Link to={`${url}/oldrequests`}>Old  leave Requests</Link>
+              </li>
+              
+              
               <li>
                 <a onClick={handleLogout}>Logout</a>
               </li>
@@ -69,6 +75,7 @@ function SubadminDashboard(props) {
               <Route exact path={`${path}/emp/:emp_id`} component={EmployeeUpdate} />
               <Route exact path={`${path}/emp/reqs/:emp_id`} component={EmployeeRequests} />
               <Route path={`${path}/AddEmployee`} component={EmployeeCreate} />
+              <Route path={`${path}/AddDept`} component={AddDept} />
       </Switch>
     </div>
     </div>
