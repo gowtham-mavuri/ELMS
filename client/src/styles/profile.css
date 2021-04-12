@@ -160,20 +160,17 @@ ul {
     width: 35%;
        
 }
-<<<<<<< HEAD
 @media only screen and (max-width: 991.98px){
     #outdiv{
       left: 0;
     }
-  }
-=======
+  
 .personal-info li .text {
     color: #5f5f5f;
      display: block;
     overflow: hidden;
->>>>>>> a53ceaf73ba2b643bd5d73f0e2d35c15dc2b863d
 
- 
+}
 }
 a {
     color: #007bff;
