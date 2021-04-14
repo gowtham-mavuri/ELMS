@@ -2,13 +2,26 @@
 
 
 
+
+#history{
+    position: relative;
+    left: 230px;
+    top: 60px;
+    right: 60px;
+   
+
+}
+
+
 #e table {
    background: whitesmoke; 
-  width:auto;
+  width: 80%;
   border-radius: 0.25em;
   border-collapse: collapse;
   margin: 1em;
   align-content: center;
+  padding-right: 10px;
+
 }
 #e th {
   border-bottom: 1px solid #364043;

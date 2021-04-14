@@ -71,8 +71,8 @@ if(loading)
 }
 else
 return (
-  <div>
-  <div class="table">
+  <div id="history">
+  <div class="table ">
     <div>
       {error&&<p>{error}</p>}
     </div>
@@ -87,9 +87,11 @@ return (
             <th>Type</th>
             <th>Status</th>
             <th>Description</th>
-            <th>Remarks</th>
+            <th>Admin Remarks</th>
+            <th>Manager Remarks</th>
           </tr>
-          {data&&data.map((req)=> <div id="single">
+         
+          {data&&data.map((req)=>  
           <tr>
             <td>{req.leave_id}</td>
             <td>{moment(req.from_date).format('YYYY-MM-DD')}</td>
@@ -99,20 +101,10 @@ return (
             <td>{req.status}</td>
             <td>{req.description}</td>
             <td>{req.admin_remarks}</td>
+            <td >{req.branch_manager_remarks}</td>
           </tr>
-          <tr>
-            <th>Description</th>
-            <td colSpan="5">{req.description}</td>
-          </tr>
-          <tr>
-            <th>Admin Remarks</th>
-            <td colSpan="5">{req.admin_remarks}</td>
-          </tr>
-          <tr>
-            <th>Manager Remarks</th>
-            <td colSpan="5">{req.branch_manager_remarks}</td>
-          </tr>
-          </div>)}
+         
+          )}
         </tbody>
       </table>
     </div>
