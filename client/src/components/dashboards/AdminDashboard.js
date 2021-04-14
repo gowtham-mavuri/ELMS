@@ -15,12 +15,15 @@ import AddEmployee from '../AddEmployee';
 import UpdateEmployee from '../UpdateEmployee';
 import AddBranch from '../AddBranch';
 import OldRequests from '../OldRequests';
-import '../sidebar.css'
-import '../nav.css'
+import '../sidebar copy.css'
+import '../nav copy.css'
 import logo from '../logopic.png'
 import Employees from '../Employees';
 import Requests from '../Requests';
 import EmployeeRequests from '../EmployeeRequests';
+
+
+
 
 
 
@@ -34,44 +37,73 @@ function AdminDashboard(props) {
   }
  
   return (
-    <div>
-    <div id="header">
-        <img id="#logo" src={logo} alt="Logo" />
-        <h3 id="name">SHRI CHANDRA BULK CARGO SERVICES PVT.LTD</h3>
-    </div>
-    <div id="topbar">
-        <ul >
-          <li >
-            <Link to={`${url}/branches`}>Branches</Link>
+    <div id="#nav">
+    <div class="header-admin">
+    <div class="header-left">
+      <Link to={`${url}/profile`}><a href="#index" class="logo-1">
+        <img id="logo" src={logo} alt="Logo" height="105"/>
+        </a>
+        </Link>
+      </div>
+      <div class="page-title-box-admin">
+      <h3 >Shri Chandra Bulk Cargo Services Pvt.Ltd</h3>
+      </div>
+      <nav class="navbar navbar-expand-lg navbar-light " id="t">
+      <div class="container">
+        <button class="navbar-toggler " type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <button class="navbar-toggler " type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        
+        <div class="collapse navbar-collapse" id="navbarSupportedContent" >
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0" >
+            <li class="nav-item dropdown" >
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Manage Branch
+          </a>
+          
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown" >
+            <li> <Link to={`${url}/branches`}>Branches</Link></li>
+            <li><Link to={`${url}/addBranch`} >Add Branch</Link></li>
+          </ul>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Manage Department
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><Link to={`${url}/Depts`}>Departments List</Link></li>
+            <li><Link to={`${url}/addDept`}>Add Department</Link></li>
+          </ul>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Manage Employee
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><Link to={`${url}/Emps`}>Employee List</Link></li>
+            <li><Link to={`${url}/addEmp`}>Add Employee</Link></li>
+          </ul>
+        </li>
+        <li class="nav-item">
+        <Link class="nav-link" to={`${url}/Reqs`}>Request List</Link>
+        </li>
+        <li class="nav-item">
+        <Link class="nav-link" to={`${url}/OldReqs`}>Old Request List</Link>
+        </li>
+        <li class="nav-item">
+          <Link class="nav-link" to={`${url}/holidays`}>Add Holidays</Link>
+        </li>
+        <li>
+                <a class="nav-link" onClick={handleLogout}>Logout</a>
           </li>
-          <li>
-            <Link to={`${url}/addBranch`}>Add Branch</Link>
-          </li>
-          <li>
-            <Link to={`${url}/addDept`}>Add Department</Link>
-          </li>
-          <li>
-            <Link to={`${url}/Depts`}>Departments List</Link>
-          </li>
-          <li>
-            <Link to={`${url}/addEmp`}>Add Employee</Link>
-          </li>
-          <li>
-            <Link to={`${url}/Emps`}>Employee List</Link>
-          </li>
-          <li>
-            <Link to={`${url}/Reqs`}>Request List</Link>
-          </li>
-          <li>
-            <Link to={`${url}/OldReqs`}>Old Request List</Link>
-          </li>
-          <li>
-            <Link to={`${url}/holidays`}>Add Holidays</Link>
-          </li>
-          <li>
-                <a onClick={handleLogout}>Logout</a>
-          </li>
-        </ul>
+          </ul>
+          
+          </div>
+        </div>
+     </nav>
     </div>
     <div>
       <Switch>
@@ -109,7 +141,6 @@ function AdminDashboard(props) {
       </Switch>
     </div>
     </div>
-    
     
     
   );

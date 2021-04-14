@@ -31,7 +31,7 @@ function Branch(props) {
 
     if(del) return <div></div>
     return (
-        <tr>
+        <tr >
             <td>{b.branch_id}</td>
             <td>{b.name}</td>
             <td>{b.location}</td>
