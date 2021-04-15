@@ -49,37 +49,32 @@ function AddBranch(props) {
                 <div>
                     {error && <h3>ID has been assigned to another branch</h3>}
                 </div>
-                <form onSubmit={handleSubmit(onSubmit)}>
-                <h2> ADD BRANCH</h2>
-                    <div id="row">
+                <h3> ADD BRANCH</h3>
+                <form class="branch"onSubmit={handleSubmit(onSubmit)}>
                         <div id="forminp">
                             <label>Branch ID</label>
                             <input type="number" name="id" ref={register} />   
                             {errors.id && <p>{errors.id.message}</p>}  
                         </div>
-                    </div>
-                    <div id="row">
                         <div id="forminp">
                             <label>Name</label>
                             <input type="text" name="name" ref={register} />
                             {errors.name && <p>{errors.name.message}</p>}     
                         </div>
-                    </div>
-                    <div id="row">
                         <div id="forminp">
                             <label>Location</label>
                              <input type="text" name="location" ref={register} /> 
                              {errors.location && <p>{errors.location.message}</p>}
                         </div>
-                    </div>
-                    <div id="row">
                         <div id="forminp">
                             <label>Branch Manager Password</label>
                             <input type="text" name="password" ref={register} />
                             {errors.password && <p>{errors.password.message}</p>}   
                         </div>
-                    </div>
-                    <input type="submit" />
+                        <div id="forminp">
+                        <input id="submitbutton"type="submit" />
+                        </div>
+                  
                 </form>
         </div>
     )

@@ -71,34 +71,29 @@ function UpdateBranch(props) {
 
     return (
         <div id="formbox">  
-                
-                <div>
+                 <div>
                     {error && <h3>error occured</h3>}
                 </div>
-                <form onSubmit={handleSubmit(onSubmit)}>
-                <h2> Update BRANCH {id}</h2>
-                    <div id="row">
+                <h3> Update BRANCH {id}</h3>
+                <form class="branch" onSubmit={handleSubmit(onSubmit)}>
                         <div id="forminp">
                             <label>Name</label>
                             <input type="text" name="name" ref={register} />
                             {errors.name && <p>{errors.name.message}</p>}     
                         </div>
-                    </div>
-                    <div id="row">
                         <div id="forminp">
                             <label>Location</label>
                              <input type="text" name="location" ref={register} /> 
                              {errors.location && <p>{errors.location.message}</p>}
                         </div>
-                    </div>
-                    <div id="row">
                         <div id="forminp">
                             <label>Branch Manager Password</label>
                             <input type="text" name="password" ref={register} />
                             {errors.password && <p>{errors.password.message}</p>}   
                         </div>
-                    </div>
-                    <input type="submit" />
+                        <div id="forminp">
+                        <input id="submitbutton"type="submit" />
+                        </div>
                 </form>
         </div>
     )

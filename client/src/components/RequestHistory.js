@@ -72,11 +72,7 @@ if(loading)
 else
 return (
   <div id="history">
-<<<<<<< HEAD
   <div class="table">
-=======
-  <div class="table ">
->>>>>>> 35ae903b82588ba16f4000819f4a3938636ccf70
     <div>
       {error&&<p>{error}</p>}
     </div>

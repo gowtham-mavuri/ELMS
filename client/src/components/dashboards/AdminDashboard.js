@@ -37,20 +37,22 @@ function AdminDashboard(props) {
   }
  
   return (
-    <div id="#nav">
+    <div>
     <div class="header-admin">
-    <div class="header-left">
-      <Link to={`${url}/profile`}><a href="#index" class="logo-1">
-        <img id="logo" src={logo} alt="Logo" height="105"/>
-        </a>
-        </Link>
+      <div class="header-left-admin">
+        <Link to={`${url}/profile`}><a href="#index" class="logo-admin">
+          <img id="logo" src={logo} alt="Logo" height="85"/>
+          </a>
+          </Link>
       </div>
       <div class="page-title-box-admin">
-      <h3 >Shri Chandra Bulk Cargo Services Pvt.Ltd</h3>
+        <h3 >Shri Chandra Bulk Cargo Services Pvt.Ltd</h3>
       </div>
-      <nav class="navbar navbar-expand-lg navbar-light " id="t">
+    </div>
+      <nav class="navbar navbar-expand-lg navbar-light " id="nav">
+      
       <div class="container">
-        <button class="navbar-toggler " type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <button class="navbar-toggler " type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <button class="navbar-toggler " type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -58,33 +60,33 @@ function AdminDashboard(props) {
         </button>
         
         <div class="collapse navbar-collapse" id="navbarSupportedContent" >
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0" >
+          <ul class="navbar-nav" >
             <li class="nav-item dropdown" >
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Manage Branch
-          </a>
-          
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdown" >
-            <li> <Link to={`${url}/branches`}>Branches</Link></li>
-            <li><Link to={`${url}/addBranch`} >Add Branch</Link></li>
-          </ul>
-        </li>
+              <div class="nav-link dropdown-toggle"  id="navbarDropdown" role="button" 
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                Branch
+              </div>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown" >
+                <li><Link to={`${url}/addBranch`} >Add Branch</Link></li>
+                <li><Link to={`${url}/branches`}>Manage Branch</Link></li>
+              </ul>
+            </li>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Manage Department
-          </a>
+          <div class="nav-link dropdown-toggle"  id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Department
+          </div>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><Link to={`${url}/Depts`}>Departments List</Link></li>
             <li><Link to={`${url}/addDept`}>Add Department</Link></li>
+            <li><Link to={`${url}/Depts`}>Manage Department</Link></li>
           </ul>
         </li>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Manage Employee
-          </a>
+          <div class="nav-link dropdown-toggle"  id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Employee
+          </div>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><Link to={`${url}/Emps`}>Employee List</Link></li>
             <li><Link to={`${url}/addEmp`}>Add Employee</Link></li>
+            <li><Link to={`${url}/Emps`}>Employee List</Link></li>
           </ul>
         </li>
         <li class="nav-item">
@@ -96,15 +98,14 @@ function AdminDashboard(props) {
         <li class="nav-item">
           <Link class="nav-link" to={`${url}/holidays`}>Add Holidays</Link>
         </li>
-        <li>
-                <a class="nav-link" onClick={handleLogout}>Logout</a>
+        <li class="nav-item" id="logout">
+              <a class="nav-link" onClick={handleLogout}>Logout</a>
           </li>
           </ul>
           
           </div>
         </div>
      </nav>
-    </div>
     <div>
       <Switch>
               <Route exact path={path}>

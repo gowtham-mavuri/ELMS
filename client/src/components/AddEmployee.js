@@ -71,10 +71,8 @@ function AddEmployee(props) {
         return <div>Added Successfully</div>
     return (
         <div id="formbox"> 
-        <h3>CREATE EMPLOYEE</h3> 
-       
-            <form onSubmit={handleSubmit(onSubmit)}>
-                <div id="row">
+        <h3>ADD EMPLOYEE</h3> 
+            <form class="emp" onSubmit={handleSubmit(onSubmit)}>
                     <div id="forminp">
                             <label>Branch</label>
                             <select name="id" onChange={e=>setBranchId(e.target.value)} ref={register} >   
@@ -83,15 +81,11 @@ function AddEmployee(props) {
                             </select>
                             {errors.id && <p>{errors.id.message}</p>}  
                     </div>
-                </div>
-                <div id="row">
                     <div id="forminp">
                         <label>Employee ID</label>
                         <input type="text" name="empId" placeholder="Can't be changed later" ref={register} />
                         {errors.empId && <p>{errors.empId.message}</p>}
                     </div>
-                </div>
-                <div id="row">
                     <div id="forminp">
                         <label >Choose a dept:</label>
                         <select  name="deptCode" ref={register} >
@@ -114,8 +108,6 @@ function AddEmployee(props) {
                         <input  required type="date" name="DOB" ref={register} />
                         {errors.DOB && <p>{errors.DOB.message}</p>}
                     </div>
-                </div>
-                <div id="row">
                     <div id="forminp">
                         <label>Role</label>
                         <input type="text" name="role" ref={register} />
@@ -131,8 +123,6 @@ function AddEmployee(props) {
                         <input type="text" name="lastName" ref={register} />
                         {errors.lastName && <p>{errors.lastName.message}</p>}
                     </div> 
-                </div>
-                <div id="row">
                     <div id="forminp">
                         <label>Email</label>
                         <input type="text" name="email" ref={register} />
@@ -148,8 +138,6 @@ function AddEmployee(props) {
                         <input type="text" name="phone" ref={register} />
                         {errors.phone && <p>{errors.phone.message}</p>}
                     </div>
-                </div>
-                <div id="row">
                     <div id="forminp">
                         <label>Country</label>
                         <input type="text" name="country" ref={register} />
@@ -165,9 +153,6 @@ function AddEmployee(props) {
                         <input type="text" name="address" ref={register} />
                         {errors.address && <p>{errors.address.message}</p>}
                     </div>
-                    
-                </div>
-                <div id="row">
                     <div id="forminp">
                         <label>Casual Leaves remaining</label>
                         <input type="number" name="casualLeaves" ref={register} />
@@ -183,8 +168,10 @@ function AddEmployee(props) {
                         <input type="number" name="unpaidLeaves" ref={register} />
                         {errors.unpaidLeaves && <p>{errors.unpaidLeaves.message}</p>}
                     </div>
-                </div>
-                <input id="submitbutton" type="submit" />
+                    <div id="forminp">
+                        <input id="submitbutton" type="submit" />
+                    </div>
+                
             </form>
     </div>
     )
