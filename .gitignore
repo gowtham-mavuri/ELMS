@@ -4,3 +4,9 @@ node_modules
 
 
 ref.txt
+client/.eslintcache
+client/.eslintcache
+client/package-lock.json
+client/package.json
+client/yarn.lock
+server/db.js
