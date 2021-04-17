@@ -60,7 +60,7 @@ function AddDepartment(props) {
                 <div>
                     {error && <h3>error occured</h3>}
                 </div>
-                <h3> ADD DEPARTMENT</h3>
+                <h3> Add Department</h3>
                 <form class="branch" onSubmit={handleSubmit(onSubmit)}>
                 
                         <div id="forminp">

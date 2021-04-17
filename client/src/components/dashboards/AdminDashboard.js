@@ -49,7 +49,7 @@ function AdminDashboard(props) {
         <h3 >Shri Chandra Bulk Cargo Services Pvt.Ltd</h3>
       </div>
     </div>
-      <nav class="navbar navbar-expand-lg navbar-light " id="nav">
+      <nav class="navbar navbar-expand-lg" id="nav">
       
       <div class="container">
       <button class="navbar-toggler " type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -86,7 +86,7 @@ function AdminDashboard(props) {
           </div>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
             <li><Link to={`${url}/addEmp`}>Add Employee</Link></li>
-            <li><Link to={`${url}/Emps`}>Employee List</Link></li>
+            <li><Link to={`${url}/Emps`}>Manage Employee</Link></li>
           </ul>
         </li>
         <li class="nav-item">

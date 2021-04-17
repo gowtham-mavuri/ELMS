@@ -49,7 +49,7 @@ function AddBranch(props) {
                 <div>
                     {error && <h3>ID has been assigned to another branch</h3>}
                 </div>
-                <h3> ADD BRANCH</h3>
+                <h3>Add Branch</h3>
                 <form class="branch"onSubmit={handleSubmit(onSubmit)}>
                         <div id="forminp">
                             <label>Branch ID</label>

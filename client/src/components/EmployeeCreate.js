@@ -71,7 +71,7 @@ function EmployeeCreate(props) {
 
     return (
         <div id="formbox"> 
-        <h3>CREATE EMPLOYEE</h3> 
+        <h3>Add Employee</h3> 
         <h5>Branch Id :  {branchId}</h5>
             <form onSubmit={handleSubmit(onSubmit)}>
                 <div id="row">

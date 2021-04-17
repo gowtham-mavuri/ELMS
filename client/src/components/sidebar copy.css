@@ -1,3 +1,4 @@
+
 .header-admin {
     background: white;
     border-bottom: 1px solid transparent;
@@ -31,11 +32,12 @@
     display: flex;
     align-items: center;
     position: relative;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
     
 }
 .page-title-box-admin h3 {
     text-align: center;
-    color:rgb(3, 176, 60);
+    color:#4CAF50;
     /*font-weight: normal;*/
     font-size: 2rem;  
     margin-left: 13%;  
@@ -43,7 +45,7 @@
 #nav{
     position: absolute;
     top:85px;
-    background-color: #7fff00;
+    background-color: #4CAF50;
     height: 45px;
     width: 100%;
     box-shadow: 0 1px 1px 0 rgb(0 0 0 / 20%);
@@ -57,6 +59,13 @@
     align-items: center;
     position: relative;
     left:18%;
+    
+}
+.nav-link,.dropdown-menu li{
+    color: rgb(255, 255, 255);
+    font-size: 15px;
+    font-weight: 540;
+    font-family: Verdana, Geneva, Tahoma, sans-serif
 }
 .navbar-toggler{
     border-radius: 0;
@@ -80,8 +89,9 @@
     min-width: 11rem;
     text-align: left;
     border-radius: 0;
-    background-color: chartreuse;
-    border: 0;
+    box-shadow: black;
+    background-color: rgb(255, 255, 255);
+    border: 10x solid rgb(15, 11, 11);
 }
 .dropdown-menu li a{
     padding: 2px 2px 2px 12px; 
