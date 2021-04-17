@@ -12,7 +12,7 @@ var holiday = require('../controllers/holidaysController');
 
 //to fetch branches doest require token
 router.get('/fetchBranches',branch.branch_list);
-
+router.post('/PopulationBranches',utils.verifyToken,branch.branch_list_pop);
 router.get('/:email',utils.verifyToken,adm.admin_email);
 router.post('/branches',utils.verifyToken,branch.branch_list);
 router.post('/branch',utils.verifyToken,branch.branch_id);

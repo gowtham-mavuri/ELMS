@@ -2,7 +2,7 @@ var db = require('../db');
 
 //returns array of objects of branches
 exports.branch_list=(req,res)=>{
-    const q="SELECT branch.branch_id,branch.name,branch.location,COUNT(*) as emps FROM employee JOIN branch ON employee.branch_id=branch.branch_id GROUP BY branch_id;";
+    const q="SELECT * FROM branch";
     db.query(q).then(result=>{
         result=JSON.parse(JSON.stringify(result[0]));
         res.send({
@@ -17,6 +17,24 @@ exports.branch_list=(req,res)=>{
         });
     })
 }
+
+exports.branch_list_pop=(req,res)=>{
+   const q = "SELECT branch.branch_id,branch.name,count(*) as emps FROM branch JOIN employee ON branch.branch_id=employee.branch_id group by branch.branch_id ";
+    db.query(q).then(result=>{
+        result=JSON.parse(JSON.stringify(result[0]));
+        res.send({
+            error:false,
+            result
+        });
+    }).catch(err=>{
+        console.log(err);
+        res.send({
+            error:true,
+            message:'Error'
+        });
+    })
+}
+
 
 //get branch by id url=/branch/:id returns obj 
 exports.branch_id=(req,res)=>{
@@ -104,7 +122,7 @@ exports.del_branch=(req,res)=>{
     var q1 ='SELECT * FROM employee WHERE branch_id=?';
     db.query(q1,[id]).then(result=>{
         result=JSON.parse(JSON.stringify(result[0]));
-        if(result){
+        if(result.length!==0){
             res.send({
                 error:true,
                 message:"can't delete a branch containing employees"

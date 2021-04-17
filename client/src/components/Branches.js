@@ -19,6 +19,19 @@ function Branches() {
         token:localStorage.getItem('token')
     }).then(res=>{
             setBranchList(res.data.result);
+            setLoading(false);
+        }).catch(err=>{
+          console.log(err);
+          setError(true);
+          setLoading(false);
+        })
+        // eslint-disable-next-line
+  },[])
+
+  useEffect(()=>{
+    axios.post('http://localhost:5000/admin/PopulationBranches',{
+        token:localStorage.getItem('token')
+    }).then(res=>{
             res.data.result.map(branch=>{
               labels.push(branch.name);
               dataOfEmp.push(branch.emps);
