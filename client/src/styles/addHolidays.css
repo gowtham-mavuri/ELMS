@@ -1,63 +1,112 @@
-#wrap{
+
+.full{
     position: relative;
-    top:200px;
+    top:45px;
+    padding: 4px 50px 4px 50px;
+}
+#wrap{
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.full h3{
+    text-align: center;
+    font-size: 30px;
+    font-weight: normal;
+    color: #555555;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+#add{
+    color: #555555;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    padding-bottom: 20px;
+    font-size: 22px;
+    width: 400px;
+    text-align: center;
+    margin-right: 50px;
 }
 #calen{
-    float: left;
     width: 400px;
-    margin: 0px 40px 40px 40px;
-
+    height: 320px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    float: left;
+    margin-right: 50px;
 }
 #calenderpic{
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    background-color: #f3f3f3;
+    box-shadow: 8px 8px 8px 8px rgba(1, 1, 1, 0.2);
     padding: 10px;
+    border-radius: 10px;
+}
+.right{
+    display: flex;
+    flex-direction: column;
+    margin-left:50px;
+    margin-top: 60px;
+}
+#second{
+    display: block;
+    font-size: 14px;
+    padding-bottom: 3px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+#first{
+    display: block;
+    font-size: 19px;
+    padding-bottom: 3px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
-#description{
-    margin-top: 20px;
-    clear: both;
+#description h4{
+    font-size: 17px;
+    margin-bottom: 20px;
 }
 #description input[type="text"]{
     display: block;
     width: 300px;
     padding: 12px 20px;
-    margin: 0px 50px 0px 0px;
     border: 1px solid #ccc;
     box-sizing: border-box;
     height: 35px;
-    margin-bottom: 15px;
+    border-radius: 7px;
 }
 #description input[type="text"]:focus{
     outline:none;
-    border: 1px solid black;
-    
+    border: 1px solid #555555;
 }
-/*#sub:hover{
-    background-image:linear-gradient(#d4dae6, #2c89fc);
-    color:black;
-    border:none;
-}*/
-#description label{
-    padding-bottom: 3px;
-}
-#sub {
-    display: block;
-    clear: both;
+.right button{
     text-align: center;
-    width: 150px;
-    background-image: linear-gradient(#141e30, #243b55);
+    background-color: #555555;
     outline: none;
     color: white;
     border: none;
     border-radius: 50px;
     cursor: pointer;
-    height: 32px;
-  }
-#add{
-    margin: 10px 0px 10px 40px;
-    text-align: left;
-    font-size: 20px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin-top: 15px;
+    padding: 0;
+}
+#sub{
+    display: block;
+    width: 300px;
+    height: 35px;
+    border-radius: 7px;
+}
+@media (max-width:920px){
+    #wrap{
+        flex-direction: column;
+        align-items: center;
+    justify-content: center;
+    }
+    #add,#calen{
+        margin-right: 0px;
+    }
+    .right{
+        margin-left: 0px;
+    }
 }
 #full h3{
     margin:20px 0px 20px 30px;
@@ -84,9 +133,12 @@
 #Holidays{
     float: right;
     margin-left: 60px;
-    margin-top: 0px;
+    margin-top: 40px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     background-color: #f3f3f3;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
 }
 #holidays table tr td button{
     text-align: center;

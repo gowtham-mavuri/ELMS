@@ -70,31 +70,13 @@ function UpdateHolidays(){
     }
 
     return (
-        <div id="wrap">
-        <h3>Add holidays</h3>
+        <div class="full">
+             <h3>Add holidays</h3>
+            <div id="wrap">
+                <div>
         <div id="add">
             Pick a date to be added as a holiday
         </div>
-        <div id="Holidays">
-        <h5>Holidays are blocked in the calendar</h5>
-        <h3>Added Holidays</h3>
-                <table>
-                    <tr id="tablerow">
-                        <th id="sno">S.No</th>
-                        <th id="dat">Date</th>
-                        <th id="eve">Event</th>
-                        <th></th>
-                    </tr>
-                    {holidays&&holidays.map((holiday,i)=>
-                        <tr id="tablerow">
-                            <td>{i+1}</td>
-                            <td>{moment(holiday.date).format('YYYY-MM-DD')}</td>
-                            <td>{holiday.event}</td>
-                            <td><button onClick={()=>handleDel(moment(holiday.date).format('YYYY-MM-DD'))} >delete</button></td>
-                        </tr>
-                    )}
-                </table>
-            </div>
             <div id="calen">
                 <div id="calenderpic"> 
                     <Calendar
@@ -115,17 +97,44 @@ function UpdateHolidays(){
                         }}
                     />
                 </div>
+            </div>
+                </div>
+        
+            <div class="right">
                <div id="description">
-                    <label>Selected Date</label>
+                    <label id="first">Selected Date</label>
                     <h4>{holiday}</h4>
                </div>
                 <div id="description">
-                    <label>Description of holiday</label>
+                    <label id="second">Description of holiday</label>
                     <input type="text" value={desc} onChange={e=>setDesc(e.target.value)}/>
                 </div>
-                <button id="sub" onClick={handleAdd}>add</button>
+                <button id="sub" onClick={handleAdd}>Add</button>
+            </div>
+            <div id="Holidays">
+        <h5>Holidays are blocked in the calendar</h5>
+        <h3>Added Holidays</h3>
+                <table>
+                    <tr id="tablerow">
+                        <th id="sno">S.No</th>
+                        <th id="dat">Date</th>
+                        <th id="eve">Event</th>
+                        <th></th>
+                    </tr>
+                    {holidays&&holidays.map((holiday,i)=>
+                        <tr id="tablerow">
+                            <td>{i+1}</td>
+                            <td>{moment(holiday.date).format('YYYY-MM-DD')}</td>
+                            <td>{holiday.event}</td>
+                            <td><button onClick={()=>handleDel(moment(holiday.date).format('YYYY-MM-DD'))} >delete</button></td>
+                        </tr>
+                    )}
+                </table>
+                    </div>
             </div>
         </div>
+        
+        
     )
     
 }

@@ -9,10 +9,11 @@
     top: 0;
     z-index: 1002;
     height: 85px;
+    width: 100%;
 }
 .header-admin .header-left-admin {
     float: left;
-    height: 90px;
+    height: 85px;
     padding: 0 20px;
     position: relative;
     text-align: center;
@@ -26,7 +27,7 @@
 }
 .page-title-box-admin {
     border-radius: 0;
-    height: 90px;
+    height: 85px;
     margin-bottom: 0;
     padding: 17px 20px;
     display: flex;
@@ -58,8 +59,10 @@
     margin: 0;
     align-items: center;
     position: relative;
-    left:18%;
-    
+    left:10%;
+}
+.navbar-light .navbar-nav .nav-link{
+    color: rgb(255, 255, 255);
 }
 .nav-link,.dropdown-menu li{
     color: rgb(255, 255, 255);
@@ -67,18 +70,19 @@
     font-weight: 540;
     font-family: Verdana, Geneva, Tahoma, sans-serif
 }
-.navbar-toggler{
-    border-radius: 0;
+.navbar-light .navbar-toggler{
+    border-color: #555555;
 }
-.container{
-    margin: 0;
-    display: flex;
+.navbar-toggler{
+    font-size: 1.2em;
     align-items: center;
 }
+
 .container>button{
     display: flex;
     align-items: center;
-    height: 35px;
+    height: 32px;
+    width: 45px;
 }
 .navbar-toggler:focus {
     box-shadow: 0 0 0 0.1rem;
@@ -99,9 +103,10 @@
 .dropdown-menu li a{
     color: black;
 }
+
 .dropdown:hover>.dropdown-menu {
     display: block;
-    left: 0;
+    left: 0; 
 }
 .dropdown>.dropdown-toggle:active {
     /*Without this, clicking will make it sticky*/
@@ -110,9 +115,14 @@
 }
 #logout{
     position: relative;
-    left: 23%;
+    left: 36%;
 }
-
+.navbar-light .navbar-nav .nav-link:hover{
+    color: white;
+}
+.navbar-light .navbar-nav .nav-link:focus{
+    color:white;
+}
 @media only screen and (max-width: 990px){
     #logout{
         position: relative;
@@ -139,7 +149,10 @@
 @media only screen and (max-width: 1034px) and (min-width:991px){
     #logout{
         position: relative;
-        left: 10%;
+        left: 20%;
+    }
+    .navbar-collapse ul{
+        left:17%;
     }
 }
 @media only screen and (max-width: 1034px) and (min-width:890px){

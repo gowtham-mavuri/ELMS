@@ -49,13 +49,13 @@ function AdminDashboard(props) {
         <h3 >Shri Chandra Bulk Cargo Services Pvt.Ltd</h3>
       </div>
     </div>
-      <nav class="navbar navbar-expand-lg" id="nav">
+      <nav class="navbar navbar-expand-lg navbar-light" id="nav">
       
       <div class="container">
-      <button class="navbar-toggler " type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <button class="navbar-toggler a" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-        <button class="navbar-toggler " type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler b" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         
@@ -89,11 +89,14 @@ function AdminDashboard(props) {
             <li><Link to={`${url}/Emps`}>Manage Employee</Link></li>
           </ul>
         </li>
-        <li class="nav-item">
-        <Link class="nav-link" to={`${url}/Reqs`}>Request List</Link>
-        </li>
-        <li class="nav-item">
-        <Link class="nav-link" to={`${url}/OldReqs`}>Old Request List</Link>
+        <li class="nav-item dropdown">
+          <div class="nav-link dropdown-toggle"  id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Requests
+          </div>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><Link  to={`${url}/Reqs`}>New Requests</Link></li>
+            <li><Link  to={`${url}/OldReqs`}>Old Requests</Link></li>
+          </ul>
         </li>
         <li class="nav-item">
           <Link class="nav-link" to={`${url}/holidays`}>Add Holidays</Link>
