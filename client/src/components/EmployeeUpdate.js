@@ -148,10 +148,10 @@ function EmployeeUpdate(props) {
 
     return (
         <div id="formbox"> 
-        <h3>UPDATE EMPLOYEE DETAILS</h3> 
+        <h3>Update Employee Details</h3> 
         <h5>Branch Id :  {branchId}</h5>
         <h5>Employee Id :  {emp_id}</h5>
-            <form onSubmit={handleSubmit(onSubmit)}>
+            <form class="emp" onSubmit={handleSubmit(onSubmit)}>
                     <div id="forminp">
                         <label >Choose a dept:</label>
                         <select  name="deptCode" ref={register} defaultValue={curdept}>
@@ -233,8 +233,12 @@ function EmployeeUpdate(props) {
                         <input type="number" name="unpaidLeaves" ref={register} />
                         {errors.unpaidLeaves && <p>{errors.unpaidLeaves.message}</p>}
                     </div>
-                <input id="submitbutton" type="submit" />
-                <button id="submitbutton" onClick={handleDelete}>Delete</button>
+                    <div id="forminp">
+                    <input id="submitbutton" type="submit" />
+                    </div>
+                    <div id="forminp">
+                    <button id="submitbutton" onClick={handleDelete}>Delete</button>
+                    </div>
             </form>
     </div>
     )

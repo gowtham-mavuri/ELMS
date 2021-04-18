@@ -1,12 +1,4 @@
-*{
-    margin: 0px;
-    padding: 0px;
-}
-@import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
-body
-{
-    font-family: sans-serif;
-}
+
 #cards{
     width: 100%;
     background-color: white;

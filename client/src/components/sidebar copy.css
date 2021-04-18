@@ -10,42 +10,32 @@
     z-index: 1002;
     height: 85px;
     width: 100%;
+    display: flex;
+    align-content: center;
+    justify-content: center;
 }
 .header-admin .header-left-admin {
-    float: left;
     height: 85px;
-    padding: 0 20px;
-    position: relative;
-    text-align: center;
-    width: 230px;
+    width: 150px;
     z-index: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    left: 10%;
     transition: all 0.2s ease-in-out;
 }
 .page-title-box-admin {
     border-radius: 0;
     height: 85px;
-    margin-bottom: 0;
-    padding: 17px 20px;
     display: flex;
     align-items: center;
     position: relative;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
-    
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif 
 }
 .page-title-box-admin h3 {
     text-align: center;
     color:#4CAF50;
-    /*font-weight: normal;*/
-    font-size: 2rem;  
-    margin-left: 13%;  
+    font-weight: 530px;
+    font-size: 2rem;   
+    margin-bottom: 0;
 }
 #nav{
-    position: absolute;
-    top:85px;
     background-color: #4CAF50;
     height: 45px;
     width: 100%;
@@ -54,12 +44,8 @@
 .navbar-collapse{
     height: 45px;
 }
-.navbar-collapse ul{
-    height: 45px;
-    margin: 0;
-    align-items: center;
-    position: relative;
-    left:10%;
+.navbar-nav{
+    margin: auto;
 }
 .navbar-light .navbar-nav .nav-link{
     color: rgb(255, 255, 255);
@@ -77,7 +63,6 @@
     font-size: 1.2em;
     align-items: center;
 }
-
 .container>button{
     display: flex;
     align-items: center;
@@ -89,7 +74,7 @@
 }
 .dropdown-menu{
     padding: 0;
-    min-height: 4rem;
+    min-height: 3rem;
     min-width: 11rem;
     text-align: left;
     border-radius: 0;
@@ -99,77 +84,58 @@
 }
 .dropdown-menu li a{
     padding: 2px 2px 2px 12px; 
+    text-decoration: none;
 }
 .dropdown-menu li a{
     color: black;
 }
 
-.dropdown:hover>.dropdown-menu {
-    display: block;
-    left: 0; 
-}
-.dropdown>.dropdown-toggle:active {
-    /*Without this, clicking will make it sticky*/
-      pointer-events: none;
-      min-height: 100px;
-}
-#logout{
-    position: relative;
-    left: 36%;
-}
 .navbar-light .navbar-nav .nav-link:hover{
     color: white;
 }
 .navbar-light .navbar-nav .nav-link:focus{
     color:white;
 }
+@media all and (min-width: 992px) {
+	.navbar .nav-item .dropdown-menu{ display: none; }
+	.navbar .nav-item:hover .dropdown-menu{ display: block; }
+	.navbar .nav-item .dropdown-menu{ margin-top:0; }
+}
 @media only screen and (max-width: 990px){
-    #logout{
-        position: relative;
-        left: 0;
-    }
+    
     .navbar-collapse{
-        height:270px;
-        background-color: chartreuse;
+        height:230px;
+        background-color: #4CAF50;
         max-width: 100%;
         align-items: center;
-        
     }
     .container{
         max-width: 100%;
         padding: 0;
        
     }
+    .header-admin {
+        left:0;
+    }
     .navbar-collapse ul{
         left: 0;
         align-items: center;
-        border-top: 1px solid black;
     }
 }
 @media only screen and (max-width: 1034px) and (min-width:991px){
-    #logout{
-        position: relative;
-        left: 20%;
-    }
-    .navbar-collapse ul{
-        left:17%;
-    }
+    
 }
 @media only screen and (max-width: 1034px) and (min-width:890px){
     .page-title-box-admin h3 {
         font-size: 1.7rem;
-        margin-left: 10%;
+       
     }
     
 }
 @media only screen and (max-width: 889px){
     .page-title-box-admin h3 {
         font-size: 1.5rem;
-        margin-left: 8%;
-    }
-    #logout{
-        position: relative;
-        left: 0%;
+       
     }
 }
 @media only screen and (max-width: 767.98px){
@@ -183,6 +149,7 @@
     position: absolute;
     width: 100%;
     left:0%;
+    text-align: center;
 }
 }
 @media only screen and (min-width: 991px){

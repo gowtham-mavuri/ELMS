@@ -4,7 +4,6 @@ import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import {yupResolver} from '@hookform/resolvers/yup';
 
-import '../styles/form.css'
 
 const DeptSchema = yup.object().shape({
     id : yup.number().required(),
@@ -61,8 +60,7 @@ function AddDepartment(props) {
                     {error && <h3>error occured</h3>}
                 </div>
                 <h3> Add Department</h3>
-                <form class="branch" onSubmit={handleSubmit(onSubmit)}>
-                
+                <form class="branch" onSubmit={handleSubmit(onSubmit)}>        
                         <div id="forminp">
                             <label>Branch</label>
                             <select name="id" ref={register} >   

@@ -150,7 +150,7 @@ function EmployeeUpdate(props) {
 
     return (
         <div id="formbox"> 
-        <h3>UPDATE EMPLOYEE DETAILS</h3> 
+        <h3>Update Employee Details</h3> 
         <h5>Employee Id :  {emp_id}</h5>
             <form class="emp" onSubmit={handleSubmit(onSubmit)}>
                     <div id="forminp">

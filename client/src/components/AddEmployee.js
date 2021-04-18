@@ -3,7 +3,6 @@ import axios from 'axios';
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import {yupResolver} from '@hookform/resolvers/yup';
-import '../styles/empUpdateForm.css'
 
 const EmpSchema = yup.object().shape({
     empId: yup.string().required(),

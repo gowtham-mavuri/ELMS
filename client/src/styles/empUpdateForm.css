@@ -2,9 +2,7 @@
 #formbox{
     width: 100%;
     background-color: #ffffff;
-    padding: 4px 50px 4px 50px;
-    position: absolute;
-    top:130px;
+    padding: 30px 50px 10px 50px;
 }
 .emp{
     padding-top: 10px;

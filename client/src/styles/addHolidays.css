@@ -1,8 +1,6 @@
 
 .full{
-    position: relative;
-    top:45px;
-    padding: 4px 50px 4px 50px;
+    padding: 30px 50px 4px 50px;
 }
 #wrap{
     display: flex;
@@ -16,11 +14,12 @@
     font-weight: normal;
     color: #555555;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    margin-bottom: 30px;
 }
 #add{
     color: #555555;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    padding-bottom: 20px;
+    padding-bottom: 5px;
     font-size: 22px;
     width: 400px;
     text-align: center;
