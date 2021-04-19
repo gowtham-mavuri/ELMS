@@ -43,7 +43,7 @@
   background: #ffffff; 
 }
 
-tr:nth-child(odd) {
+#f tr:nth-child(odd) {
   background-color: #f0ecec;
 }
 @media only screen and (max-width: 991.98px){

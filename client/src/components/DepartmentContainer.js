@@ -4,9 +4,12 @@ import Department from './Department';
 function DepartmentContainer(props) {
 
     return (
-        <div>
-            {props.deptList&&props.deptList.map((dept)=><Department key={dept.code} dept={dept}/>)}
-        </div>
+        <td>
+            {props.deptList&&props.deptList.map((dept)=>
+            <Department key={dept.code} dept={dept}/>)
+            }
+        </td>
+        
     )
     
 }

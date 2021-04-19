@@ -52,7 +52,7 @@ function Departments() {
   }
   else
   return (
-    <div id="histo">
+    <div>
       <div>
         {error&&<p>Error Occured</p>}
       </div>
@@ -63,22 +63,30 @@ function Departments() {
               { branches.map((branch)=><option value={branch.branch_id} id={branch.branch_id}>{branch.name}</option>) }
             </select>
       </div>
-      <div id="f">
-      <table>
-        <div>
-          <thead>
+      <div id="history">
+      <div id="table">
+        <div id="e">
+        <table>
+        <tbody>
+          <tr>
             <th>Branch ID</th>
             <th>Code</th>
             <th>Name</th>
             <th>Short Name</th>
-          </thead>
-        </div>
-          <DepartmentContainer deptList={dynamicSearch() } />
+          </tr>
+        <tr>
+        <DepartmentContainer deptList={dynamicSearch() } />
+        </tr>
+        </tbody>
         </table>
+        </div>
+      
       </div>
       
       </div>
     </div>
+      </div>
+      
   );
   
 }
