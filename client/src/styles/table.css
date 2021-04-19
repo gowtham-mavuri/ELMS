@@ -16,12 +16,17 @@
 
 #e table {
   background: whitesmoke; 
-  width: 80%;
+  width: 100%;
   border-radius: 0.25em;
   border-collapse: collapse;
   margin: 1em;
   align-content: center;
   padding-right: 10px;
+  table-layout: fixed; 
+  display: block;    
+  overflow-x: scroll;
+  white-space: nowrap; 
+ 
 
 }
 #e th {
@@ -31,6 +36,7 @@
   font-weight: 600;
   padding: 0.5em 1em;
   text-align: center;
+ 
 }
 #e td {
   color: black;
@@ -38,6 +44,7 @@
   padding: 0.65em 1em;
   text-align: center;
   word-break: break-all;
+ 
   
 }
 
