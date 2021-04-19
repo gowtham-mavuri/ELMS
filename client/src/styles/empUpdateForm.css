@@ -2,7 +2,7 @@
 #formbox{
     width: 100%;
     background-color: #ffffff;
-    padding: 30px 50px 10px 50px;
+    padding: 30px 50px 50px 50px;
 }
 .emp{
     padding-top: 10px;
@@ -10,6 +10,7 @@
     display: flex;
     align-items: center;
     flex-wrap: wrap;
+    justify-content: space-evenly;
 }
 #formbox h3,h5{
     text-align: center;
@@ -20,13 +21,13 @@
 }
 #formbox h5{
     font-size: 20px;
-    
+  
 }
+
 #forminp{
-    margin: 0 auto;
-    display: inline-block;
     padding: 10px 0px;
 }
+
 #forminp label{
     display: block;
     font-size: 14px;
@@ -68,6 +69,7 @@
     border-radius: 50px;
     cursor: pointer;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
+    border-radius: 7px;
 }
 #forminp select:required:invalid {
 	color: gray;

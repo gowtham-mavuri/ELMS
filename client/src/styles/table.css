@@ -1,22 +1,7 @@
-@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,600);
 
-#histo{
-  position: absolute;
-  top:140px;
-}
-
-#history{
-    position: relative;
-    left: 230px;
-    top: 60px;
-    right: 60px;
-   
-
-}
 
 #e table {
   background: whitesmoke; 
-  width: 80%;
   border-radius: 0.25em;
   border-collapse: collapse;
   margin: 1em;

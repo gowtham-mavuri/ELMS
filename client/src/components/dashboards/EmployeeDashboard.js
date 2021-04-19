@@ -23,13 +23,21 @@ function EmployeeDashboard(props) {
  
   return (
     <div>
-    <div class="header">
-      <div class="header-left">
+      
+    <div class="header-admin">
+    
+      <div class="header-left-admin">
       <Link to={`${url}/profile`}><a href="#index" class="logo">
-        <img id="logo" src={logo} alt="Logo" height="60"/>
+        <img id="logo" src={logo} alt="Logo" height="85"/>
         </a>
         </Link>
       </div>
+  
+      <div class="page-title-box-admin">
+      <h3 >Shri Chandra Bulk Cargo Services Pvt.Ltd</h3>
+    </div>
+    </div>
+    <div id="too">
       <a id="toggle_btn" href="javascript:void(0)">
         <span class="bar-icon">
           <span></span>
@@ -37,13 +45,10 @@ function EmployeeDashboard(props) {
           <span></span>
         </span>
       </a>
-      <div class="page-title-box">
-      <h3 >Shri Chandra Bulk Cargo Services Pvt.Ltd</h3>
       </div>
-    </div>
     <div class="sidebar" id="sidebar">
-    <div class="slimScrollDiv" >
     <div class="sidebar-inner slimscroll">
+    
     <div id="sidebar-menu" class="sidebar-menu">
       <ul>
         <li>
@@ -59,7 +64,6 @@ function EmployeeDashboard(props) {
               <a onClick={handleLogout}>Logout</a>
             </li>
       </ul>
-    </div>
     </div>
     </div>
     </div>
@@ -88,4 +92,6 @@ export default EmployeeDashboard;
     <div class="slimScrollDiv" style="position: relative;overflow: hidden;width: 100%;height: 508px;">
       <div class="sidebar-inner slimscroll" style="overflow: hidden;width: 100%;height: 508px;">
         <div id="sidebar-menu" class="sidebar-menu">
+
+        
 */

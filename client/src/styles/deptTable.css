@@ -8,19 +8,6 @@
   width: 100%;
 }
 
-#histo{
-  position: absolute;
-  top:140px;
-}
-
-#history{
-    position: relative;
-    left: 230px;
-    top: 60px;
-    right: 60px;
-   
-
-}
 
 #f table {
   background: whitesmoke; 

@@ -74,7 +74,7 @@ function UpdateBranch(props) {
                  <div>
                     {error && <h3>error occured</h3>}
                 </div>
-                <h3> Update BRANCH {id}</h3>
+                <h3> Update Branch {id}</h3>
                 <form class="branch" onSubmit={handleSubmit(onSubmit)}>
                         <div id="forminp">
                             <label>Name</label>
