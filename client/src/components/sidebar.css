@@ -4,6 +4,11 @@
     display: block;
     width: 230px;
     box-shadow: 0 1px 1px 0 rgb(0 0 0 / 20%);
+    transition: all 0.2s ease-in-out 0s;
+    float: left;
+    font-size: 26px;
+    line-height: 65px;
+    padding: 0 10px;
 }
 .sidebar-inner{
     float: left;
@@ -13,7 +18,7 @@
     width: 21px;
 }
 .bar-icon span {
-    background-color: rgb(202, 37, 37);
+    background-color: white;
     border-radius: 500px;
     display: block;
     height: 2px;
@@ -24,10 +29,6 @@
     width: 15px;
 }
 
-.mobile_btn {
-    display: none;
-    float: left;
-}
 .slide-nav .sidebar {
     margin-left: 0;
 }
@@ -72,62 +73,21 @@
     color: #fff;
     background: #354fe0;
 }
-.menu-title {
-    color: #ebecf1;
-    display: flex;
-    font-size: 14px;
-    opacity: 1;
-    padding: 5px 15px;
-    white-space: nowrap;
-}
-input, button, a {
+
+/*input, button, a {
     transition: all 0.4s ease;
     -moz-transition: all 0.4s ease;
     -o-transition: all 0.4s ease;
     -ms-transition: all 0.4s ease;
     -webkit-transition: all 0.4s ease;
-}
-@media only screen and (min-width: 991px){
-#toggle_btn {
-    color: #999;
-    float: left;
-    font-size: 26px;
-    line-height: 65px;
-    padding: 0 10px;
-}
+}*/
 
-}
-@media only screen and (max-width: 1199.98px){
-
-}
-@media only screen and (max-width: 767.98px){
-.header {
-    z-index: 1040;
-}
-body {
-    font-size: 0.875rem;
-}
-h3, .h3 {
-    font-size: 1.375rem;
-}
-}
 @media only screen and (max-width: 991.98px){
-.header .header-left {
-    position: absolute;
-    width: 100%;
-}
 
-.page-title-box {
-    display: none;
-}
-#toggle_btn,#too{
+#toggle_btn{
     height: 1000px;
     width: 50px;
-    background-color: yellow;
-}
-
-.mobile_btn {
-    display: block;
+    background-color: #4CAF50;
 }
 .sidebar {
     margin-left: -225px;
@@ -139,47 +99,7 @@ h3, .h3 {
 }
 
 }
-#total {
-    display: flex;
-    width: 100%;
-    align-items: stretch;
-    height: 100%;
-}
-/*img{
-    float: left;
-    height: 70px;
-    padding-left: 30px;
-    padding-right: 40px;
-    margin-bottom: 0%;
-    vertical-align: middle;
-}*/
-#name{
-    text-align: left;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    height: auto;
-    margin: 0px;
-    padding-left: 80px;
-    font-size: 1.6em;
-    margin-left: 15%;
-}
-/*#sidebar {
-    width: 350px;
-    top: 0px;
-    transition: all 0.1s;
-}*/
-.openbtn {
-    font-size: 20px;
-    cursor: pointer;
-    padding: 5px 7px;
-    border: none;
-    float:left;
-    margin-top: 15px;
-    margin-bottom: 15px;
-    margin-left: 70px;
-    background: transparent;
-    color: white;
-  }
+
 #sidebar.active {
     margin-left: -250px;
 }
