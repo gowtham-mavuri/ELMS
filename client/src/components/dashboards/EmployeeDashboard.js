@@ -25,19 +25,19 @@ function EmployeeDashboard(props) {
     <div>
       
     <div class="header-admin">
-    
       <div class="header-left-admin">
       <Link to={`${url}/profile`}><a href="#index" class="logo">
         <img id="logo" src={logo} alt="Logo" height="85"/>
         </a>
         </Link>
       </div>
-  
       <div class="page-title-box-admin">
       <h3 >Shri Chandra Bulk Cargo Services Pvt.Ltd</h3>
     </div>
     </div>
-    <div id="too">
+   
+      <div class="sidebar" id="sidebar">
+      <div class="sidebar-inner slimscroll">
       <a id="toggle_btn" href="javascript:void(0)">
         <span class="bar-icon">
           <span></span>
@@ -45,28 +45,24 @@ function EmployeeDashboard(props) {
           <span></span>
         </span>
       </a>
-      </div>
-    <div class="sidebar" id="sidebar">
-    <div class="sidebar-inner slimscroll">
-    
-    <div id="sidebar-menu" class="sidebar-menu">
-      <ul>
-        <li>
-          <Link to={`${url}/profile`}>Profile</Link>
-        </li>
-        <li>
+      <div id="sidebar-menu" class="sidebar-menu">
+        <ul>
+          <li>
+            <Link to={`${url}/profile`}>Profile</Link>
+          </li>
+          <li>
               <Link to={`${url}/leave`}>Apply Leave</Link>
-            </li>
-            <li>
+          </li>
+          <li>
               <Link to={`${url}/requests`}>Leave History</Link>
-            </li>
-            <li>
+          </li>
+          <li class="sub-logout">
               <a onClick={handleLogout}>Logout</a>
-            </li>
-      </ul>
-    </div>
-    </div>
-    </div>
+          </li>
+        </ul>
+      </div>
+      </div>
+      </div>
       <Switch>
               <Route exact path={path}>
                 <EmployeeProfile />
