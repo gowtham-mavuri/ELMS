@@ -156,7 +156,7 @@ function EmployeeCreate(props) {
                         <input type="number" name="sickLeaves" ref={register} />
                         {errors.sickLeaves && <p>{errors.sickLeaves.message}</p>}
                     </div>
-                    <div id="forminp">
+                    <div id="forminp" class="unpaid">
                         <label>Unpaid leaves remaining</label>
                         <input type="number" name="unpaidLeaves" ref={register} />
                         {errors.unpaidLeaves && <p>{errors.unpaidLeaves.message}</p>}

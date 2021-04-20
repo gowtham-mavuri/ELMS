@@ -8,19 +8,6 @@
   width: 100%;
 }
 
-#histo{
-  position: absolute;
-  top:140px;
-}
-
-#history{
-    position: relative;
-    left: 230px;
-    top: 60px;
-    right: 60px;
-   
-
-}
 
 #f table {
   background: whitesmoke; 
@@ -56,7 +43,7 @@
   background: #ffffff; 
 }
 
-tr:nth-child(odd) {
+#f tr:nth-child(odd) {
   background-color: #f0ecec;
 }
 @media only screen and (max-width: 991.98px){

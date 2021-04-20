@@ -72,11 +72,11 @@ function UpdateHolidays(){
     return (
         <div class="full">
              <h3>Add holidays</h3>
-            <div id="wrap">
-                <div>
-        <div id="add">
+             <div id="add">
             Pick a date to be added as a holiday
         </div>
+            <div id="wrap">
+                <div>
             <div id="calen">
                 <div id="calenderpic"> 
                     <Calendar

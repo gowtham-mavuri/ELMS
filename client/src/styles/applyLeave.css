@@ -4,13 +4,7 @@ form{
     
 }
 
-#formboxLeave{
-    position: relative;
-    padding: 10px;
-  left: 230px;
-    background-color: white;
-    top:60px;
-}
+
 @media only screen and (max-width: 991.98px){
     #formboxLeave{
         left: 0;

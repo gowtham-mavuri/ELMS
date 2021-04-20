@@ -95,6 +95,11 @@
 }
 .navbar-light .navbar-nav .nav-link:focus{
     color:white;
+    
+}
+#logout:hover,.sub-logout:hover{
+    cursor: pointer;
+
 }
 @media all and (min-width: 992px) {
 	.navbar .nav-item .dropdown-menu{ display: none; }
@@ -152,8 +157,5 @@
     text-align: center;
 }
 }
-@media only screen and (min-width: 991px){
-   
-    
-}
+
 
