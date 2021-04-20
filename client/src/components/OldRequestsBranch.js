@@ -60,6 +60,7 @@ useEffect(() => {
     <div id="oldRequests">
       <div id="reqs">
       {data&&data.map((req)=><div id="req">
+        {console.log(req)}
       <ul>
         <div id="directdiv">
             <label id="line2"><label>ReqID:&nbsp;&nbsp;</label>{req.leave_id}</label>
@@ -85,9 +86,11 @@ useEffect(() => {
                                 
         </div>
         <div id="line3div">
-        <label id="line2"><label>Remarks:&nbsp;&nbsp;</label>{req.admin_remarks}</label>
-            
-        </div>                              
+        <label id="line2"><label>Admin Remarks:&nbsp;&nbsp;</label>{req.admin_remarks}</label>
+        </div>     
+        <div id="line3div">
+        <label id="line2"><label>Manager Remarks:&nbsp;&nbsp;</label>{req.branch_manager_remarks}</label>
+        </div>                        
       </ul>
     </div>)}
     </div>

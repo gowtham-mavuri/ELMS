@@ -10,9 +10,7 @@ const BranchSchema = yup.object().shape({
     id : yup.number().required(),
     name : yup.string().required(),
     location : yup.string().required(),
-    adminName : yup.string().required(),
-    adminPassword :yup.string().min(5).required(),
-    adminEmail : yup.string().email().required()
+    password :yup.string().min(5).required()
   });
 
 function AddBranch(props) {
@@ -24,11 +22,11 @@ function AddBranch(props) {
 
     const onSubmit=data=>{
         setLoading(true);
-        var { id,name,location,adminName,adminEmail,adminPassword } = data;
+        var { id,name,location,password } = data;
         setBranch(name);    
         axios.post('http://localhost:5000/admin/branchAdd',{
             token:localStorage.getItem('token'),id,
-            name,location,adminName,adminEmail,adminPassword
+            name,location,password
         }).then(res=>{
             if(res.data.error)
                 setError(true);
@@ -49,11 +47,10 @@ function AddBranch(props) {
     return (
         <div id="formbox">  
                 <div>
-                    {error && <h3>error occured</h3>}
+                    {error && <h3>ID has been assigned to another branch</h3>}
                 </div>
-                <form onSubmit={handleSubmit(onSubmit)}>
-                <h2> ADD BRANCH</h2>
-                    <div id="row">
+                <h3>Add Branch</h3>
+                <form class="branch"onSubmit={handleSubmit(onSubmit)}>
                         <div id="forminp">
                             <label>Branch ID</label>
                             <input type="number" name="id" ref={register} />   
@@ -64,32 +61,20 @@ function AddBranch(props) {
                             <input type="text" name="name" ref={register} />
                             {errors.name && <p>{errors.name.message}</p>}     
                         </div>
-                    </div>
-                    <div id="row">
                         <div id="forminp">
                             <label>Location</label>
                              <input type="text" name="location" ref={register} /> 
                              {errors.location && <p>{errors.location.message}</p>}
                         </div>
                         <div id="forminp">
-                            <label>Admin Name</label>
-                            <input type="text" name="adminName" ref={register} />
-                            {errors.adminName && <p>{errors.adminName.message}</p>}    
-                        </div>
-                    </div>
-                    <div id="row">
-                        <div id="forminp">
-                            <label>Admin Email</label>
-                            <input type="email" name="adminEmail" ref={register} />
-                            {errors.adminEmail && <p>{errors.adminEmail.message}</p>} 
+                            <label>Branch Manager Password</label>
+                            <input type="text" name="password" ref={register} />
+                            {errors.password && <p>{errors.password.message}</p>}   
                         </div>
                         <div id="forminp">
-                            <label>Admin Password</label>
-                            <input type="text" name="adminPassword" ref={register} />
-                            {errors.adminPassword && <p>{errors.adminPassword.message}</p>}   
+                        <input id="submitbutton"type="submit" />
                         </div>
-                    </div>
-                    <input type="submit" />
+                  
                 </form>
         </div>
     )

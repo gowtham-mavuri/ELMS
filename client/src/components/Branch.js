@@ -15,7 +15,10 @@ function Branch(props) {
             branchId:b.branch_id
         }).then(res=>{
             if(res.data.error)
-                {}
+                {
+                    if(res.data.message)
+                        alert(res.data.message)
+                }
             else
                 setDel(true);
             setLoading(false)
@@ -28,14 +31,12 @@ function Branch(props) {
 
     if(del) return <div></div>
     return (
-        <tr>
+        <tr >
             <td>{b.branch_id}</td>
             <td>{b.name}</td>
             <td>{b.location}</td>
-            <td>{b.admin_name}</td>
-            <td>{b.admin_email}</td>
             <td><Link to={`/AdminDashboard/update/${b.branch_id}`}>Update</Link></td>
-            <td><Link to={`/AdminDashboard/branch/${b.branch_id}`}>Details</Link></td>
+            
             <td><button onClick={handleDelete} disabled={loading}>delete</button></td>
         </tr>
     )

@@ -1,5 +1,4 @@
 
-@import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
 
 #oldRequests {
     width: 100%;
@@ -10,7 +9,7 @@
 
 #reqs{
     width: 100%;
-    background-color: #f7f7f7;
+    background-color: white;
 }
 #req{
     float: left;

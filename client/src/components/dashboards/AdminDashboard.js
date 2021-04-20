@@ -7,15 +7,25 @@ import {
 } from "react-router-dom";
 
 import Branches from '../Branches';
-import AddBranch from '../AddBranch';
 import UpdateBranch from '../UpdateBranch';
-import BranchComponent from './BranchComponent';
 import UpdateHolidays from '../UpdateHolidays';
-
-
-import '../sidebar.css'
-import '../nav.css'
+import AddDepartment from '../AddDepartment';
+import Departments from '../Departments';
+import AddEmployee from '../AddEmployee';
+import UpdateEmployee from '../UpdateEmployee';
+import AddBranch from '../AddBranch';
+import OldRequests from '../OldRequests';
+import '../sidebar copy.css'
+import '../nav copy.css'
 import logo from '../logopic.png'
+import Employees from '../Employees';
+import Requests from '../Requests';
+import EmployeeRequests from '../EmployeeRequests';
+
+
+
+
+
 
 function AdminDashboard(props) {
   let { path, url } = useRouteMatch();
@@ -28,26 +38,76 @@ function AdminDashboard(props) {
  
   return (
     <div>
-    <div id="header">
-        <img id="#logo" src={logo} alt="Logo" />
-        <h3 id="name">SHRI CHANDRA BULK CARGO SERVICES PVT.LTD</h3>
+    <div class="header-admin">
+      <div class="header-left-admin">
+        <Link to={`${url}/profile`}><a href="#index" class="logo-admin">
+          <img id="logo" src={logo} alt="Logo" height="85"/>
+          </a>
+          </Link>
+      </div>
+      <div class="page-title-box-admin">
+        <h3 >Shri Chandra Bulk Cargo Services Pvt.Ltd</h3>
+      </div>
     </div>
-    <div id="topbar">
-        <ul >
-          <li >
-            <Link to={`${url}/branches`}>Branches</Link>
+      <nav class="navbar navbar-expand-lg navbar-light" id="nav">
+      <div class="container">
+      <button class="navbar-toggler a" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <button class="navbar-toggler b" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        
+        <div class="collapse navbar-collapse" id="navbarSupportedContent" >
+          <ul class="navbar-nav" >
+            <li class="nav-item dropdown" >
+              <div class="nav-link dropdown-toggle"  id="navbarDropdown" role="button" 
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                Branch
+              </div>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown" >
+                <li><Link to={`${url}/addBranch`} >Add Branch</Link></li>
+                <li><Link to={`${url}/branches`}>Manage Branch</Link></li>
+              </ul>
+            </li>
+        <li class="nav-item dropdown">
+          <div class="nav-link dropdown-toggle"  id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Department
+          </div>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><Link to={`${url}/addDept`}>Add Department</Link></li>
+            <li><Link to={`${url}/Depts`}>Manage Department</Link></li>
+          </ul>
+        </li>
+        <li class="nav-item dropdown">
+          <div class="nav-link dropdown-toggle"  id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Employee
+          </div>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><Link to={`${url}/addEmp`}>Add Employee</Link></li>
+            <li><Link to={`${url}/Emps`}>Manage Employee</Link></li>
+          </ul>
+        </li>
+        <li class="nav-item dropdown">
+          <div class="nav-link dropdown-toggle"  id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Requests
+          </div>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><Link  to={`${url}/Reqs`}>New Requests</Link></li>
+            <li><Link  to={`${url}/OldReqs`}>Old Requests</Link></li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <Link class="nav-link" to={`${url}/holidays`}>Add Holidays</Link>
+        </li>
+        <li class="nav-item" id="logout">
+              <a class="nav-link" onClick={handleLogout}>Logout</a>
           </li>
-          <li>
-            <Link to={`${url}/add`}>Add Branch</Link>
-          </li>
-          <li>
-            <Link to={`${url}/holidays`}>Add Holidays</Link>
-          </li>
-          <li>
-                <a onClick={handleLogout}>Logout</a>
-          </li>
-        </ul>
-    </div>
+          </ul>
+          
+          </div>
+        </div>
+     </nav>
     <div>
       <Switch>
               <Route exact path={path}>
@@ -56,16 +116,34 @@ function AdminDashboard(props) {
               <Route path={`${path}/branches`}>
                 <Branches />
               </Route>
-              <Route path={`${path}/add`}>
+              <Route path={`${path}/addBranch`}>
                 <AddBranch />
               </Route>
+              <Route path={`${path}/addDept`}>
+                <AddDepartment />
+              </Route>
+              <Route path={`${path}/Depts`}>
+                <Departments />
+              </Route>
+              <Route path={`${path}/Emps`}>
+                <Employees />
+              </Route>
+              <Route path={`${path}/addEmp`}>
+                <AddEmployee />
+              </Route>
+              <Route path={`${path}/Reqs`}>
+                <Requests />
+              </Route>
+              <Route path={`${path}/OldReqs`}>
+                <OldRequests />
+              </Route>
+              <Route path={`${path}/updateEmp/:id`} component={UpdateEmployee} />
+              <Route path={`${path}/emp/reqs/:emp_id`} component={EmployeeRequests} />
               <Route path={`${path}/update/:id`} component={UpdateBranch} />
-              <Route path={`${path}/branch/:id`} component={BranchComponent} />
               <Route path={`${path}/holidays`} component={UpdateHolidays} />
       </Switch>
     </div>
     </div>
-    
     
     
   );

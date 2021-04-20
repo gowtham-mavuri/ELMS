@@ -3,14 +3,12 @@ import moment from 'moment';
 import {Link} from "react-router-dom";
 import axios from 'axios';
 import '../styles/Request.css'
-function Request (props)
+function Request2 (props)
 {
     const [req,setReq] = useState(props.req);
     const [status,setStatus] = useState('');
     const [remarks,setRemarks] = useState('');
     const [loading, setLoading] = useState(false);
-
-    const branchId=props.branchId;
 
     const handleUpdate = () => {
         setLoading(true);
@@ -19,34 +17,10 @@ function Request (props)
         from = moment(from,'YYYY-MM-DD');
         to = moment(to,'YYYY-MM-DD');
         var days=to.diff(from,'days')+1;
-        axios.post('http://localhost:5000/branch/reqUpdate',{
+        axios.post('http://localhost:5000/admin/reqUpdate',{
             token:localStorage.getItem('token'),
             reqId:req.leave_id,
-            days,
             status,
-            remarks
-        }).then(res=>{
-            if(res.data.error)
-            {
-                console.log(res.data.error);
-            }
-            else
-            {
-                setReq(res.data.result[0]);
-            }
-            setLoading(false);
-        }).catch(err=>{
-          console.log(err);
-          setLoading(false);
-        })
-
-    }
-
-    const handleUpdateRemarks = () => {
-        setLoading(true);
-        axios.post('http://localhost:5000/branch/reqUpdateRemarks',{
-            token:localStorage.getItem('token'),
-            reqId:req.leave_id,
             remarks
         }).then(res=>{
             if(res.data.error)
@@ -91,11 +65,8 @@ function Request (props)
                     <div id="line3div">
                         <label id="line3"><label>Desc:&nbsp;&nbsp;</label>{req.description}</label>
                     </div>
-                    <div id="line3div">
-                        <label id="line3"><label>Admin Remarks:&nbsp;&nbsp;</label>{req.admin_remarks}</label>
-                    </div>
-
                     {(req.status==="pending")&&<div>
+                    
                     <div  id="line6">
                         <label>Status</label>
                             <select required id="status" onChange={e=>setStatus(e.target.value)}>
@@ -114,30 +85,21 @@ function Request (props)
 
                     {(req.status!=="pending")&&
                         <div>
-                            <div  id="directdiv">
-                                <label id="line2"><label>Status:&nbsp;&nbsp;</label>{req.status}</label>                          
-                            </div>
-                            {(req.status==="accepted")&&(req.branch_manager_remarks==="------")&&
-                                <div>
-                                    <div id="line6">
-                                        <label>Remarks</label>
-                                        <input type="text" id={req.leave_id} onChange={e=>setRemarks(e.target.value)}/>
-                                    </div>
-                                    <button id="line7" onClick={handleUpdateRemarks} disabled={loading}>Update Remarks</button>
-                                </div>
-                            }
-                            {(req.branch_manager_remarks!=="------")&&
-                            <div id="line3div">
-                                <label id="line2"><label>Manager Remarks:&nbsp;&nbsp;</label>{req.branch_manager_remarks}</label>   
-                            </div> 
-                            }
+                        <div  id="directdiv">
+                        <label id="line2"><label>Status:&nbsp;&nbsp;</label>{req.status}</label>
+                                                
                         </div>
-                    }  
-
-                    <button id="line7"><Link to={`/SubadminDashboard/emp/reqs/${req.emp_id}`}>Requests</Link></button>
+                        <div id="line3div">
+                        <label id="line2"><label>Remarks:&nbsp;&nbsp;</label>{req.admin_remarks}</label>
+                            
+                        </div> 
+                        </div>
+                    }
+                        
+                    <button id="line7"><Link to={`/AdminDashboard/emp/reqs/${req.emp_id}`}>Requests</Link></button>
                 </ul>
         </div>
     )
 }
 
-export default Request;
+export default Request2;

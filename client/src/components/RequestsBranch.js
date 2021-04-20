@@ -27,7 +27,12 @@ function RequestsBranch(props) {
   }
   else
   return (
+    
     <div id="cards">
+      
+      {!reqs.length&&<div>
+        <h1>NO NEW REQUESTS</h1>
+        </div>}
       {reqs&&reqs.map((req)=><Request role="admin" id={req.leave_id} req={req} branchId={id}/>)}
     </div>
   );

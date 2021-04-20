@@ -1,14 +1,11 @@
 import React,{useState,useEffect} from 'react';
 import axios from 'axios';
-import moment from 'moment';
-
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import {yupResolver} from '@hookform/resolvers/yup';
 
-import '../styles/empUpdateForm.css'
-
 const EmpSchema = yup.object().shape({
+    empId: yup.string().required(),
     deptCode : yup.string().required(),
     firstName : yup.string().required(),
     lastName : yup.string(),
@@ -21,140 +18,77 @@ const EmpSchema = yup.object().shape({
     unpaidLeaves : yup.number().integer().required()
   });
 
-function EmployeeUpdate(props) {
+function AddEmployee(props) {
 
-    const { register, handleSubmit,reset, errors } = useForm({resolver:yupResolver( EmpSchema )});
-    var emp_id = props.match.params.emp_id;
+    const { register, handleSubmit, errors } = useForm({resolver:yupResolver( EmpSchema )});
     const [depts,setDepts] = useState([]);
-    const [loading,setLoading] = useState(true);
     const [branchId,setBranchId] = useState('');
-    const [deleted,setDeleted] = useState(false);
-    const [curdept,setCurDept] = useState('');
+    const [added,setAdded] = useState(false);
+    const [branches,setBranches] = useState([]);
+    useEffect(()=>{
+        axios.get('http://localhost:5000/admin/fetchBranches').then(res=>{
+        console.log(res.data.result)
+            setBranches(res.data.result);
+        }).catch(err=>{
+            console.log(err);
+        })
+        // eslint-disable-next-line
+    },[])
 
     useEffect(()=>{
-        axios.post('http://localhost:5000/branch/emp',{
-          token:localStorage.getItem('token'),
-          empId:emp_id
-        }).then(res=>{
-            var data=res.data.result[0];
-            if(data){
-                var date= data.dob;
-                setCurDept(data.dept_code);
-                date=moment(date).format('YYYY-MM-DD');
-                reset({
-                    deptCode : data.dept_code,
-                    role : data.role,
-                    firstName : data.first_name,
-                    lastName : data.last_name,
-                    email : data.email,
-                    password : data.password,
-                    gender : data.gender,
-                    DOB : date,
-                    country : data.country,
-                    city : data.city,
-                    address : data.address,
-                    phone : data.phone_number,
-                    casualLeaves : data.casual_leaves,
-                    sickLeaves : data.sick_leaves,
-                    unpaidLeaves : data.unpaid_leaves
-                })
-                setBranchId(data.branch_id)
-            }
-            setLoading(false);
-            }).catch(err=>{
-              console.log(err);
-              setLoading(false);
-            })
-            // eslint-disable-next-line
-      },[])
-
-      useEffect(()=>{
-        axios.post('http://localhost:5000/branch/depts',{
+        axios.post('http://localhost:5000/admin/dept',{
             token:localStorage.getItem('token'),
-            id:props.match.params.id
+            id:branchId
         }).then(res=>{
-                setDepts(res.data.result);
+            setDepts(res.data.result);
         }).catch(err=>{
-              console.log(err);
-            })
-            // eslint-disable-next-line
-      },[])
+            console.log(err);
+          })
+          // eslint-disable-next-line
+    },[branchId])
 
-    const onSubmit=data=>{
-        setLoading(true);
-        var { deptCode ,role ,firstName,lastName,email,password,gender,DOB,country,city,address,phone,casualLeaves,sickLeaves,unpaidLeaves} = data;
-        axios.post('http://localhost:5000/branch/empUpdate',{
+    const onSubmit=(data)=>{
+        var { id,empId , deptCode ,role ,firstName,lastName,email,password,gender,DOB,country,city,address,phone,casualLeaves,sickLeaves,unpaidLeaves} = data;
+        axios.post('http://localhost:5000/branch/empCreate',{
             token:localStorage.getItem('token'),
-            id:props.match.params.id,
-            empId:emp_id,
+            id,
+            empId,
             deptCode,role,firstName,lastName,
             email,password,gender,DOB,country,city,
             address,phone,casualLeaves,sickLeaves,unpaidLeaves
         }).then(res=>{
-            var data=res.data.result[0];
-            if(data)
-            {
-                var date= data.dob;
-                date=moment(date).format('YYYY-MM-DD');
-                reset({
-                    deptCode : data.dept_code,
-                    role : data.role,
-                    firstName : data.first_name,
-                    lastName : data.last_name,
-                    email : data.email,
-                    password : data.password,
-                    gender : data.gender,
-                    DOB : date,
-                    country : data.country,
-                    city : data.city,
-                    address : data.address,
-                    phone : data.phone_number,
-                    casualLeaves : data.casual_leaves,
-                    sickLeaves : data.sick_leaves,
-                    unpaidLeaves : data.unpaid_leaves
-                })
-                setBranchId(data.branch_id)
-            }
             if(res.data.error)
-               {}
-            setLoading(false);
+            {}   //setError(true);
+            else 
+                setAdded(true);
         }).catch(err=>{
             console.log(err);
-            setLoading(false);
         })
     }
-
-    const handleDelete=()=>{
-        axios.post('http://localhost:5000/branch/empDelete',{
-            token:localStorage.getItem('token'),
-            empId:emp_id
-        }).then(res=>{
-            if(res.data.error)
-               {}
-            else
-                setDeleted(true);
-        }).catch(err=>{
-            console.log(err);
-            setLoading(false);
-        })
-    }
-
-    if(deleted)
-        return <div>
-            <h1>Employee is Deleted  :~(</h1>
-        </div>
-    if(loading)
-        return <div>Loading</div>
-
+    
+    if(added)
+        return <div>Added Successfully</div>
     return (
         <div id="formbox"> 
-        <h3>Update Employee Details</h3> 
-        <h5>Branch Id :  {branchId}</h5>
-        <h5>Employee Id :  {emp_id}</h5>
+        <h3>Add Employee</h3> 
             <form class="emp" onSubmit={handleSubmit(onSubmit)}>
                     <div id="forminp">
+                            <label>Branch</label>
+                            <select name="id" onChange={e=>setBranchId(e.target.value)} ref={register} >   
+                                <option disabled hidden selected value="">--select a branch--</option>
+                               { branches&&branches.map(b=><option id={b.branch_id} value={b.branch_id}>{b.name}</option>) }
+                            </select>
+                            {errors.id && <p>{errors.id.message}</p>}  
+                    </div>
+                    <div id="forminp">
+                        <label>Employee ID</label>
+                        <input type="text" name="empId" placeholder="Can't be changed later" ref={register} />
+                        {errors.empId && <p>{errors.empId.message}</p>}
+                    </div>
+                    <div id="forminp">
                         <label >Choose a dept:</label>
-                        <select  name="deptCode" ref={register} defaultValue={curdept}>
+                        <select  name="deptCode" ref={register} >
+                          <option hidden disabled selected value> -- select an option -- </option>
                           { depts.map((dept)=><option value={dept.code} id={dept.code}>{dept.name}</option>) }
                         </select>
                     </div>
@@ -234,14 +168,13 @@ function EmployeeUpdate(props) {
                         {errors.unpaidLeaves && <p>{errors.unpaidLeaves.message}</p>}
                     </div>
                     <div id="forminp">
-                    <input id="submitbutton" type="submit" />
+                        <input id="submitbutton" type="submit" />
                     </div>
-                    <div id="forminp">
-                    <button id="submitbutton" onClick={handleDelete}>Delete</button>
-                    </div>
+                
             </form>
     </div>
     )
+
 }
  
-export default EmployeeUpdate;
+export default AddEmployee;

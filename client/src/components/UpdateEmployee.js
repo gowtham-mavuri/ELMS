@@ -24,12 +24,33 @@ const EmpSchema = yup.object().shape({
 function EmployeeUpdate(props) {
 
     const { register, handleSubmit,reset, errors } = useForm({resolver:yupResolver( EmpSchema )});
-    var emp_id = props.match.params.emp_id;
+    var emp_id = props.match.params.id;
     const [depts,setDepts] = useState([]);
-    const [loading,setLoading] = useState(true);
     const [branchId,setBranchId] = useState('');
     const [deleted,setDeleted] = useState(false);
     const [curdept,setCurDept] = useState('');
+    const [branches,setBranches] = useState([]);
+    useEffect(()=>{
+        axios.get('http://localhost:5000/admin/fetchBranches').then(res=>{
+        console.log(res.data.result)
+            setBranches(res.data.result);
+        }).catch(err=>{
+            console.log(err);
+        })
+        // eslint-disable-next-line
+    },[])
+
+    useEffect(()=>{
+        axios.post('http://localhost:5000/admin/dept',{
+            token:localStorage.getItem('token'),
+            id:branchId
+        }).then(res=>{
+            setDepts(res.data.result);
+        }).catch(err=>{
+            console.log(err);
+          })
+          // eslint-disable-next-line
+    },[branchId])
 
     useEffect(()=>{
         axios.post('http://localhost:5000/branch/emp',{
@@ -37,11 +58,12 @@ function EmployeeUpdate(props) {
           empId:emp_id
         }).then(res=>{
             var data=res.data.result[0];
+            setCurDept(data.dept_code);
             if(data){
                 var date= data.dob;
-                setCurDept(data.dept_code);
                 date=moment(date).format('YYYY-MM-DD');
                 reset({
+                    id : data.branch_id,
                     deptCode : data.dept_code,
                     role : data.role,
                     firstName : data.first_name,
@@ -60,32 +82,18 @@ function EmployeeUpdate(props) {
                 })
                 setBranchId(data.branch_id)
             }
-            setLoading(false);
             }).catch(err=>{
               console.log(err);
-              setLoading(false);
             })
             // eslint-disable-next-line
       },[])
 
-      useEffect(()=>{
-        axios.post('http://localhost:5000/branch/depts',{
-            token:localStorage.getItem('token'),
-            id:props.match.params.id
-        }).then(res=>{
-                setDepts(res.data.result);
-        }).catch(err=>{
-              console.log(err);
-            })
-            // eslint-disable-next-line
-      },[])
 
     const onSubmit=data=>{
-        setLoading(true);
-        var { deptCode ,role ,firstName,lastName,email,password,gender,DOB,country,city,address,phone,casualLeaves,sickLeaves,unpaidLeaves} = data;
+        var { id,deptCode ,role ,firstName,lastName,email,password,gender,DOB,country,city,address,phone,casualLeaves,sickLeaves,unpaidLeaves} = data;
         axios.post('http://localhost:5000/branch/empUpdate',{
             token:localStorage.getItem('token'),
-            id:props.match.params.id,
+            id,
             empId:emp_id,
             deptCode,role,firstName,lastName,
             email,password,gender,DOB,country,city,
@@ -97,6 +105,7 @@ function EmployeeUpdate(props) {
                 var date= data.dob;
                 date=moment(date).format('YYYY-MM-DD');
                 reset({
+                    id :data.branch_id,
                     deptCode : data.dept_code,
                     role : data.role,
                     firstName : data.first_name,
@@ -115,12 +124,8 @@ function EmployeeUpdate(props) {
                 })
                 setBranchId(data.branch_id)
             }
-            if(res.data.error)
-               {}
-            setLoading(false);
         }).catch(err=>{
             console.log(err);
-            setLoading(false);
         })
     }
 
@@ -135,7 +140,6 @@ function EmployeeUpdate(props) {
                 setDeleted(true);
         }).catch(err=>{
             console.log(err);
-            setLoading(false);
         })
     }
 
@@ -143,18 +147,22 @@ function EmployeeUpdate(props) {
         return <div>
             <h1>Employee is Deleted  :~(</h1>
         </div>
-    if(loading)
-        return <div>Loading</div>
 
     return (
         <div id="formbox"> 
         <h3>Update Employee Details</h3> 
-        <h5>Branch Id :  {branchId}</h5>
         <h5>Employee Id :  {emp_id}</h5>
             <form class="emp" onSubmit={handleSubmit(onSubmit)}>
                     <div id="forminp">
+                            <label>Branch</label>
+                            <select name="id" onChange={e=>setBranchId(e.target.value)} ref={register} >   
+                               { branches&&branches.map(b=><option id={b.branch_id} value={b.branch_id}>{b.name}</option>) }
+                            </select>
+                            {errors.id && <p>{errors.id.message}</p>}  
+                    </div>
+                    <div id="forminp">
                         <label >Choose a dept:</label>
-                        <select  name="deptCode" ref={register} defaultValue={curdept}>
+                        <select  name="deptCode" ref={register}>
                           { depts.map((dept)=><option value={dept.code} id={dept.code}>{dept.name}</option>) }
                         </select>
                     </div>
@@ -239,6 +247,7 @@ function EmployeeUpdate(props) {
                     <div id="forminp">
                     <button id="submitbutton" onClick={handleDelete}>Delete</button>
                     </div>
+               
             </form>
     </div>
     )

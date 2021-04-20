@@ -1,81 +1,75 @@
-*{
-    margin: 0;
-    padding: 0;
-}
-@import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
-body
-{
-    font-family: sans-serif;
-}
-form{
-    padding-top: 10px;
-}
-#row{
-    display: block;
-    clear: both;
-}
+
 #formbox{
     width: 100%;
-    background-color:white;
-    padding: 30px;
+    background-color: #ffffff;
+    padding: 30px 50px 50px 50px;
 }
-#formbox h3{
+.emp{
+    padding-top: 10px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+#formbox h3,h5{
     text-align: center;
+    font-size: 30px;
+    font-weight: normal;
+    color: #555555;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+#formbox h5{
+    font-size: 20px;
+  
 }
 
 #forminp{
-    float: left;
-    padding: 0px 0px 20px 0px;
+    padding: 10px 0px;
 }
+
 #forminp label{
     display: block;
+    font-size: 14px;
     padding-bottom: 3px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
-#forminp  input[type="date"]{
+#forminp  input[type="date"],#forminp  input[type="email"],
+#forminp input[type="text"],#forminp input[type="number"],#forminp input[type="submit"],
+#forminp button{
     display: block;
     width: 300px;
     padding: 12px 20px;
-    margin: 0px 25px 0px 0px;
+    margin-right: 15px;
     border: 1px solid #ccc;
     box-sizing: border-box;
     height: 35px;
+    border-radius: 7px;
 }
-#forminp  input[type="email"] {
-    display: block;
-    width: 300px;
-    padding: 12px 20px;
-    margin: 0px 25px 0px 0px;
-    border: 1px solid rgb(184, 178, 178);
-    box-sizing: border-box;
-    height: 35px;
-}
-#forminp input[type="text"] {
-    display: block;
-    width: 300px;
-    padding: 12px 20px;
-    margin: 0px 25px 0px 0px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    box-sizing: border-box;
-    height: 35px;
-}
-#forminp input[type="number"] {
-    display: block;
-    width: 300px;
-    padding: 12px 20px;
-    margin: 0px 25px 0px 0px;
-    border: 1px solid #ccc;
-    box-sizing: border-box;
-    height: 35px;
+#forminp input[type="submit"],#forminp button{
+    margin-top: 25px;
+    padding: 0;
 }
 #forminp select{
     display: block;
     width: 300px;
     padding-left: 12px;
-    margin: 0px 25px 0px 0px;
+    margin-right: 15px;
     border: 1px solid #ccc;
     box-sizing: border-box;
     height: 35px;
+    border-radius: 7px;
+}
+#submitbutton,#forminp button{
+    text-align: center;
+    background-color: #555555;
+    outline: none;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    border-radius: 7px;
 }
 #forminp select:required:invalid {
 	color: gray;
@@ -86,58 +80,15 @@ form{
 #forminp select option:not(:first-child){
 	color:black;
 }
-#formbox input[type=submit] {
-    display: block;
-    margin:auto;
-    clear: both;
-    text-align: center;
-    width: 200px;
-    background-image: linear-gradient(#141e30, #243b55);
-    outline: none;
-    color: white;
-    border: none;
-    border-radius: 50px;
-    cursor: pointer;
-    height: 42px;
-  }
 
-  #submitbutton {
-    display: block;
-    margin-left: 15px;
-    float: left;
-    text-align: center;
-    width: 200px;
-    background-image: linear-gradient(#141e30, #243b55);
-    outline: none;
-    color: white;
-    border: none;
-    border-radius: 50px;
-    cursor: pointer;
-    height: 42px;
-  }
 #submitbutton :active {
     background-color: #ffffff;
     color:black;
     border:none;
 }
-#forminp input[type="email"]:focus{
-    outline:none;
-    border: 1px solid black;
-}
-#forminp input[type="text"]:focus{
-    outline:none;
-    border: 1px solid black;
-}
-#forminp input[type="number"]:focus{
-    outline:none;
-    border: 1px solid black;
-}
+#forminp input[type="email"]:focus,#forminp input[type="date"]:focus,
+#forminp input[type="text"]:focus,#forminp input[type="number"]:focus,
 #forminp select:focus{
     outline:none;
-    border: 1px solid black;
+    border: 1px solid #555555;
 }
-#forminp input[type="date"]:focus{
-    outline:none;
-    border: 1px solid black;
-}
-

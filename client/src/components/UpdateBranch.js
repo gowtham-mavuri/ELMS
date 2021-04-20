@@ -7,9 +7,7 @@ import '../styles/form.css'
 const BranchSchema = yup.object().shape({
     name : yup.string().required(),
     location : yup.string().required(),
-    adminName : yup.string().required(),
-    adminPassword :yup.string().min(5).required(),
-    adminEmail : yup.string().email().required()
+    password :yup.string().min(5).required()
   });
 
 function UpdateBranch(props) {
@@ -29,9 +27,7 @@ function UpdateBranch(props) {
                 reset({
                     name : data.name,
                     location : data.location,
-                    adminEmail : data.admin_email,
-                    adminPassword : data.admin_password,
-                    adminName : data.admin_name
+                    password : data.password,
                 })
             }
             setLoading(false);
@@ -45,10 +41,10 @@ function UpdateBranch(props) {
 
       const onSubmit=data=>{
         setLoading(true);
-        var { name,location,adminName,adminEmail,adminPassword } = data;
+        var { name,location,password } = data;
         axios.post('http://localhost:5000/admin/branchUpdate',{
             token:localStorage.getItem('token'),
-            name,location,adminName,adminEmail,adminPassword,id
+            name,location,password,id
         }).then(res=>{
             var data=res.data.result[0];
             if(data)
@@ -56,9 +52,7 @@ function UpdateBranch(props) {
                 reset({
                     name : data.name,
                     location : data.location,
-                    adminEmail : data.admin_email,
-                    adminPassword : data.admin_password,
-                    adminName : data.admin_name
+                    password : data.password,
                 })
             }
             if(res.data.error)
@@ -77,44 +71,29 @@ function UpdateBranch(props) {
 
     return (
         <div id="formbox">  
-                
-                <div>
+                 <div>
                     {error && <h3>error occured</h3>}
                 </div>
-                <form onSubmit={handleSubmit(onSubmit)}>
-                <h2> Update BRANCH {id}</h2>
-                    <div id="row">
+                <h3> Update Branch {id}</h3>
+                <form class="branch" onSubmit={handleSubmit(onSubmit)}>
                         <div id="forminp">
                             <label>Name</label>
                             <input type="text" name="name" ref={register} />
                             {errors.name && <p>{errors.name.message}</p>}     
                         </div>
-                    </div>
-                    <div id="row">
                         <div id="forminp">
                             <label>Location</label>
                              <input type="text" name="location" ref={register} /> 
                              {errors.location && <p>{errors.location.message}</p>}
                         </div>
                         <div id="forminp">
-                            <label>Admin Name</label>
-                            <input type="text" name="adminName" ref={register} />
-                            {errors.adminName && <p>{errors.adminName.message}</p>}    
-                        </div>
-                    </div>
-                    <div id="row">
-                        <div id="forminp">
-                            <label>Admin Email</label>
-                            <input type="email" name="adminEmail" ref={register} />
-                            {errors.adminEmail && <p>{errors.adminEmail.message}</p>} 
+                            <label>Branch Manager Password</label>
+                            <input type="text" name="password" ref={register} />
+                            {errors.password && <p>{errors.password.message}</p>}   
                         </div>
                         <div id="forminp">
-                            <label>Admin Password</label>
-                            <input type="text" name="adminPassword" ref={register} />
-                            {errors.adminPassword && <p>{errors.adminPassword.message}</p>}   
+                        <input id="submitbutton"type="submit" />
                         </div>
-                    </div>
-                    <input type="submit" />
                 </form>
         </div>
     )

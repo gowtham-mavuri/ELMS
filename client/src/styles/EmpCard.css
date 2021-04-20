@@ -1,12 +1,4 @@
-*{
-    margin: 0px;
-    padding: 0px;
-}
-@import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
-body
-{
-    font-family: sans-serif;
-}
+
 #cards{
     width: 100%;
     background-color: white;
@@ -20,6 +12,7 @@ body
     margin:10px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     background-color: #f3f3f3;
+    position: relative;
 }
 
 #empl2 label,#empl4 label,#empl5 label,#empl3 label{

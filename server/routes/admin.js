@@ -10,6 +10,9 @@ var emp = require('../controllers/employeeController');
 var request = require('../controllers/requestController');
 var holiday = require('../controllers/holidaysController');
 
+//to fetch branches doest require token
+router.get('/fetchBranches',branch.branch_list);
+router.post('/PopulationBranches',utils.verifyToken,branch.branch_list_pop);
 router.get('/:email',utils.verifyToken,adm.admin_email);
 router.post('/branches',utils.verifyToken,branch.branch_list);
 router.post('/branch',utils.verifyToken,branch.branch_id);
@@ -19,6 +22,12 @@ router.post('/branchDel',utils.verifyToken,branch.del_branch);
 router.post('/holidays',utils.verifyToken,holiday.add);
 router.post('/holidaysGet',utils.verifyToken,holiday.fetch);
 router.post('/holidaysDel',utils.verifyToken,holiday.del);
+router.post('/deptAdd',utils.verifyToken,dept.add_department);
+router.post('/depts',utils.verifyToken,dept.department_list_all);
+router.post('/dept',utils.verifyToken,dept.department_list);
+router.post('/emps',utils.verifyToken,emp.emp_list_all);
 
+router.post('/reqUpdate',utils.verifyToken,request.put_request_admin);
+router.post('/reqs',utils.verifyToken,request.request_list_all_pending);
 
 module.exports = router;

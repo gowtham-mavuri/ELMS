@@ -1,82 +1,11 @@
-
-@import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
-
-#row{
-    display: block;
-    clear: both;
-}
-#formbox{
-   
-   
+.branch{
+    padding-top:0px;
     width: 100%;
-    background-color: #f3f3f3;
-    padding: 30px;
-}
-
-#formbox form{
-    padding-top: 10px;
     display: flex;
-   flex-direction: column;
-   align-items: center;
-   justify-content: center;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
-
-#forminp{
-    float: left;
-    padding: 0px 0px 20px 0px;
-}
-#forminp label{
-    display: block;
-    padding-bottom: 3px;
-}
-#forminp input[type="number"] ,input[type="text"],input[type="email"]{
-    display: block;
-    width: 300px;
-    padding: 12px 20px;
-    margin: 0px 50px 0px 0px;
-    border: 1px solid #ccc;
-    box-sizing: border-box;
-    height: 42px;
-}
-#formbox input[type=submit] {
-    display: block;
-    clear: both;
-    text-align: center;
-    width: 200px;
-    background-image: linear-gradient(#141e30, #243b55);
-    color: white;
-    margin-left: 240px;
-    border: none;
-    border-radius: 50px;
-    cursor: pointer;
-    height: 42px;
-  }
-#forminp input[type="submit"]:hover {
-    background-color: #ffffff;
-    color:black;
-}
-#forminp input[type="email"]:focus{
-    outline:none;
-    border: 1px solid black;
-}
-#forminp input[type="text"]:focus{
-    outline:none;
-    border: 1px solid black;
-}
-#forminp input[type="number"]:focus{
-    outline:none;
-    border: 1px solid black;
-}
-
-@media (max-width:991px){
-    #forminp input[type="number"] ,input[type="text"],input[type="email"]{
-        width: 400px;
-        margin: 0px;
-    }
-    #formbox h2{
-        padding-left: 120px;
-    }
-    #formbox input[type=submit]{
-        margin-left: 115px;
-    }
+.branch #forminp input[type="submit"]{
+    margin-top: 0;
 }

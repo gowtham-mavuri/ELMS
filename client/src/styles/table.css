@@ -1,36 +1,94 @@
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,600);
 
+#histo{
+  position: absolute;
+  top:140px;
+}
 
+#history{
+    position: relative;
+    left: 230px;
+    top: 60px;
+    right: 60px;
+   
+
+}
 
 #e table {
-  background: #012B39;
-  width:auto;
+  background: whitesmoke; 
+  width: 100%;
   border-radius: 0.25em;
   border-collapse: collapse;
   margin: 1em;
   align-content: center;
+  padding-right: 10px;
+  table-layout: fixed; 
+  display: block;    
+  overflow-x: scroll;
+  white-space: nowrap; 
+ 
+
 }
 #e th {
   border-bottom: 1px solid #364043;
-  color: #E2B842;
+  color: black;
   font-size: 0.85em;
   font-weight: 600;
   padding: 0.5em 1em;
   text-align: center;
+ 
 }
 #e td {
-  color: #fff;
+  color: black;
   font-weight: 400;
   padding: 0.65em 1em;
   text-align: center;
   word-break: break-all;
+ 
+  
 }
 
 #e tbody tr {
   transition: background 0.25s ease;
 }
 #e tbody tr:hover {
-  background: #014055;
+  background: #ffffff; 
 }
+
+tr:nth-child(odd) {
+  background-color: #f0ecec;
+}
+@media only screen and (max-width: 991.98px){
+  #history{
+    left: 0;
+  }
+}
+/*
+#leaves{
+  margin: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  background:whitesmoke;
+  float: left;
+  height: 125px;
+  width: 350px;
+  text-align: center;
+}
+#leaves:hover {
+  transform:scale(1.1);
+  border-style: solid;
+  border-width: 5px;
+  border-color: rgba(94, 96, 206);
+}
+
+#p2{
+    padding: 10px;
+    font-weight: 500;
+    font-size: 1.3em;
+    color: black;
+}
+
+
+*/
 
 
