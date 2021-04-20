@@ -65,7 +65,7 @@ tr:nth-child(odd) {
   #e{
     display: block;
     overflow-x: scroll;
-    left:1px;
+    left:0;
   }
 }
 /*
