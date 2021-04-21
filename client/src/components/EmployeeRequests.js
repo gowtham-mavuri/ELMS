@@ -82,35 +82,42 @@ const handlePageClick = (e) => {
         Casual Leaves Remaining : {emp.casual_leaves} <br/>
         Unpaid Leaves Taken : {emp.unpaid_leaves} <br/>
       </div>
-      <div id="reqs">
-      {data&&data.map((req)=><div id="req">
-      <ul>
-        <div id="directdiv">
-            <label id="line2"><label>ReqID:&nbsp;&nbsp;</label>{req.leave_id}</label>
-        </div>
-        <div id="directdiv">
-            <label id="line4"><label>From:&nbsp;&nbsp;</label>{moment(req.from_date).format('MM Do YYYY')}</label>
-            <label id="line4"><label>To:&nbsp;&nbsp;</label>{moment(req.to_date).format('MM Do YYYY')}</label>
-        </div>
-        <div id="directdiv">
-            <label id="line51"><label>Type:&nbsp;&nbsp;</label>{req.type}</label>
-            <label id="line52"><label>Days:&nbsp;&nbsp;</label>{req.days}</label>
-        </div>    
-        <div id="line3div">
-             <label id="line3"><label>Desc:&nbsp;&nbsp;</label>{req.description}</label>
-        </div>
-        <div  id="directdiv">
-        <label id="line2"><label>Status:&nbsp;&nbsp;</label>{req.status}</label>
-                                
-        </div>
-        <div id="line3div">
-        <label id="line2"><label>Admin Remarks:&nbsp;&nbsp;</label>{req.admin_remarks}</label>
-        </div>        
-        <div id="line3div">
-        <label id="line2"><label>Manager Remarks:&nbsp;&nbsp;</label>{req.branch_manager_remarks}</label>
-        </div>                              
-      </ul>
-    </div>)}
+      <div>
+      {data&&data.map((req)=><div>   
+     <div class="table">
+       <div id="eeee">
+                  <table>   
+                    <tbody>
+                    <tr>
+                       <th>ReqID::&nbsp;&nbsp;</th>
+                       <th>From:&nbsp;&nbsp;</th>
+                       <th>To:&nbsp;&nbsp;</th>
+                       <th>Type:&nbsp;&nbsp;</th>
+                       <th>Days:&nbsp;&nbsp;</th>
+                       <th>Desc:&nbsp;&nbsp;</th>
+                       <th>Status:&nbsp;&nbsp;</th>
+                       <th>Admin Remarks:&nbsp;&nbsp;</th>
+                       <th>Manager Remarks:&nbsp;&nbsp;</th>
+
+
+                    </tr> 
+                    <tr>
+                        <td>{req.leave_id} </td>
+                        <td>{moment(req.from_date).format('MM Do YYYY')} </td>
+                        <td>{moment(req.to_date).format('MM Do YYYY')} </td>
+                        <td> {req.type}</td>
+                        <td> {req.days}</td>
+                         <td>{req.description} </td>
+                         <td> {req.status}</td>
+                         <td> {req.admin_remarks}</td>
+                         <td>{req.branch_manager_remarks}</td>
+                      </tr>
+                    </tbody>  
+                </table>
+
+                  </div>
+                  </div>
+</div>)}
     </div>
       <div>
             <ReactPaginate
