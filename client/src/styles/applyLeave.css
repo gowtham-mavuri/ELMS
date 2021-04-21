@@ -1,42 +1,56 @@
-.tog{
-    background-color: #555555;
-    color:white;
-}
-
-#wrap-apply{
-    display: flex;
-    align-content: center;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    padding: 10px;
-    margin-top: 20px;
+.leave{
+    padding: 30px 50px 20px 50px;
+    position: relative;
+    margin-left: 230px;
 }
 .top{
     position: relative;
-  padding: 0;
-  margin: 0;
-  display: flex;
+    padding: 0;
+    margin: 0;
+    display: flex;
     flex-direction: row;
-  justify-content: center;
-  align-items: center;
+    justify-content: center;
+    align-items: center;
 }
 .top h3{
+    text-align: center;
+    font-size: 30px;
+    font-weight: normal;
+    color: #555555;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     align-self: center;
 }
-.top l{
+.top button{
     position: absolute;
-    top: 0;
-    right: 40px;
+    right: 10px;
+    background-color: #555555;
+    color:white;
+    align-self: center;
+    justify-self: center;
+    width: 200px;
+    height: 30px;
+    border-radius: 7px;
+    outline: none;
+    cursor: pointer;
+    text-align: center;
 }
-.top r{
-    position: absolute;
-    top: 0;
-     right: 0;
+.top .navbar-toggler{
+    font-size: 15px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+#wrap-apply{
+    margin-top: 10px;
 }
 .apply{
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
+    justify-content:center;
+}
+.first-part{
+    margin-right: 30px;
+}
+.second-part{
+    margin-left: 30px;
 }
 #forminp-apply{
     padding: 10px 0px;
@@ -57,12 +71,6 @@
     border-radius: 7px;
     margin-bottom: 10px;
 }
-#forminp-calen label{
-    display: block;
-    font-size: 14px;
-    padding-bottom: 3px;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-}
 #forminp-apply textarea{
     display: block;
     width: 300px;
@@ -71,17 +79,12 @@
     border: 1px solid #ccc;
     box-sizing: border-box;
     height: 100px;
-    float: left;
-    margin-bottom: 20px;
     font-size: 15px;
+    border-radius: 7px;
 }
 #forminp-apply input[type="submit"]{
-    margin-top: 25px;
-    padding: 0;
     display: block;
     width: 300px;
-    padding: 12px 20px;
-    margin-right: 15px;
     border: 1px solid #ccc;
     box-sizing: border-box;
     height: 35px;
@@ -91,12 +94,11 @@
     outline: none;
     color: white;
     border: none;
-    border-radius: 50px;
+    border-radius: 7px;
     cursor: pointer;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    border-radius: 7px;
 }
-#forminp-apply select:focus{
+#forminp-apply select:focus,#forminp-apply textarea:focus{
     outline:none;
     border: 1px solid #555555;
 }
@@ -105,6 +107,21 @@
 }
 #forminp-apply select option:not(:first-child){
 	color:black;
+}
+/*from to calendar*/
+.calen{
+    box-shadow: 8px 8px 8px 8px rgb(1 1 1 / 20%);
+    padding: 10px;
+    border-radius: 10px;
+    height: 375px;
+}
+#forminp-calen label{
+    display: block;
+    font-size: 14px;
+    padding: 5px;
+    text-align: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin-bottom: 10px;
 }
 #forminp-calen select{
     width: 100px;
@@ -119,6 +136,7 @@
 }
 .rdrMonthsVertical{
     align-items: center;
+    height: 247px;
 }
 .rdrMonthPicker select,.rdrYearPicker select{
     padding: 0;
@@ -126,7 +144,6 @@
 .rdrCalendarWrapper {
     width: 300px;
 }
-
 .rdrDateDisplay {
     margin: 1px;
 }
@@ -162,13 +179,39 @@
     box-shadow: 8px 8px 8px 8px rgb(1 1 1 / 20%);
     padding: 10px;
     border-radius: 10px;
+    width: 300px;
+    position: absolute;
+    top: 80px;
+    right: 15px;
+    background-color: white;
+    display: none;
 }
-#leavecalender  .react-calendar{
-    width: 270px;
+@media only screen and (max-width: 991.98px){
+    .leave{
+        margin-left: 50px;
+    }
 }
-
-.calen{
-    box-shadow: 8px 8px 8px 8px rgb(1 1 1 / 20%);
-    padding: 10px;
-    border-radius: 10px;
+@media (max-width:840px){
+    .apply{
+        flex-direction: column;
+        align-content: center;
+    }
+    .first-part{
+        margin-right: 0;
+    }
+    .second-part{
+        margin-left: 0;
+        margin-top: 30px;
+    }
+    .top{
+        flex-direction: column;
+    }
+    .top button{
+        position: relative;
+    }
+    #leavecalender-apply{
+        position: absolute;
+        right: 115px;
+        top:110px;
+    }
 }

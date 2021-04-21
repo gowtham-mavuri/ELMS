@@ -100,37 +100,16 @@ function ApplyLeave(props) {
   </div>
   return (
     <div class="leave">  
-    <div class="top">
-        <h3>Apply Leave</h3>
-        <button class="navbar-toggler l tog" type="button" data-bs-toggle="collapse" data-bs-target="#leavecalender-apply" aria-controls="leavecalender-apply" aria-expanded="false" aria-label="Toggle navigation">
-          <span >leave calender</span>
-        </button>
-        <button class="navbar-toggler r" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-    </div>
+      <div class="top">
+          <h3>Apply Leave</h3>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#leavecalender-apply" aria-controls="leavecalender-apply" aria-expanded="false" aria-label="Toggle navigation">
+            <span >Holidays calender</span>
+          </button>
+      </div>
       <div id="wrap-apply">
         <div>
         <form  class="apply" onSubmit={handleSubmit(onSubmit)}>
-            <div>
-              <div id="forminp-apply">
-                  <label>Type</label>
-                      <select required name="type" ref={register}>
-                        <option  hidden disabled selected value="">--select leave type--</option>
-                        <option value="sick" id="sick">Sick Leave</option>
-                        <option value="casual" id="casual">Casual Leave</option>
-                      </select>    
-              </div>
-              <div id="forminp-apply">
-                  <label>Description</label>
-                  <textarea  name="desc" ref={register}></textarea>
-              </div>  
-              <div id="forminp-apply">
-                  <input type="submit" />
-              </div> 
-            </div>
-          
-            <div class="middle-part">
+            <div class="first-part">
             <div id="forminp-calen">
                 <label>Select start and end date</label>
                 <div class="calen">
@@ -149,20 +128,31 @@ function ApplyLeave(props) {
                   />
                 </div>
                 </div>
-            </div>   
-           
-            
+              </div>   
+            </div>
+            <div class="second-part">
+              <div id="forminp-apply">
+                  <label>Type</label>
+                      <select required name="type" ref={register}>
+                        <option  hidden disabled selected value="">--select leave type--</option>
+                        <option value="sick" id="sick">Sick Leave</option>
+                        <option value="casual" id="casual">Casual Leave</option>
+                      </select>    
+              </div>
+              <div id="forminp-apply">
+                  <label>Description</label>
+                  <textarea  name="desc" ref={register}></textarea>
+              </div>  
+              <div id="forminp-apply">
+                  <input type="submit" />
+              </div> 
             </div>       
         </form>
         </div>
       </div>
-      <div id="formin"> 
-        
-        <h4>Holidays calender</h4>
-            <div id="leavecalender-apply">
-                <Calendar />
-            </div> 
-      </div>
+      <div id="leavecalender-apply">
+          <Calendar />
+      </div>       
                 
     </div>
   )
