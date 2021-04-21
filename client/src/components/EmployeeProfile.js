@@ -35,19 +35,19 @@ function EmployeeProfile() {
     <div class="card mb-0">
       <div class="card-body">
         <div class="row">
-          <div class="col-md-12">
+          <div class="col-md-6">
             <div class="profile-view">
               <div class="profile-basic">
                   <div class="row">
-                  <div class="col-md-5">
+                  <div class="col-md-6">
                     <div class="profile-into-left">
-                    <h3 class="user-name m-t-0 mb-0"><label>Name:&nbsp;&nbsp;</label>{emp.first_name+" "+emp.last_name}</h3>
+                    <h3 class="user-name m-t-0 mb-0"><label>&nbsp;&nbsp;</label>{emp.first_name+" "+emp.last_name}</h3>
                       <div class="staff-id"><label>Branch Code:&nbsp;&nbsp;</label>{emp.branch_id}</div>
                       <div class="staff-id"><label>Dept Code:&nbsp;&nbsp;</label>{emp.dept_code}</div>
                       <div class="staff-id"><label>Emp Id:&nbsp;&nbsp;</label>{emp.emp_id}</div>
                       <h6 class="text-muted"><label>Role:&nbsp;&nbsp;</label>{emp.role}</h6>
                       
-                      <div class="col-md-7">
+                      <div class="col-md-6">
                         <ul class="personal-info">
                           <li> <div class="title"><label>Email:&nbsp;&nbsp;</label>{emp.email}</div></li>
                           <li> <div class="title"><label>Gender:&nbsp;&nbsp;</label>{emp.gender}</div></li>

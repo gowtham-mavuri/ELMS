@@ -6,7 +6,7 @@ mysql.configure(
         host:"localhost",
         password:"priya",
         database:"elmsdb",
-        password:"1234",
+     /*   password:"1234", */
         timezone:'utc'
     }
 );
