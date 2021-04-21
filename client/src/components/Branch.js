@@ -31,13 +31,12 @@ function Branch(props) {
 
     if(del) return <div></div>
     return (
-        <tr >
+        <tr>
             <td>{b.branch_id}</td>
             <td>{b.name}</td>
             <td>{b.location}</td>
-            <td><Link to={`/AdminDashboard/update/${b.branch_id}`}>Update</Link></td>
-            
-            <td><button onClick={handleDelete} disabled={loading}>delete</button></td>
+            <td><div class="table-button"><Link to={`/AdminDashboard/update/${b.branch_id}`}>Update</Link></div></td>
+            <td><div class="table-button"><button onClick={handleDelete} disabled={loading}>Delete</button></div></td>
         </tr>
     )
 }
