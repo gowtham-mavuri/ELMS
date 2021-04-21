@@ -1,4 +1,4 @@
-#histo{
+/* #histo{
   display: flex;
   align-content: center;
   width: 100%;
@@ -10,7 +10,8 @@
 
 
 #f table {
-  background: whitesmoke; 
+  background: #eafaec; 
+  border-radius: 7px;
   width: 100%;
   border-radius: 0.25em;
   border-collapse: collapse;
@@ -21,18 +22,21 @@
 }
 #f th {
   border-bottom: 1px solid #364043;
-  color: black;
-  font-size: 0.85em;
-  font-weight: 600;
+  color:  white;
+  font-size: 15px;
+  font-weight: 540;
   padding: 0.5em 1em;
   text-align: center;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 #f td {
-  color: black;
-  font-weight: 400;
+ color: black; 
+  font-weight: 540;
   padding: 0.65em 1em;
   text-align: center;
   word-break: break-all;
+  white-space: nowrap;
+  font-family: Verdana, Geneva, Tahoma, sans-serif; 
   
 }
 
@@ -40,17 +44,22 @@
   transition: background 0.25s ease;
 }
 #f tbody tr:hover {
-  background: #ffffff; 
+  background: #4bd171; 
 }
 
 #f tr:nth-child(odd) {
-  background-color: #f0ecec;
+  background-color: #4CAF50;
+  color: white;
 }
-@media only screen and (max-width: 991.98px){
+@media only screen and (max-width: 1125px){
   #history{
+    display: block;
+    overflow-x: scroll;
     left: 0;
   }
-}
+} */
+
+
 /*
 #leaves{
   margin: 10px;
@@ -119,3 +128,57 @@
   #d td input {
     width: auto;
   }*/
+
+  #ee{
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    padding-top: 20px;
+  }
+  #ee table {
+    background: #eafaec; 
+    border-radius: 7px;
+    overflow:hidden;
+    border-collapse: collapse;
+    margin: 1em;
+    align-content: center;
+    padding-right: 10px;
+    
+  }
+  #ee th {
+    color: white;
+    font-size: 15px;
+    font-weight: 540;
+    padding: 0.5em 1em;
+    text-align: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+  }
+  #ee td {
+    white-space: nowrap;
+    font-size: 14px;
+    font-weight: 540;
+    padding: 0.65em 1em;
+    text-align: center;
+    word-break: break-all;
+    font-family: Verdana, Geneva, Tahoma, sans-serif; 
+    
+  }
+  
+  #ee tr {
+    border-style:hidden;
+  }
+  
+  #ee tr:nth-child(odd) {
+    background-color: #4CAF50;
+    color: white;
+  }
+  @media only screen and (max-width: 991.98px){
+    
+  }
+  @media only screen and (max-width:1125px){
+    #ee{
+      display: block;
+      overflow-x: scroll;
+      left:0px;
+    }
+  }

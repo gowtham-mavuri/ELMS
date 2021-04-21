@@ -79,7 +79,7 @@ function Branches() {
       <div>
         {error&&<p>Error Occured</p>}
       </div>
-      <div id="b">
+      <div id="bb">
       <div>
         <input type="text" value={searchTerm} onChange={(e)=>setSearchTerm(e.target.value)} placeholder="Search for branch"/>
       </div>
@@ -94,7 +94,9 @@ function Branches() {
             <th>Delete</th>
           </thead>
         </div>
-          <BranchContainer branchList={dynamicSearch() } />
+    
+       <BranchContainer branchList={dynamicSearch() } />  
+        
         </table>
       </div>
       <div>
