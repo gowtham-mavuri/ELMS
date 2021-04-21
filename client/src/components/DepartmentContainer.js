@@ -4,11 +4,11 @@ import Department from './Department';
 function DepartmentContainer(props) {
 
     return (
-        <td>
+        <tbody>
             {props.deptList&&props.deptList.map((dept)=>
             <Department key={dept.code} dept={dept}/>)
             }
-        </td>
+        </tbody>
         
     )
     

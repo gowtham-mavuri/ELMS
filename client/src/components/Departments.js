@@ -67,17 +67,14 @@ function Departments() {
       <div id="table">
         <div id="e">
         <table>
-        <tbody>
-          <tr>
-            <th>Branch ID</th>
+        <tr>
             <th>Code</th>
             <th>Name</th>
             <th>Short Name</th>
-          </tr>
-        <tr>
-        <DepartmentContainer deptList={dynamicSearch() } />
+            <th>Update</th>
+            <th>Delete</th>
         </tr>
-        </tbody>
+        <DepartmentContainer deptList={dynamicSearch() } />
         </table>
         </div>
       
