@@ -35,27 +35,46 @@ function EmployeeProfile() {
     <div class="card mb-0">
       <div class="card-body">
         <div class="row">
-          <div class="col-md-6">
+          <div class="col-md-12">
             <div class="profile-view">
               <div class="profile-basic">
                   <div class="row">
-                  <div class="col-md-6">
+                  <div class="col-md-5">
                     <div class="profile-into-left">
-                    <h3 class="user-name m-t-0 mb-0"><label>&nbsp;&nbsp;</label>{emp.first_name+" "+emp.last_name}</h3>
-                      <div class="staff-id"><label>Branch Code:&nbsp;&nbsp;</label>{emp.branch_id}</div>
-                      <div class="staff-id"><label>Dept Code:&nbsp;&nbsp;</label>{emp.dept_code}</div>
-                      <div class="staff-id"><label>Emp Id:&nbsp;&nbsp;</label>{emp.emp_id}</div>
-                      <h6 class="text-muted"><label>Role:&nbsp;&nbsp;</label>{emp.role}</h6>
-                      
-                      <div class="col-md-6">
+                    <h3 class="user-name m-t-0 mb-0">{emp.first_name+" "+emp.last_name}</h3>
+                      <div class="text-muted"><label>Role:&nbsp;&nbsp;</label>
+                         <span class="text-area">{emp.role}</span></div>
+                      <div class="text-muted"><label>Emp Id:&nbsp;&nbsp;</label> 
+                        <span class="text-area">{emp.emp_id}</span></div>
+                      <div class="text-muted"><label>Branch Code:&nbsp;&nbsp;</label>
+                        <span class="text-area">{emp.branch_id}</span></div>
+                      <div class="text-muted"><label>Dept Code:&nbsp;&nbsp;</label>
+                          <span class="text-area">{emp.dept_code}</span></div>
+                    </div>                  
+                  </div> 
+                      <div class="col-md-7">
                         <ul class="personal-info">
-                          <li> <div class="title"><label>Email:&nbsp;&nbsp;</label>{emp.email}</div></li>
-                          <li> <div class="title"><label>Gender:&nbsp;&nbsp;</label>{emp.gender}</div></li>
-                          <li> <div class="title"><label>Phone:&nbsp;&nbsp;</label>{emp.phone_number}</div></li>
-                          <li><div class="title"><label>DOB:&nbsp;&nbsp;</label>{moment(emp.dob).format('YYYY-MM-DD')}</div></li>
-                          <li> <div class="title"><label>Country:&nbsp;&nbsp;</label>{emp.country}</div></li>
-                          <li> <div class="title"><label>City:&nbsp;&nbsp;</label>{emp.city}</div></li>
-                          <li> <div class="title"><label>Address:&nbsp;&nbsp;</label>{emp.address}</div></li>
+                          <li> <div class="title"><label>Phone:&nbsp;&nbsp;</label></div>
+                                <div class="text"><a href>{emp.phone_number}</a></div>
+                          </li>
+                          <li> <div class="title"><label>Email:&nbsp;&nbsp;</label></div>
+                               <div class="text"><a href>{emp.email}</a></div>                        
+                          </li>
+                          <li> <div class="title"><label>Gender:&nbsp;&nbsp;</label></div>
+                               <div class="text">{emp.gender}</div>
+                          </li>
+                          <li><div class="title"><label>DOB:&nbsp;&nbsp;</label></div>
+                               <div class="text">{moment(emp.dob).format('YYYY-MM-DD')}</div>
+                          </li>
+                          <li> <div class="title"><label>Country:&nbsp;&nbsp;</label></div>
+                               <div class="text">{emp.country}</div>
+                          </li>
+                          <li> <div class="title"><label>City:&nbsp;&nbsp;</label></div>
+                               <div class="text">{emp.city}</div>
+                          </li>
+                          <li> <div class="title"><label>Address:&nbsp;&nbsp;</label></div>
+                               <div class="text">{emp.address}</div>
+                          </li>
                         </ul>
                       </div>
                     </div>
@@ -64,8 +83,8 @@ function EmployeeProfile() {
               </div>
             </div>
           </div>
-        </div>
-      </div>
+        
+      
       <div id="leaves">
           <div><label id="p2">Casual Leaves Remaining</label><label id="numl">{emp.casual_leaves}</label></div>
       </div>
@@ -76,8 +95,8 @@ function EmployeeProfile() {
           <div><label id="p2">Unpaid Leaves Taken</label><label id="numl">{emp.unpaid_leaves} </label></div>
       </div>
   </div>
-
-  </div>
+</div>
+  
     )
 
 }
