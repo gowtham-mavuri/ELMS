@@ -57,19 +57,18 @@ function Employees() {
   }
   else
   return (
-    <div>
+    <div id="bb">
       <div>
         {error&&<p>Error Occured</p>}
       </div>
      
-      <div>
+      <div class="searchbar">
             <select onChange={(e)=>setSearchBranch(e.target.value)} >
               <option selected value="ALL" id="ALL"> ALL BRANCHES </option>
               { branches.map((branch)=><option value={branch.branch_id} id={branch.branch_id}>{branch.name}</option>) }
             </select>
       </div>
-      <div>
-        <h3>Search For An Employee</h3>
+      <div class="searchbar">
         <input  type="text" value={searchTerm} onChange={(e)=>setSearchTerm(e.target.value)} placeholder="Search for an employee name"/>
       </div>
       <div>

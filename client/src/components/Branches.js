@@ -93,9 +93,7 @@ function Branches() {
             <th>Update</th>
             <th>Delete</th>
             </tr>
-            
             <BranchContainer branchList={dynamicSearch() } />
-            
           </tbody>
         </table>
       </div>

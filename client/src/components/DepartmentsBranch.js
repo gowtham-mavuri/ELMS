@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Department from './Department';
 
-import '../styles/addDeptForm.css'
 import '../styles/deptTable.css'
 
 function DepartmentsBranch(props) {
