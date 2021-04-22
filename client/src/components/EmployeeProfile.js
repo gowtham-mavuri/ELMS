@@ -79,9 +79,22 @@ function EmployeeProfile() {
               </div>
             </div>
           </div>
-        
-      
   </div>
+  <div class="leaves-profile">
+      <div class="leave-profile">
+        <label class="leave-head">Casual Leaves Remaining</label>
+        <label class="leave-data">{emp.casual_leaves}</label>
+      </div>
+      <div class="leave-profile">
+        <label class="leave-head">Sick Leaves Remaining</label>
+        <label class="leave-data">{emp.sick_leaves}</label>
+      </div>
+      <div class="leave-profile">
+        <label class="leave-head">Unpaid Leaves Taken</label>
+        <label class="leave-data">{emp.unpaid_leaves} </label>
+      </div>
+  </div>
+ 
 </div>
   
     )

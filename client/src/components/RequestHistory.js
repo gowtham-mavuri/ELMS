@@ -51,18 +51,9 @@ const handlePageClick = (e) => {
   setOffset(selectedPage )
 };
 
-/*
-            require followin statements
-</div>
-<div id="leaves">
-    <div><label id="p2">Casual Leaves Remaining</label><label id="numl">{emp.casual_leaves}</label></div>
-</div>
-<div id="leaves">
-    <div><label id="p2">Sick Leaves Remaining</label><label id="numl">{emp.sick_leaves}</label></div>
-</div>
-<div id="leaves">
-    <div><label id="p2">Unpaid Leaves Taken</label><label id="numl">{emp.unpaid_leaves} </label></div>
-</div>*/
+
+            
+
 
 
 if(loading)
@@ -71,6 +62,7 @@ if(loading)
 }
 else
 return (
+  
   <div id="history">
   <div class="table">
     <div>
