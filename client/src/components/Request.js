@@ -66,24 +66,7 @@ function Request (props)
     }
 
 
-    return (
-        <div id="bb" class="req">
-            <div class="branch-table">
-            <table>   
-              <tr>
-                 <th>ReqID</th>
-                 <th>EmpID</th>
-                 <th>Dept Code</th>
-                 <th>Name</th>
-                 <th>From</th>
-                 <th>To</th>
-                 <th>Type</th>
-                 <th>Days</th>
-                 <th>Desc</th>
-                 <th>Admin Remarks</th>
-                 <th>Requests</th>
-                </tr>
-            
+    return (  
               <tr>
                   
                   <td>{req.leave_id} </td>
@@ -96,70 +79,43 @@ function Request (props)
                   <td>{req.days}</td>
                   <td>{req.description}</td>
                   <td>{req.admin_remarks}</td>
-                  <td><div class="table-button"><Link to={`/SubadminDashboard/emp/reqs/${req.emp_id}`}>Requests</Link></div></td>
-              </tr>
-              <tr>
                   
-              {(req.status==="pending")&&
-                 <div class="request">
-            <td>
-            <label>Status</label>
-                            <select required id="status" onChange={e=>setStatus(e.target.value)}>
-                            <option hidden disabled selected value> --select an option-- </option>
+             
+                {(req.status==="pending")&&
+                 <div class="req-div">
+                       <div class="req-status-branch">
+                            <select required  onChange={e=>setStatus(e.target.value)}>
+                            <option hidden disabled selected value>-select-</option>
                             <option value="accepted">Accept</option>
                             <option value="rejected">Reject</option>
                         </select>
-            </td>
-            <td>
-            <div>
-                        <label>Remarks</label>
+                        </div>
+                        <div class="req-remarks-branch">
                         <input type="text" id={req.leave_id} onChange={e=>setRemarks(e.target.value)}/>
+                      </div>
+                        <button class="table-button req-update" onClick={handleUpdate} disabled={loading}>Update Status</button>
                     </div>
-            </td>
-                        
-                    
-                    <button onClick={handleUpdate} disabled={loading}>Update Status</button>
-                 </div>
-                 
-                    
                     }
-
                     {(req.status!=="pending")&&
-                        <div class="request">
-                            <td>
-                                <label id="line2"><label>Status:&nbsp;&nbsp;</label>{req.status}</label>                          
+                        <div class="req-div-after">
+                            <div class="req-status-after-branch">
+                            <label>{req.status}</label>
+                            </div>                
                             {(req.status==="accepted")&&(req.branch_manager_remarks==="------")&&
-                                <div>
-                                    <div id="line6">
-                                        <label>Remarks</label>
+                                <div class="req-remarks">
                                         <input type="text" id={req.leave_id} onChange={e=>setRemarks(e.target.value)}/>
-                                    </div>
-                                    <button id="line7" onClick={handleUpdateRemarks} disabled={loading}>Update Remarks</button>
-                                </div>
-                                
-                            }
-                            </td>
-                            
+                                        <button class="table-button req-update-branch" onClick={handleUpdateRemarks} disabled={loading}>Update Remarks</button>
+                                </div>}              
                             {(req.branch_manager_remarks!=="------")&&
-                            <div>
-                                <label id="line2"><label>Manager Remarks:&nbsp;&nbsp;</label>{req.branch_manager_remarks}</label>   
-                            </div> 
+                                <div class="req-remarks-after">
+                                <label>{req.branch_manager_remarks}</label> 
+                                </div>   
                             }
                             
                         </div>
                          }
-                          
+                          <td><div class="table-button"><Link to={`/SubadminDashboard/emp/reqs/${req.emp_id}`}>Requests</Link></div></td>
               </tr>
-               
-</table>
-
-                    
-                    
-
-                   
-               
-        </div>
-        </div>
             
     )
 }

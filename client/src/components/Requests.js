@@ -53,13 +53,33 @@ function Requests() {
         {error&&<p>Error Occured</p>}
       </div>
       <div id="bb">
-      <div>
-            <select onChange={(e)=>setSearchBranch(e.target.value)} >
-              <option selected value="ALL" id="ALL"> ALL BRANCHES </option>
-              { branches.map((branch)=><option value={branch.branch_id} id={branch.branch_id}>{branch.name}</option>) }
-            </select>
-      </div>
-          <RequestContainer reqList={dynamicSearch() } />
+        <div class="dropdown-table searchbar">
+              <select onChange={(e)=>setSearchBranch(e.target.value)} >
+                <option selected value="ALL" id="ALL">All branches</option>
+                { branches.map((branch)=><option value={branch.branch_id} id={branch.branch_id}>{branch.name}</option>) }
+              </select>
+        </div>
+        <div class="branch-table">
+              <table>   
+                <tr>
+                  <th>ReqID</th>
+                  <th>EmpID</th>
+                  <th>Dept Code</th>
+                  <th>Name</th>
+                  <th>From</th>
+                  <th>To</th>
+                  <th>Type</th>
+                  <th>Days</th>
+                  <th>Description</th>
+                  <div class="together-head">
+                  <th>Status</th>
+                  <th>Manger Remarks</th>
+                  </div>
+                  <th>Requests</th>
+                </tr> 
+                <RequestContainer reqList={dynamicSearch() } />
+            </table>
+        </div>
       </div>
     </div>
   );

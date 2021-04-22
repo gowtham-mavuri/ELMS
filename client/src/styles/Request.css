@@ -1,0 +1,91 @@
+.together-head{
+    display: flex;
+    align-content: center;
+    justify-content: space-around;
+}
+.req-status select{
+    width: 120px;
+    border: 1px solid #ccc;
+    border-radius: 7px;
+    margin-top: 6px;
+    font-size: 15px;
+}
+.req-status select:focus,.req-remarks input[type="text"]:focus,.req-status-branch select:focus,
+.req-remarks-branch input[type="text"]:focus{
+    outline:none;
+    border: 1px solid #555555;
+}
+.req-status select option:not(:first-child){
+	color:black;
+}
+.req-status select:required:invalid {
+	color: gray;
+}
+.req-remarks input[type="text"]{
+    width: 150px;
+    border: 1px solid #ccc;
+    border-radius: 7px;
+    margin-top: 6px;
+    padding: 2px;
+    font-size: 13px;
+}
+.req-update{
+    font-size: 15px;
+    width: 160px;
+    padding: 0px 10px;
+    color: white;
+    margin: 6px 0px 4px 0px;
+}
+.req-status-after{
+    margin-top: 7px;
+    text-align: center;
+    font-size: 16px;
+}
+.req-remarks-after{
+    margin-top: 6px;
+    padding: 2px;
+    text-align: center;
+    font-size: 15px;
+}
+.req-div{
+    display: flex;
+    align-content: center;
+    justify-content: space-around;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.req-div-after{
+    display: flex;
+    align-content: center;
+    justify-content: space-around;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+.req-update-branch{
+    font-size: 15px;
+    width: 150px;
+    padding: 0px 10px;
+    color: white;
+    margin: 6px 0px 4px 0px;
+}
+.req-status-after-branch{
+    margin-top: 7px;
+    text-align: center;
+    font-size: 16px;
+    margin-right: 35px;
+}
+.req-remarks-branch input[type="text"]{
+    width: 110px;
+    border: 1px solid #ccc;
+    border-radius: 7px;
+    margin-top: 6px;
+    padding: 2px;
+    font-size: 13px;
+}
+.req-status-branch select{
+    width: 110px;
+    border: 1px solid #ccc;
+    border-radius: 7px;
+    margin-top: 6px;
+    font-size: 14px;
+}

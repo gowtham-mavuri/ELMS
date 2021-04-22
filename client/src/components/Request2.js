@@ -41,27 +41,7 @@ function Request2 (props)
 
 
     return (
-
-        <div>
-        <div id="e">
-            <table>   
-              <tr>
-                 <th>ReqID:&nbsp;&nbsp;</th>
-                 <th>EmpID:&nbsp;&nbsp;</th>
-                 <th>Dept Code:&nbsp;&nbsp;</th>
-                 <th>Name:&nbsp;&nbsp;</th>
-                 <th>From:&nbsp;&nbsp;</th>
-                 <th>To:&nbsp;&nbsp;</th>
-                 <th>Type:&nbsp;&nbsp;</th>
-                 <th>Days:&nbsp;&nbsp;</th>
-                 <th>Desc:&nbsp;&nbsp;</th>
-                 <th>Admin Remarks:&nbsp;&nbsp;</th>
-                 
-                 
-
-
-              </tr> 
-              <tr>
+        <tr>
                   <td>{req.leave_id} </td>
                   <td>{req.emp_id} </td>
                   <td>{req.dept_code} </td>
@@ -71,48 +51,36 @@ function Request2 (props)
                   <td>{req.type}</td>
                   <td>{req.days}</td>
                   <td>{req.description}</td>
-                  <td>{req.admin_remarks}</td>
-                  
-    
-                    </tr>
-</table>
-
-</div>
-    
-                    {(req.status==="pending")&&<div>
-                    
-                    <div  id="line6">
-                        <label>Status</label>
+            
+                  {(req.status==="pending")&&
+                  <div class="req-div">
+                    <div class="req-status">
                             <select required id="status" onChange={e=>setStatus(e.target.value)}>
-                            <option hidden disabled selected value> --select an option-- </option>
+                            <option hidden disabled selected value>-select-</option>
                             <option value="accepted">Accept</option>
                             <option value="rejected">Reject</option>
                         </select>
                     </div>
-                    <div id="line6">
-                        <label>Remarks</label>
+                    <div class="req-remarks">
                         <input type="text" id={req.leave_id} onChange={e=>setRemarks(e.target.value)}/>
                     </div>
-                    <button id="line7" onClick={handleUpdate} disabled={loading}>Update Status</button>
+                    <button class="table-button req-update" onClick={handleUpdate} disabled={loading}>Update Status</button>
                     
                     </div>}
 
                     {(req.status!=="pending")&&
-                        <div>
-                        <div  id="directdiv">
-                        <label id="line2"><label>Status:&nbsp;&nbsp;</label>{req.status}</label>
-                                                
+                        <div class="req-div">
+                        <div class="req-status-after">
+                        <label>{req.status}</label>                
                         </div>
-                        <div id="line3div">
-                        <label id="line2"><label>Remarks:&nbsp;&nbsp;</label>{req.admin_remarks}</label>
-                            
+                        <div  class="req-remarks-after">
+                        <label>{req.admin_remarks}</label>
                         </div> 
                         </div>
                     }
-                        
-                    <button id="line7"><Link to={`/AdminDashboard/emp/reqs/${req.emp_id}`}>Requests</Link></button>
+                    <td><button class="table-button"><Link to={`/AdminDashboard/emp/reqs/${req.emp_id}`}>Requests</Link></button></td>
               
-        </div>
+              </tr>
     )
 }
 

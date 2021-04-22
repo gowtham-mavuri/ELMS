@@ -1,203 +1,79 @@
-<<<<<<< HEAD
+#outdiv{
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 30px 50px 50px 50px;
+}
+#outdiv .h33{
+  text-align: center;
+  font-size: 30px;
+  font-weight: normal;
+  color: #555555;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  margin-bottom: 20px;
+}
 .card
 {
-  border: 1px solid #ededed;
-  box-shadow: 0 1px 1px 0 rgb(0 0 0 / 20%);
-  position: relative;
+  box-shadow: 8px 8px 8px 8px rgb(1 1 1 / 20%);
   display: flex;
   flex-direction: column;
-  min-width: 0;
   word-wrap: break-word;
   background-color: #fff;
   background-clip: border-box;
   border-radius: .25rem;
-  width:70%
+  padding: 25px;
+  margin: 0px 110px 0px 100px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 .card-body
 {
   flex: 1 1 auto;
   padding: 1.25rem;
 }
-/*.row
-{
-  display: flex;
-  flex-wrap: wrap;
-  margin-right: -15px;
-  margin-left: -15px;
-}*/
-.profile-view .profile-basic {
-  margin-left: 140px;
-  padding-right: 50px;
-}
-@media (max-width:768px)
-{
-  .profile-info-left
-  {
-  border-bottom:2px dashed black;
-  }
-}
-/*.col-md-12
-{
-  flex: 0 0 100%;
-  max-width:100%;
-  position:relative;
-  width: 100%;
-  padding-right: 15px;
-  padding-left: 15px;
-}
-.col-md-5
-{
-  flex: 0 0 41.666667%;
-  max-width:41.666667%;
-  position:relative;
-  width: 100%;
-  padding-right: 15px;
-  padding-left: 15px;
-}
-.col-md-7
-{
-  flex: 0 0 58.333333%;
-  max-width:58.333333%;
-  position:relative;
-  width: 100%;
-  padding-right: 15px;
-  padding-left: 15px;
-}*/
+
 .profile-view
 {
   position:relative;
 }
-.profile-into-left
-{
-  border-right: 2px dashed #000;
+.left{
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: right;
+}
+.right-p{
+  border-left: 2px dashed #555555;
+  font-size: 14px;
 }
 .user-name
 {
-  color:#333;
+  color:#555555;
   margin-bottom: 30px;
-  font-weight: bold;
-  line-height: 2;
+  line-height: 1.7;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
-.text-muted
+.text-muted-p
 {
-  color:grey;
+  color:#555555;
   line-height:1.2;
-  font-size:20px;
+  font-size:17px;
   margin-bottom:10px;
-  font-weight: bold;
-  
-  
-  
-=======
-
-.mb-0, .my-0 {
-    margin-bottom: 0!important;
-}
-.card {
-    position: relative;
-    min-width: 0;
-    word-wrap: break-word;
-    background-color: #fff;
-    background-clip: border-box;
-    border: 1px solid rgba(0,0,0,.125);
-    border-radius: .25rem;
-     width:50%;
-     float:left;
-}
-.card-body {
-    -ms-flex: 1 1 auto;
-    flex: 1 1 auto;
-    min-height: 1px;
-    padding: 1.25rem;
-}
-.row {
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-wrap: wrap;
-    flex-wrap: wrap;
-    margin-right: -15px;
-    margin-left: -15px;
-}
-
-.col-md-12 , .col-md-5 , .col-md-7{
-    position: relative;
-    width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
-}
-
-.profile-view .profile-basic {
-    margin-left: 10;
-    padding-right: 10;
-    margin-top: 15px;
-     position: relative
-}
-
-
-
-
-.profile-info-left {
-    text-align: center;
-
-}
-
-.profile-info-left {
-    border-right: none;
-    border-bottom: 2px dashed #ccc;
-    margin-bottom: 20px;
-    padding-bottom: 20px;
-}
-
-.profile-info-left {
-    border-right: none;
-    border-bottom: 2px dashed #ccc;
-    margin-bottom: 20px;
-    padding-bottom: 20px;
-}
-.profile-info-left {
-    border-right: 2px dashed #ccc;
-}
-.user-name {
-    color: #333;
-}
-.m-t-0 {
-    margin-top: 0 !important;
-}
-
-.text-muted {
-    color: #8e8e8e !important;
->>>>>>> 1a13e78fd151f9428eb4a19fb6189a28196e06f6
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: 550;
 }
 .text-area
 {
-  font-size:20px;
-  color:black;
+  font-size:17px;
+  color:#8e8e8e;
   overflow: hidden;
-  
-
-<<<<<<< HEAD
-=======
-
-small {
-    font-size: 80%;
-}
-.staff-id {
-    font-size: 14px;
-    font-weight: 500;
-    margin-top: 5px;
-}
-.personal-info {
-    list-style: none;
-    margin-bottom: 0;
-    padding: 0;
->>>>>>> 1a13e78fd151f9428eb4a19fb6189a28196e06f6
-
 }
 .personal-info
 {
   list-style:none;
   margin-bottom:0;
-  padding:0;
+  padding:px 0px 0px 40px;
 }
 .personal-info li
 {
@@ -218,10 +94,25 @@ small {
   display: block;
   overflow: hidden;
 }
-.text a:hover
+
+@media (max-width:768px)
 {
-  color: #007bff;
-  text-decoration: none;
-  
-  cursor:pointer;
+  .right-p
+  {
+  border-top:2px dashed #555555;
+  border-left: none;
+  }
+  .personal-info{
+    padding-top: 20px;
+  }
+  .card{
+    margin: 0;
+  }
+  .left{
+    text-align: center;
+  }
+  .right-p{
+    margin: auto;
+    padding-left: 0%;
+  }
 }
