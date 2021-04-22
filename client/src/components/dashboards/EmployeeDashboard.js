@@ -22,8 +22,7 @@ function EmployeeDashboard(props) {
   }
  
   return (
-    <div>
-      
+    <div id="side">
     <div class="header-admin">
       <div class="header-left-admin">
       <Link to={`${url}/profile`}><a href="#index" class="logo">

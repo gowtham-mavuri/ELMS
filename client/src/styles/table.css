@@ -1,9 +1,12 @@
 
+
 #e{
   display: flex;
   align-content: center;
   justify-content: center;
   padding-top: 20px;
+  overflow-x: auto;
+  
 }
 #e table {
   background: #eafaec; 
@@ -33,7 +36,6 @@
   font-family: Verdana, Geneva, Tahoma, sans-serif; 
   
 }
-
 #e tr {
   border-style:hidden;
 }
@@ -49,7 +51,7 @@
   #e{
     display: block;
     overflow-x: scroll;
-    left:1px;
+    left:0px;
   }
 }
 /*

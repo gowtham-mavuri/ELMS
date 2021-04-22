@@ -41,30 +41,44 @@ function Request2 (props)
 
 
     return (
-        
-            <div id="card">
-                <ul>
-                    <div id="directdiv">
-                        <label id="line1"><label>ReqID:&nbsp;&nbsp;</label>{req.leave_id}</label>
-                    </div>
-                    <div id="directdiv">
-                        <label id="line2"><label>EmpID:&nbsp;&nbsp;</label>{req.emp_id}</label>
-                        <label id="line2"><label>Dept Code:&nbsp;&nbsp;</label>{req.dept_code}</label>
-                    </div>
-                    <div id="line3div">
-                        <label id="line3"><label>Name:&nbsp;&nbsp;</label>{req.first_name}{req.last_name}</label>
-                    </div>
-                    <div id="directdiv">
-                        <label id="line4"><label>From:&nbsp;&nbsp;</label>{moment(req.from_date).format('MM Do YYYY')}</label>
-                        <label id="line4"><label>To:&nbsp;&nbsp;</label>{moment(req.to_date).format('MM Do YYYY')}</label>
-                    </div>
-                    <div id="directdiv">
-                        <label id="line51"><label>Type:&nbsp;&nbsp;</label>{req.type}</label>
-                        <label id="line52"><label>Days:&nbsp;&nbsp;</label>{req.days}</label>
-                    </div>
-                    <div id="line3div">
-                        <label id="line3"><label>Desc:&nbsp;&nbsp;</label>{req.description}</label>
-                    </div>
+
+        <div>
+        <div id="e">
+            <table>   
+              <tr>
+                 <th>ReqID:&nbsp;&nbsp;</th>
+                 <th>EmpID:&nbsp;&nbsp;</th>
+                 <th>Dept Code:&nbsp;&nbsp;</th>
+                 <th>Name:&nbsp;&nbsp;</th>
+                 <th>From:&nbsp;&nbsp;</th>
+                 <th>To:&nbsp;&nbsp;</th>
+                 <th>Type:&nbsp;&nbsp;</th>
+                 <th>Days:&nbsp;&nbsp;</th>
+                 <th>Desc:&nbsp;&nbsp;</th>
+                 <th>Admin Remarks:&nbsp;&nbsp;</th>
+                 
+                 
+
+
+              </tr> 
+              <tr>
+                  <td>{req.leave_id} </td>
+                  <td>{req.emp_id} </td>
+                  <td>{req.dept_code} </td>
+                  <td>{req.first_name}{req.last_name} </td>
+                  <td>{moment(req.from_date).format('MM Do YYYY')}</td>
+                  <td>{moment(req.to_date).format('MM Do YYYY')}</td>
+                  <td>{req.type}</td>
+                  <td>{req.days}</td>
+                  <td>{req.description}</td>
+                  <td>{req.admin_remarks}</td>
+                  
+    
+                    </tr>
+</table>
+
+</div>
+    
                     {(req.status==="pending")&&<div>
                     
                     <div  id="line6">
@@ -97,7 +111,7 @@ function Request2 (props)
                     }
                         
                     <button id="line7"><Link to={`/AdminDashboard/emp/reqs/${req.emp_id}`}>Requests</Link></button>
-                </ul>
+              
         </div>
     )
 }

@@ -1,38 +1,93 @@
 
-
-
-#b table {
-  background: #012B39;
-  width: 1200px;
-  border-radius: 0.25em;
+#bb{
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  padding-top: 20px;
+  flex-direction: column;
+}
+.searchbar{
+  text-align: center;
+}
+.searchbar input[type="text"]
+{
+    width: 300px;
+    padding-left: 12px;
+    margin-right: 15px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    height: 35px;
+    border-radius: 7px;
+    font-size: 14px;
+}
+.searchbar input[type="text"]:focus{
+  outline:none;
+  border: 1px solid #555555;
+}
+.branch-table{
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  overflow-x: auto;
+}
+#bb table {
+  background: #eafaec; 
+  border-radius: 7px;
+  overflow:hidden;
   border-collapse: collapse;
   margin: 1em;
   align-content: center;
 }
-#b th {
-  border-bottom: 1px solid #364043;
-  color: #E2B842;
-  font-size: 0.85em;
-  font-weight: 600;
+#bb th {
+  color: white;
+  font-size: 15px;
+  font-weight: 540;
   padding: 0.5em 1em;
   text-align: center;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
-#b td {
-  color: #fff;
-  font-weight: 400;
-  padding: 0.65em 1em;
+
+#bb td {
+  white-space: nowrap;
+  font-size: 14px;
+  font-weight: 540;
   text-align: center;
+  padding: 0.65em 1em;
+  word-break: break-all;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
-
-#b tbody tr {
-  transition: background 0.25s ease;
+#bb tr:nth-child(odd){
+  background-color: #4CAF50;
+  color: white;
 }
-#b tbody tr:hover {
-  background: #014055;
+#bb td a{
+  background-color: #555555;
+  color: white;
 }
-
-#b td button {
-    background-color:#012B39;
-    color: white;
+.table-button{
+  width: 80px;
+  background-color: #555555;
+  border-radius: 7px;
+  display: flex;
+  padding: 1px 5px;
+  align-content: center;
+  justify-content: center;
+}
+#bb td button{
+  background-color: #555555;
+  border: 0px;
+  color: white;
+}
+  @media only screen and (max-width:530px){
+    .branch-table{
+      display: block;
+      overflow-x: scroll;
+      position: relative;
+      left:0;
+    }
+    .searchbar input[type="text"]{
+      width: 200px;
+      text-align: center;
+    }
   }
-
+  

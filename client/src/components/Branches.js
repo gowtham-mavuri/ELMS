@@ -79,23 +79,24 @@ function Branches() {
       <div>
         {error&&<p>Error Occured</p>}
       </div>
-      <div id="b">
-      <div>
+      <div id="bb">
+      <div class="searchbar">
         <input type="text" value={searchTerm} onChange={(e)=>setSearchTerm(e.target.value)} placeholder="Search for branch"/>
       </div>
+      <div class ="branch-table">
       <table>
-        <div>
-          <thead>
+          <tbody>
+            <tr>
             <th>ID</th>
             <th>Name</th>
             <th>Location</th>
             <th>Update</th>
-            <th>Manage</th>
             <th>Delete</th>
-          </thead>
-        </div>
-          <BranchContainer branchList={dynamicSearch() } />
+            </tr>
+            <BranchContainer branchList={dynamicSearch() } />
+          </tbody>
         </table>
+      </div>
       </div>
       <div>
         <ChartDoughnut data={data}/>

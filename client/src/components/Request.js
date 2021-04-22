@@ -67,56 +67,67 @@ function Request (props)
 
 
     return (
-        
-            <div id="card">
-                <ul>
-                    <div id="directdiv">
-                        <label id="line1"><label>ReqID:&nbsp;&nbsp;</label>{req.leave_id}</label>
-                    </div>
-                    <div id="directdiv">
-                        <label id="line2"><label>EmpID:&nbsp;&nbsp;</label>{req.emp_id}</label>
-                        <label id="line2"><label>Dept Code:&nbsp;&nbsp;</label>{req.dept_code}</label>
-                    </div>
-                    <div id="line3div">
-                        <label id="line3"><label>Name:&nbsp;&nbsp;</label>{req.first_name}{req.last_name}</label>
-                    </div>
-                    <div id="directdiv">
-                        <label id="line4"><label>From:&nbsp;&nbsp;</label>{moment(req.from_date).format('MM Do YYYY')}</label>
-                        <label id="line4"><label>To:&nbsp;&nbsp;</label>{moment(req.to_date).format('MM Do YYYY')}</label>
-                    </div>
-                    <div id="directdiv">
-                        <label id="line51"><label>Type:&nbsp;&nbsp;</label>{req.type}</label>
-                        <label id="line52"><label>Days:&nbsp;&nbsp;</label>{req.days}</label>
-                    </div>
-                    <div id="line3div">
-                        <label id="line3"><label>Desc:&nbsp;&nbsp;</label>{req.description}</label>
-                    </div>
-                    <div id="line3div">
-                        <label id="line3"><label>Admin Remarks:&nbsp;&nbsp;</label>{req.admin_remarks}</label>
-                    </div>
-
-                    {(req.status==="pending")&&<div>
-                    <div  id="line6">
-                        <label>Status</label>
+        <div id="bb" class="req">
+            <div class="branch-table">
+            <table>   
+              <tr>
+                 <th>ReqID</th>
+                 <th>EmpID</th>
+                 <th>Dept Code</th>
+                 <th>Name</th>
+                 <th>From</th>
+                 <th>To</th>
+                 <th>Type</th>
+                 <th>Days</th>
+                 <th>Desc</th>
+                 <th>Admin Remarks</th>
+                 <th>Requests</th>
+                </tr>
+            
+              <tr>
+                  
+                  <td>{req.leave_id} </td>
+                  <td>{req.emp_id} </td>
+                  <td>{req.dept_code} </td>
+                  <td>{req.first_name}{req.last_name} </td>
+                  <td>{moment(req.from_date).format('MM Do YYYY')}</td>
+                  <td>{moment(req.to_date).format('MM Do YYYY')}</td>
+                  <td>{req.type}</td>
+                  <td>{req.days}</td>
+                  <td>{req.description}</td>
+                  <td>{req.admin_remarks}</td>
+                  <td><div class="table-button"><Link to={`/SubadminDashboard/emp/reqs/${req.emp_id}`}>Requests</Link></div></td>
+              </tr>
+              <tr>
+                  
+              {(req.status==="pending")&&
+                 <div class="request">
+            <td>
+            <label>Status</label>
                             <select required id="status" onChange={e=>setStatus(e.target.value)}>
                             <option hidden disabled selected value> --select an option-- </option>
                             <option value="accepted">Accept</option>
                             <option value="rejected">Reject</option>
                         </select>
-                    </div>
-                    <div id="line6">
+            </td>
+            <td>
+            <div>
                         <label>Remarks</label>
                         <input type="text" id={req.leave_id} onChange={e=>setRemarks(e.target.value)}/>
                     </div>
-                    <button id="line7" onClick={handleUpdate} disabled={loading}>Update Status</button>
+            </td>
+                        
                     
-                    </div>}
+                    <button onClick={handleUpdate} disabled={loading}>Update Status</button>
+                 </div>
+                 
+                    
+                    }
 
                     {(req.status!=="pending")&&
-                        <div>
-                            <div  id="directdiv">
+                        <div class="request">
+                            <td>
                                 <label id="line2"><label>Status:&nbsp;&nbsp;</label>{req.status}</label>                          
-                            </div>
                             {(req.status==="accepted")&&(req.branch_manager_remarks==="------")&&
                                 <div>
                                     <div id="line6">
@@ -125,18 +136,31 @@ function Request (props)
                                     </div>
                                     <button id="line7" onClick={handleUpdateRemarks} disabled={loading}>Update Remarks</button>
                                 </div>
+                                
                             }
+                            </td>
+                            
                             {(req.branch_manager_remarks!=="------")&&
-                            <div id="line3div">
+                            <div>
                                 <label id="line2"><label>Manager Remarks:&nbsp;&nbsp;</label>{req.branch_manager_remarks}</label>   
                             </div> 
                             }
+                            
                         </div>
-                    }  
+                         }
+                          
+              </tr>
+               
+</table>
 
-                    <button id="line7"><Link to={`/SubadminDashboard/emp/reqs/${req.emp_id}`}>Requests</Link></button>
-                </ul>
+                    
+                    
+
+                   
+               
         </div>
+        </div>
+            
     )
 }
 

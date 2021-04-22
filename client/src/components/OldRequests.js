@@ -69,48 +69,48 @@ useEffect(() => {
   
   
   return (
-    <div id="oldRequests">
-        <div>
+    <div id="bb">
+        <div class="dropdown-table searchbar">
             <select onChange={(e)=>setSearchBranch(e.target.value)} >
-              <option selected value="ALL" id="ALL"> Select A Branch </option>
+              <option selected hidden disabled value="ALL" id="ALL"> Select a branch </option>
               { branches.map((branch)=><option value={branch.branch_id} id={branch.branch_id}>{branch.name}</option>) }
             </select>
         </div>
-      <div id="reqs">
-      {data&&data.map((req)=><div id="req">
-      <ul>
-        <div id="directdiv">
-            <label id="line2"><label>ReqID:&nbsp;&nbsp;</label>{req.leave_id}</label>
-            <label id="line2"><label>EmpID:&nbsp;&nbsp;</label>{req.emp_id}</label>
-            <label id="line2"><label>Dept Code:&nbsp;&nbsp;</label>{req.dept_code}</label>
-        </div>
-        <div id="line3div">
-            <label id="line3"><label>Name:&nbsp;&nbsp;</label>{req.first_name+' '+req.last_name}</label>
-        </div>
-        <div id="directdiv">
-            <label id="line4"><label>From:&nbsp;&nbsp;</label>{moment(req.from_date).format('MM Do YYYY')}</label>
-            <label id="line4"><label>To:&nbsp;&nbsp;</label>{moment(req.to_date).format('MM Do YYYY')}</label>
-        </div>
-        <div id="directdiv">
-            <label id="line51"><label>Type:&nbsp;&nbsp;</label>{req.type}</label>
-            <label id="line52"><label>Days:&nbsp;&nbsp;</label>{req.days}</label>
-        </div>    
-        <div id="line3div">
-             <label id="line3"><label>Desc:&nbsp;&nbsp;</label>{req.description}</label>
-        </div>
-        <div  id="directdiv">
-        <label id="line2"><label>Status:&nbsp;&nbsp;</label>{req.status}</label>
-                                
-        </div>
-        <div id="line3div">
-        <label id="line2"><label>Admin Remarks:&nbsp;&nbsp;</label>{req.admin_remarks}</label>
-        </div>     
-        <div id="line3div">
-        <label id="line2"><label>Manager Remarks:&nbsp;&nbsp;</label>{req.branch_manager_remarks}</label>
-        </div>                        
-      </ul>
-    </div>)}
-    </div>
+        <table> 
+            <tbody>  
+              <tr>
+                <th>ReqID</th>
+                <th>EmpID</th>
+                <th>Dept Code</th>
+                <th>Name</th>
+                <th>From</th>
+                <th>To</th>
+                <th>Type</th>
+                <th>Days</th>
+                <th>Description</th>
+                <th>Status</th>
+                <th>Admin Remarks</th>
+                <th>Manager Remarks</th>
+              </tr> 
+            
+      {data&&data.map((req)=>
+                    <tr>
+                      <td>{req.leave_id} </td>
+                      <td>{req.emp_id} </td>
+                      <td>{req.dept_code}</td>
+                      <td>{req.first_name+' '+req.last_name} </td>
+                      <td>{moment(req.from_date).format('MM Do YYYY')} </td>
+                      <td>{moment(req.to_date).format('MM Do YYYY')}</td>
+                      <td>{req.type} </td>
+                      <td>{req.days}</td>
+                      <td>{req.description} </td>
+                      <td>{req.status} </td>
+                      <td>{req.admin_remarks}</td> 
+                      <td>{req.branch_manager_remarks}</td> 
+                    </tr>
+      )}
+      </tbody>
+      </table>
       <div>
             <ReactPaginate
             previousLabel={"prev"}
@@ -125,7 +125,7 @@ useEffect(() => {
             subContainerClassName={"pages pagination"}
             activeClassName={"active"}/>
       </div>
-    </div>
+  </div>
     
   );
 

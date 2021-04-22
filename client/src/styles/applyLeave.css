@@ -1,88 +1,217 @@
-
-form{
-    padding-top: 10px;
-    
+.leave{
+    padding: 30px 50px 20px 50px;
+    position: relative;
+    margin-left: 230px;
 }
-
-
-@media only screen and (max-width: 991.98px){
-    #formboxLeave{
-        left: 0;
-    }
+.top{
+    position: relative;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
 }
-#formboxLeave h3{
-    text-align: left;
+.top h3{
+    text-align: center;
+    font-size: 30px;
+    font-weight: normal;
+    color: #555555;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    align-self: center;
 }
-#forminpLeave label{
+.top button{
+    position: absolute;
+    right: 10px;
+    background-color: #555555;
+    color:white;
+    align-self: center;
+    justify-self: center;
+    width: 200px;
+    height: 30px;
+    border-radius: 7px;
+    outline: none;
+    cursor: pointer;
+    text-align: center;
+}
+.top .navbar-toggler{
+    font-size: 15px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+#wrap-apply{
+    margin-top: 10px;
+}
+.apply{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content:center;
+}
+.first-part{
+    margin-right: 30px;
+}
+.second-part{
+    margin-left: 30px;
+}
+#forminp-apply{
+    padding: 10px 0px;
+}
+#forminp-apply label{
     display: block;
+    font-size: 14px;
     padding-bottom: 3px;
-    clear: left;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
-#forminpLeave textarea{
+#forminp-apply select{
     display: block;
-    width: 400px;
+    width: 300px;
+    padding-left: 12px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    height: 35px;
+    border-radius: 7px;
+    margin-bottom: 10px;
+}
+#forminp-apply textarea{
+    display: block;
+    width: 300px;
     padding: 10px;
     text-align: justify;
     border: 1px solid #ccc;
     box-sizing: border-box;
-    height: 150px;
-    float: left;
-    margin-bottom: 20px;
+    height: 100px;
     font-size: 15px;
+    border-radius: 7px;
 }
-#leavecalender{
+#forminp-apply input[type="submit"]{
     display: block;
     width: 300px;
-    float: right;
-    margin-right: 15px;
-    padding: 15px;
-    border: transparent;
-    box-shadow: 0 9px 8px 0 rgba(0, 0, 0, 0.2);
-}
-#forminpLeave select,option{
-    display: block;
-    width: 200px;
     border: 1px solid #ccc;
     box-sizing: border-box;
     height: 35px;
-    float: left;
-    padding-left: 10px;
-    margin-bottom: 20px;
-}
-#formboxLeave input[type=submit] {
-    display: block;
-    clear: left;
+    border-radius: 7px;
     text-align: center;
-    width: 150px;
-    background-image: linear-gradient(#141e30, #243b55);
+    background-color: #555555;
+    outline: none;
     color: white;
-    margin-left: 0px;
     border: none;
-    border-radius: 50px;
+    border-radius: 7px;
     cursor: pointer;
-    height: 35px;
-  }
-#choosecalender{
-    clear: left;
-    display: block;
-    width: 400px;
-    margin-bottom: 20px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
-#forminpLeave input[type="submit"]:active {
-    background-color: #ffffff;
-    color:black;
-}
-#forminpLeave textarea:focus{
+#forminp-apply select:focus,#forminp-apply textarea:focus{
     outline:none;
-    border: 1px solid black;
+    border: 1px solid #555555;
 }
-select:required:invalid {
+#forminp-apply select:required:invalid {
 	color: gray;
-  }
-select option:not(:first-child){
+}
+#forminp-apply select option:not(:first-child){
 	color:black;
 }
-#forminpLeave select:focus{
-    outline:none;
-    border: 1px solid black;
+/*from to calendar*/
+.calen{
+    box-shadow: 8px 8px 8px 8px rgb(1 1 1 / 20%);
+    padding: 10px;
+    border-radius: 10px;
+    height: 375px;
+}
+#forminp-calen label{
+    display: block;
+    font-size: 14px;
+    padding: 5px;
+    text-align: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin-bottom: 10px;
+}
+#forminp-calen select{
+    width: 100px;
+    padding-left: 12px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    height: 35px;
+    border-radius: 7px;  
+}
+.rdrMonthAndYearPickers{
+   justify-content: space-between;
+}
+.rdrMonthsVertical{
+    align-items: center;
+    height: 247px;
+}
+.rdrMonthPicker select,.rdrYearPicker select{
+    padding: 0;
+}
+.rdrCalendarWrapper {
+    width: 300px;
+}
+.rdrDateDisplay {
+    margin: 1px;
+}
+.rdrMonthAndYearWrapper{
+    padding-top: 0;
+}
+.rdrDateDisplayWrapper{
+    background-color: white;
+}
+.rdrDateDisplayItem{
+    border-radius: 7px;
+}
+.rdrDateDisplayItemActive{
+    border: 1px solid  #555555;
+    box-shadow: 1px 2px 3px 1px rgb(35 57 66 / 21%);
+}
+#forminp-calen button:active{
+    border: 1px solid #555555;
+}
+#from-to{
+    display: flex;
+    width: 300px;
+}
+#from-to span{
+    text-align: center;
+    width: 150px;  
+    font-size: 14px;
+    padding-bottom: 3px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: #555555;
+}
+#leavecalender-apply{
+    box-shadow: 8px 8px 8px 8px rgb(1 1 1 / 20%);
+    padding: 10px;
+    border-radius: 10px;
+    width: 300px;
+    position: absolute;
+    top: 80px;
+    right: 15px;
+    background-color: white;
+    display: none;
+}
+@media only screen and (max-width: 991.98px){
+    .leave{
+        margin-left: 50px;
+    }
+}
+@media (max-width:840px){
+    .apply{
+        flex-direction: column;
+        align-content: center;
+    }
+    .first-part{
+        margin-right: 0;
+    }
+    .second-part{
+        margin-left: 0;
+        margin-top: 30px;
+    }
+    .top{
+        flex-direction: column;
+    }
+    .top button{
+        position: relative;
+    }
+    #leavecalender-apply{
+        position: absolute;
+        right: 115px;
+        top:110px;
+    }
 }

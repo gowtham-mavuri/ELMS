@@ -33,13 +33,28 @@ function EmployessBranch(props) {
   }
   else
   return (
-    <div>
-      <div>
-        <h3>Search For An Employee</h3>
+    <div id="bb">
+      <div class="searchbar">
         <input  type="text" value={searchTerm} onChange={(e)=>setSearchTerm(e.target.value)} placeholder="Search for an employee name"/>
       </div>
-      <div>
-          <EmployeeContainer emps={dynamicSearch() } branch_id={branch_id} />
+      <div class ="branch-table">
+      <table>
+          <tbody>
+            <tr>
+            <th>EmpId</th>
+            <th>DeptId</th>
+            <th>Name</th>
+            <th>Role</th>
+            <th>Email</th>
+            <th>Contact No</th>
+            <div>
+            <th>Update</th>
+            <th>Delete</th>
+            </div>
+            </tr>
+            <EmployeeContainer emps={dynamicSearch() } branch_id={branch_id} />
+          </tbody>
+        </table>
       </div>
     </div>
   );

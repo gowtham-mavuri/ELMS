@@ -99,46 +99,62 @@ function ApplyLeave(props) {
 
   </div>
   return (
-    <div id="formboxLeave">  
-                <h3>Apply Leave</h3>
-                <form onSubmit={handleSubmit(onSubmit)}>
-                    <div >
-                        <div id="forminpLeave">
-                            <label>Type</label>
-                            <select required name="type" ref={register}>
-                                <option disabled hidden selected value="">--select leave type--</option>
-                                <option value="sick" id="sick">Sick Leave</option>
-                                <option value="casual" id="casual">Casual Leave</option>
-                            </select>    
-                        </div>
-                        
-                        <div id="forminpLeave"> 
-                            <div id="leavecalender">
-                                <h4>Leave Calender</h4>
-                                <Calendar />
-                            </div> 
-                        </div>
-                    </div>  
-                    <div id="forminpLeave">
-                            <label>Description</label>
-                            <textarea  name="desc" ref={register}></textarea>
-                    </div>
-                    <div id="forminpLeave">
-                        
-                            <label>From To calender</label>
-                            <DateRange
-                                  editableDateInputs={true}
-                                  onChange={item => {
-                                    setState([item.selection])
-                                  }}
-                                  moveRangeOnFirstSelection={false}
-                                  ranges={state}
-                            />
-                       
-                    </div>
-                    <input type="submit" />
-                </form>
+    <div class="leave">  
+      <div class="top">
+          <h3>Apply Leave</h3>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#leavecalender-apply" aria-controls="leavecalender-apply" aria-expanded="false" aria-label="Toggle navigation">
+            <span >Holidays calender</span>
+          </button>
+      </div>
+      <div id="wrap-apply">
+        <div>
+        <form  class="apply" onSubmit={handleSubmit(onSubmit)}>
+            <div class="first-part">
+            <div id="forminp-calen">
+                <label>Select start and end date</label>
+                <div class="calen">
+                <div id="from-to">
+                  <span>From</span>
+                  <span>To</span>
+                  </div>
+                <div id="fromtocalen">
+                <DateRange
+                    editableDateInputs={true}
+                    onChange={item => {
+                    setState([item.selection])
+                    }}
+                    moveRangeOnFirstSelection={false}
+                    ranges={state}
+                  />
+                </div>
+                </div>
+              </div>   
+            </div>
+            <div class="second-part">
+              <div id="forminp-apply">
+                  <label>Type</label>
+                      <select required name="type" ref={register}>
+                        <option  hidden disabled selected value="">--select leave type--</option>
+                        <option value="sick" id="sick">Sick Leave</option>
+                        <option value="casual" id="casual">Casual Leave</option>
+                      </select>    
+              </div>
+              <div id="forminp-apply">
+                  <label>Description</label>
+                  <textarea  name="desc" ref={register}></textarea>
+              </div>  
+              <div id="forminp-apply">
+                  <input type="submit" />
+              </div> 
+            </div>       
+        </form>
         </div>
+      </div>
+      <div id="leavecalender-apply">
+          <Calendar />
+      </div>       
+                
+    </div>
   )
   
 }
