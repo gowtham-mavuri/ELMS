@@ -38,11 +38,11 @@ function DepartmentsBranch(props) {
       <table>
         <thead>
           <tr>
-            <th>CODE</th>
-            <th>NAME</th>
-            <th>SHORT NAME</th>
-            <th>UPDATE</th>
-            <th>DELETE</th>
+            <th>Code</th>
+            <th>Name</th>
+            <th>Short Name</th>
+            <th>Update</th>
+            <th>Delete</th>
           </tr>
         </thead>
         <tbody>

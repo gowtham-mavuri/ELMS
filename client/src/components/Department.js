@@ -57,8 +57,8 @@ function Department(props) {
                 <td>{dept.code}</td>
                 <td><input type="text" value={deptName} onChange={e=>setDeptName(e.target.value)} /></td>
                 <td><input type="text" value={deptShortName} onChange={e=>setDeptShortName(e.target.value)} /> </td>
-                <td><input type="button" value="Update" onClick={handleUpdateDept} /></td>
-                <td><button disabled={true} onClick={handleDeleteDept}>delete</button></td>
+                <td><input class="table-button" value="Update" onClick={handleUpdateDept} /></td>
+                <td><div class="table-button" disabled={true} onClick={handleDeleteDept}>delete</div></td>
             </tr>
         )
     else
@@ -67,8 +67,8 @@ function Department(props) {
                 <td>{dept.code}</td>
                 <td>{dept.name}</td>
                 <td>{dept.short_name} </td>
-                <td><button onClick={()=>setUpdate(true)}>update</button></td>
-                <td><button onClick={handleDeleteDept}>delete</button></td>
+                <td><div class="table-button" onClick={()=>setUpdate(true)}>update</div></td>
+                <td><div class="table-button" onClick={handleDeleteDept}>delete</div></td>
             </tr>
         )
 }

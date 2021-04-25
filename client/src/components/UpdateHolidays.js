@@ -114,26 +114,30 @@ function UpdateHolidays(){
             <div id="Holidays">
         <h5>Holidays are blocked in the calendar</h5>
         <h3>Added Holidays</h3>
+                 <div id="e">
                 <table>
-                    
+                    <tbody>
                     <tr id="tablerow">
+                    
                         <th id="sno">S.No</th>
                         <th id="dat">Date</th>
                         <th id="eve">Event</th>
-                        <th></th>
+                        <th>Delete</th>
                     </tr>
                     {holidays&&holidays.map((holiday,i)=>
-                        <tr id="tablerow">
+                        <tr >
                             <td>{i+1}</td>
                             <td>{moment(holiday.date).format('YYYY-MM-DD')}</td>
                             <td>{holiday.event}</td>
-                            <td><button onClick={()=>handleDel(moment(holiday.date).format('YYYY-MM-DD'))} >delete</button></td>
+                            <td><div class="table-button" onClick={()=>handleDel(moment(holiday.date).format('YYYY-MM-DD'))} >delete</div></td>
                         </tr>
                    
                     )}
-                    
+                    </tbody>
                 </table>
-                    </div>
+                </div>
+                </div>
+                   
             </div>
         </div>
         

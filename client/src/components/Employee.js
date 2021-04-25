@@ -6,24 +6,7 @@ function Employee(props) {
     const emp = props.emp;
     
     return (
-        <div id="e">
-            <div class="table">
-                  <table> 
-                    <tbody>  
-                    <tr>
-                       <th>branch_id:&nbsp;&nbsp;</th>
-                       <th>EmpID:&nbsp;&nbsp;</th>
-                       <th>Dept Code:&nbsp;&nbsp;</th>
-                       <th>Role:&nbsp;&nbsp;</th>
-                       <th>Name:&nbsp;&nbsp;</th>
-                       <th>Email:&nbsp;&nbsp;</th>
-                       <th>Phone Number:&nbsp;&nbsp;</th>
-                       <th>updates</th>
-                       <th>Requests</th>
-
-
-
-                    </tr> 
+      
                     <tr>
                         <td> {emp.branch_id}</td>
                         <td> {emp.emp_id}</td>
@@ -32,14 +15,9 @@ function Employee(props) {
                         <td>{emp.first_name+' '+emp.last_name} </td>
                         <td>{emp.email}</td>
                         <td> {emp.phone_number}</td>
-                        <td> <button id="empl7" ><Link to={`/AdminDashboard/updateEmp/${emp.emp_id}`}>Update</Link></button></td>
-                        <td><button id="empl7"><Link to={`/AdminDashboard/emp/reqs/${emp.emp_id}`}>Requests</Link></button></td>
+                        <td><div class="table-button"> <button ><Link to={`/AdminDashboard/updateEmp/${emp.emp_id}`}>Update</Link></button></div></td>
+                        <td><div class="table-button"><button ><Link to={`/AdminDashboard/emp/reqs/${emp.emp_id}`}>Requests</Link></button></div></td>
                       </tr>
-                      </tbody>
-                    </table> 
-                </div>     
-                
-             </div>
        
     )
 }

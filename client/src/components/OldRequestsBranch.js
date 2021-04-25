@@ -59,8 +59,7 @@ useEffect(() => {
   return (
     <div id="oldRequests">
       <div >
-      {data&&data.map((req)=><div >
-        {console.log(req)}
+      
         <div class="table">
         <div id="eeee">
              <table> 
@@ -78,9 +77,9 @@ useEffect(() => {
                            <th>Status:&nbsp;&nbsp;</th>
                            <th>Admin Remarks:&nbsp;&nbsp;</th>
                           <th> Manager Remarks:&nbsp;&nbsp;</th>
-
-
-                    </tr> 
+                      </tr> 
+                      {data&&data.map((req)=>
+                          //  {console.log(req)}
                     <tr>
                         <td>{req.leave_id} </td>
                         <td>{req.emp_id} </td>
@@ -95,13 +94,14 @@ useEffect(() => {
                               <td> {req.admin_remarks}</td> 
                               <td>  {req.branch_manager_remarks}</td> 
                       </tr>
+                      )}
                  </tbody>
       </table>
 
       </div>
-      </div>
+      
 
-    </div>)}
+    </div>
     </div>
       <div>
             <ReactPaginate

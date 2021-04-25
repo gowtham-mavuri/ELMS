@@ -72,11 +72,12 @@ function Departments() {
             <th>Branch ID </th>
             <th>Code</th>
              <th>Name</th> 
-            <th>Short Name</th>
+            <th>Update</th>
+            <th>Delete</th>
           </tr>
-        
+          </tbody>
+
         <DepartmentContainer deptList={dynamicSearch() } />
-        </tbody>
         </table>
         </div>
       
