@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Department from './Department';
 
-import '../styles/deptTable.css'
+
 
 function DepartmentsBranch(props) {
   const [loading,setLoading] = useState(true);
@@ -30,13 +30,13 @@ function DepartmentsBranch(props) {
   }
   else
   return (
-    <div>
+    <div id="bb">
       <div>
         {error&&<p>{error}</p>}
       </div>
-      <div id="ee">
+      <div class= "branch-table">
       <table>
-        <thead>
+        <tbody>
           <tr>
             <th>Code</th>
             <th>Name</th>
@@ -44,13 +44,10 @@ function DepartmentsBranch(props) {
             <th>Update</th>
             <th>Delete</th>
           </tr>
-        </thead>
-        <tbody>
             {depts&&depts.map((dept)=><Department key={dept.code} dept={dept}/>)}
         </tbody>
         </table>
       </div>
-      
     </div>
   );
   

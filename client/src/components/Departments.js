@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import DepartmentContainer from './DepartmentContainer';
 
-import '../styles/table.css'
 
 function Departments() {
   const [loading,setLoading] = useState(true);
@@ -52,39 +51,30 @@ function Departments() {
   }
   else
   return (
-    <div>
+    <div id="bb">
       <div>
         {error&&<p>Error Occured</p>}
       </div>
-      <div>
-      <div>
+      <div class="dropdown-table searchbar">
             <select onChange={(e)=>setSearchBranch(e.target.value)} >
-              <option selected value="ALL" id="ALL"> ALL BRANCHES </option>
+              <option selected value="ALL" id="ALL">All Branches</option>
               { branches.map((branch)=><option value={branch.branch_id} id={branch.branch_id}>{branch.name}</option>) }
             </select>
       </div>
-      <div id="history">
-      <div id="table">
-        <div id="e">
+      <div class= "branch-table">
         <table>
         <tbody>
           <tr>
-            <th>Branch ID </th>
+            <th>Branch ID</th>
             <th>Code</th>
-             <th>Name</th> 
+            <th>Name</th> 
             <th>Update</th>
             <th>Delete</th>
           </tr>
-          </tbody>
-
-        <DepartmentContainer deptList={dynamicSearch() } />
+            <DepartmentContainer deptList={dynamicSearch() } />
+        </tbody>
         </table>
         </div>
-      
-      </div>
-      
-      </div>
-    </div>
       </div>
       
   );

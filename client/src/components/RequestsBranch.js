@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Request from './Request';
-import '../styles/Request.css'
+
 function RequestsBranch(props) {
   const [loading,setLoading] = useState(true);
   const [reqs,setReqs] = useState([]);

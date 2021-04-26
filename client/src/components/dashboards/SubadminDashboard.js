@@ -52,18 +52,8 @@ function SubadminDashboard(props) {
           </button>
           <div class="collapse navbar-collapse" id="navbarSupportedContent" >
             <ul class="navbar-nav ms-auto" >
-              <li class="nav-item dropdown" >
-                <div class="nav-link dropdown-toggle"  id="navbarDropdown" role="button" 
-                          data-bs-toggle="dropdown" aria-expanded="false">
-                  Employee
-                </div>
-                <ul class="dropdown-menu" aria-labelledby="navbarDropdown" >
-                  <li><Link to={`${url}/AddEmployee`}>Add Employee</Link></li>
-                  <li><Link to={`${url}/empList`}>Manage Employee</Link></li>
-                </ul>
-              </li>
-              <li class="nav-item dropdown">
-            <div class="nav-link dropdown-toggle"  id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <li class="nav-item dropdown">
+            <div class="nav-link dropdown-toggle"  id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
               Department
             </div>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -71,8 +61,19 @@ function SubadminDashboard(props) {
               <li><Link to={`${url}/departments`}>Manage Department</Link></li>
             </ul>
             </li>
+              <li class="nav-item dropdown" >
+                <div class="nav-link dropdown-toggle"  id="navbarDropdown" role="button" 
+                          data-toggle="dropdown" aria-expanded="false">
+                  Employee
+                </div>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown" >
+                  <li><Link to={`${url}/AddEmployee`}>Add Employee</Link></li>
+                  <li><Link to={`${url}/empList`}>Manage Employee</Link></li>
+                </ul>
+              </li>
+             
                 <li class="nav-item dropdown">
-              <div class="nav-link dropdown-toggle"  id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <div class="nav-link dropdown-toggle"  id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
                 Requests
               </div>
               <ul class="dropdown-menu" aria-labelledby="navbarDropdown">

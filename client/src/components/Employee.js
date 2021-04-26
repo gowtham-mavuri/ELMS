@@ -1,16 +1,15 @@
 import React from 'react';
 import {Link} from "react-router-dom";
 
-import '../styles/EmpCard.css'
+
 function Employee(props) {
     const emp = props.emp;
     
     return (
-      
                     <tr>
-                        <td> {emp.branch_id}</td>
-                        <td> {emp.emp_id}</td>
-                        <td> {emp.dept_code}</td>
+                        <td>{emp.branch_id}</td>
+                        <td>{emp.emp_id}</td>
+                        <td>{emp.dept_code}</td>
                         <td>{emp.role} </td>
                         <td>{emp.first_name+' '+emp.last_name} </td>
                         <td>{emp.email}</td>

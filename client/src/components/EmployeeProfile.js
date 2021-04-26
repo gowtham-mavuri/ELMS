@@ -103,13 +103,3 @@ function EmployeeProfile() {
 
  
 export default EmployeeProfile;
-/*
-      <div id="leaves">
-          <div><label id="p2">Casual Leaves Remaining</label><label id="numl">{emp.casual_leaves}</label></div>
-      </div>
-      <div id="leaves">
-          <div><label id="p2">Sick Leaves Remaining</label><label id="numl">{emp.sick_leaves}</label></div>
-      </div>
-      <div id="leaves">
-          <div><label id="p2">Unpaid Leaves Taken</label><label id="numl">{emp.unpaid_leaves} </label></div>
-      </div>*/

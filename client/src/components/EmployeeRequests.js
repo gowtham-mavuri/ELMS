@@ -3,7 +3,7 @@ import moment from 'moment';
 import ReactPaginate from 'react-paginate';
 import axios from 'axios';
 import '../styles/pagination.css';
-import '../styles/oldReq.css'
+
 
 function EmployeeRequests(props) {
   var empId=props.match.params.emp_id;
@@ -72,7 +72,7 @@ const handlePageClick = (e) => {
   }
   
   return (
-    <div id="oldRequests">
+    <div id="bb">
       <div>
         Emp ID : {emp.emp_id} <br/>
         Name : {emp.first_name + emp.last_name} <br/>
@@ -82,25 +82,21 @@ const handlePageClick = (e) => {
         Casual Leaves Remaining : {emp.casual_leaves} <br/>
         Unpaid Leaves Taken : {emp.unpaid_leaves} <br/>
       </div>
-      <div>
-      {data&&data.map((req)=><div>   
-     <div class="table">
-       <div id="eeee">
+     <div class="branch-table">
                   <table>   
                     <tbody>
                     <tr>
-                       <th>ReqID::&nbsp;&nbsp;</th>
-                       <th>From:&nbsp;&nbsp;</th>
-                       <th>To:&nbsp;&nbsp;</th>
-                       <th>Type:&nbsp;&nbsp;</th>
-                       <th>Days:&nbsp;&nbsp;</th>
-                       <th>Desc:&nbsp;&nbsp;</th>
-                       <th>Status:&nbsp;&nbsp;</th>
-                       <th>Admin Remarks:&nbsp;&nbsp;</th>
-                       <th>Manager Remarks:&nbsp;&nbsp;</th>
-
-
+                       <th>ReqID</th>
+                       <th>From</th>
+                       <th>To</th>
+                       <th>Type</th>
+                       <th>Days</th>
+                       <th>Desc</th>
+                       <th>Status</th>
+                       <th>Admin Remarks</th>
+                       <th>Manager Remarks</th>
                     </tr> 
+                    {data&&data.map((req)=> 
                     <tr>
                         <td>{req.leave_id} </td>
                         <td>{moment(req.from_date).format('MM Do YYYY')} </td>
@@ -112,13 +108,10 @@ const handlePageClick = (e) => {
                          <td> {req.admin_remarks}</td>
                          <td>{req.branch_manager_remarks}</td>
                       </tr>
+                      )}
                     </tbody>  
                 </table>
-
                   </div>
-                  </div>
-</div>)}
-    </div>
       <div>
             <ReactPaginate
             previousLabel={"prev"}

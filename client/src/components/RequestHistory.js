@@ -4,7 +4,7 @@ import moment from 'moment';
 import ReactPaginate from 'react-paginate';
 import axios from 'axios';
  
-import '../styles/table.css'
+import '../styles/Table.css'
 
 function RequestHistory() {
   const [loading, setLoading] = useState(true);
@@ -80,13 +80,11 @@ if(loading)
 }
 else
 return (
-  
-  <div id="history">
-  <div class="table">
+  <div id="bb">
     <div>
       {error&&<p>{error}</p>}
     </div>
-    <div id="e">
+    <div class="branch-table">
       <table>
         <tbody>
           <tr>
@@ -100,7 +98,6 @@ return (
             <th>Admin Remarks</th>
             <th>Manager Remarks</th>
           </tr>
-         
           {data&&data.map((req)=>  
           <tr>
             <td>{req.leave_id}</td>
@@ -113,7 +110,6 @@ return (
             <td>{req.admin_remarks}</td>
             <td >{req.branch_manager_remarks}</td>
           </tr>
-         
           )}
         </tbody>
       </table>
@@ -130,23 +126,23 @@ return (
     containerClassName={"pagination"}
     subContainerClassName={"pages pagination"}
     activeClassName={"active"}
-  /></div>
+  />
     
   </div>
-  <div class="leaves-profile">
-      <div class="leave-profile">
-        <label class="leave-head">Casual Leaves Remaining</label>
-        <label class="leave-data">{casualLeaves}</label>
-      </div>
-      <div class="leave-profile">
-        <label class="leave-head">Sick Leaves Remaining</label>
-        <label class="leave-data">{sickLeaves}</label>
-      </div>
-      <div class="leave-profile">
-        <label class="leave-head">Unpaid Leaves Taken</label>
-        <label class="leave-data">{unpaidLeaves} </label>
-      </div>
-  </div>
+        <div class="leaves-profile">
+            <div class="leave-profile">
+              <label class="leave-head">Casual Leaves Remaining</label>
+              <label class="leave-data">{casualLeaves}</label>
+            </div>
+            <div class="leave-profile">
+              <label class="leave-head">Sick Leaves Remaining</label>
+              <label class="leave-data">{sickLeaves}</label>
+            </div>
+            <div class="leave-profile">
+              <label class="leave-head">Unpaid Leaves Taken</label>
+              <label class="leave-data">{unpaidLeaves} </label>
+            </div>
+        </div>
   </div>
 )
 }
