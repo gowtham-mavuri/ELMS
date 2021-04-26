@@ -10,3 +10,4 @@ client/package-lock.json
 client/package.json
 client/yarn.lock
 server/db.js
+client/.eslintcache

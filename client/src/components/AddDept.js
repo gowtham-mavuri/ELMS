@@ -7,6 +7,7 @@ import {yupResolver} from '@hookform/resolvers/yup';
 
 const DeptSchema = yup.object().shape({
     code : yup.number().required(),
+    code : yup.number().required().typeError("Enter a valid branch code"),
     name : yup.string().required(),
     shortName : yup.string().required()
   });

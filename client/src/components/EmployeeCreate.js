@@ -8,6 +8,9 @@ const EmpSchema = yup.object().shape({
     empId: yup.string().required(),
     deptCode : yup.string().required(),
     firstName : yup.string().required(),
+    empId: yup.string().required("Required Field"),
+    deptCode : yup.string().required("Required Field"),
+    firstName : yup.string().required("Required Field"),
     lastName : yup.string(),
     email : yup.string().email().required(),
     password :yup.string().min(5).required(),
@@ -16,6 +19,13 @@ const EmpSchema = yup.object().shape({
     casualLeaves : yup.number().positive().integer().required(),
     sickLeaves :  yup.number().positive().integer().required(),
     unpaidLeaves : yup.number().integer().required()
+    email : yup.string().email("Email Required").required("Email Required"),
+    password :yup.string().min(5,"Min of length 5").required("Min of length 5"),
+    gender : yup.mixed().oneOf(["MALE","FEMALE","OTHER"],"Select an option"),
+    phone : yup.number().required("Enter phone number").typeError("Enter phone number"),
+    casualLeaves : yup.number().positive("Enter a +ve number").integer("Enter a number").required("Enter a number").typeError("Enter a number"),
+    sickLeaves :  yup.number().positive("Enter a +ve number").integer("Enter a number").required("Enter a number").typeError("Enter a number"),
+    unpaidLeaves : yup.number().positive("Enter a +ve number").integer("Enter a number").required("Enter a number").typeError("Enter a number")
   });
 
 function EmployeeCreate(props) {

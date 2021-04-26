@@ -1,4 +1,5 @@
 import React from 'react';
+import React,{ useState,useEffect } from 'react';
 import {
   Switch,
   Route,
@@ -14,7 +15,24 @@ import '../sidebar.css'
 import logo from '../logopic.png'
 function EmployeeDashboard(props) {
   let { path, url } = useRouteMatch();
- 
+  const [close,setClose] = useState(false);
+
+  const funwidth = () => {
+    if(close)
+      return { width:"50px" }
+    return {}
+  }
+
+  const fundisplay = () => {
+    if(close)
+      return { display:"none" }
+    return {}
+  }
+
+  const handleClick = () => {
+    setClose(!close);
+  }
+
   // handle click event of logout button
   const handleLogout = () => {   
     localStorage.setItem('token','');   
@@ -62,6 +80,33 @@ function EmployeeDashboard(props) {
       </div>
       </div>
       </div>
+    <div class="sidebar" id="sidebar" style={funwidth()}>
+        <div class="sidebar-inner slimscroll">
+          <a id="toggle_btn" href="javascript:void(0)" onClick={handleClick}>
+            <span class="bar-icon">
+              <span></span>
+              <span></span>
+              <span></span>
+            </span>
+          </a>
+         <div id="sidebar-menu" class="sidebar-menu" style={fundisplay()}>
+              <ul>
+                <li>
+                  <Link to={`${url}/profile`}>Profile</Link>
+                </li>
+                <li>
+                    <Link to={`${url}/leave`}>Apply Leave</Link>
+                </li>
+                <li>
+                    <Link to={`${url}/requests`}>Leave History</Link>
+                </li>
+                <li class="sub-logout">
+                    <a onClick={handleLogout}>Logout</a>
+                </li>
+              </ul>
+          </div>
+        </div>
+    </div>
       <Switch>
               <Route exact path={path}>
                 <EmployeeProfile />

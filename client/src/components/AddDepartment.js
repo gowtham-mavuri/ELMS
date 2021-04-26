@@ -8,6 +8,8 @@ import {yupResolver} from '@hookform/resolvers/yup';
 const DeptSchema = yup.object().shape({
     id : yup.number().required(),
     code : yup.number().required(),
+    id : yup.number().required().typeError("Select a branch"),
+    code : yup.number().required().typeError("Enter Valid Dept Code"),
     name : yup.string().required(),
     shortName : yup.string().required()
   });

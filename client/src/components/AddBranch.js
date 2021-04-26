@@ -8,6 +8,7 @@ import '../styles/form.css'
 
 const BranchSchema = yup.object().shape({
     id : yup.number().required(),
+    id : yup.number().required().typeError("Enter a valid branch ID"),
     name : yup.string().required(),
     location : yup.string().required(),
     password :yup.string().min(5).required()

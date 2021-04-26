@@ -29,6 +29,17 @@ function ApplyLeave(props) {
   const [holidays,setHolidays] = useState([]);
   const [submitted,setSubmitted] = useState(false);
   const [loading,setLoading] = useState(false);
+  const [close,setClose] = useState(true);
+
+  const handleClick = () => {
+    setClose(!close);
+  }
+
+  const fundisplay = () => {
+    if(close)
+      return { display:"none" }
+    return {}
+  }
 
   useEffect(()=>{
     axios.post('http://localhost:5000/admin/holidaysGet',{
@@ -103,6 +114,7 @@ function ApplyLeave(props) {
       <div class="top">
           <h3>Apply Leave</h3>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#leavecalender-apply" aria-controls="leavecalender-apply" aria-expanded="false" aria-label="Toggle navigation">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#leavecalender-apply" aria-controls="leavecalender-apply" aria-expanded="false" aria-label="Toggle navigation" onClick={handleClick}>
             <span >Holidays calender</span>
           </button>
       </div>
@@ -151,6 +163,7 @@ function ApplyLeave(props) {
         </div>
       </div>
       <div id="leavecalender-apply">
+      <div id="leavecalender-apply" style={fundisplay()}>
           <Calendar />
       </div>       
                 

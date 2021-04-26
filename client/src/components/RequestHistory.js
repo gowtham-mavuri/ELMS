@@ -14,6 +14,9 @@ function RequestHistory() {
   const [data, setData] = useState([]);
   const [perPage] = useState(5);
   const [pageCount, setPageCount] = useState(0)
+  const [casualLeaves,setCasualLeaves] = useState(0)
+  const [sickLeaves,setSickLeaves] = useState(0)
+  const [unpaidLeaves,setUnpaidLeaves] = useState(0)
 
   useEffect(()=>{
     axios.post('http://localhost:5000/emp/reqs',{
@@ -35,6 +38,21 @@ function RequestHistory() {
     })
     // eslint-disable-next-line
   },[])
+
+  useEffect(()=>{
+    axios.post('http://localhost:5000/emp/profile',{
+     token:localStorage.getItem('token')
+    }).then(res=>{
+      const data=res.data.result[0];
+      setSickLeaves(data.sick_leaves)
+      setCasualLeaves(data.casual_leaves)
+      setUnpaidLeaves(data.unpaid_leaves)
+      setLoading(false);
+    }).catch(err=>{
+       console.log(err);
+       setLoading(false);
+    })
+ },[])
 
   const getData = () => {
     const slice = reqs.slice(offset*perPage, offset*perPage + perPage)
@@ -114,6 +132,20 @@ return (
     activeClassName={"active"}
   /></div>
     
+  </div>
+  <div class="leaves-profile">
+      <div class="leave-profile">
+        <label class="leave-head">Casual Leaves Remaining</label>
+        <label class="leave-data">{casualLeaves}</label>
+      </div>
+      <div class="leave-profile">
+        <label class="leave-head">Sick Leaves Remaining</label>
+        <label class="leave-data">{sickLeaves}</label>
+      </div>
+      <div class="leave-profile">
+        <label class="leave-head">Unpaid Leaves Taken</label>
+        <label class="leave-data">{unpaidLeaves} </label>
+      </div>
   </div>
   </div>
 )
