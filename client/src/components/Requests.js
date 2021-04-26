@@ -73,7 +73,7 @@ function Requests() {
                   <th>Description</th>
                   <div class="together-head">
                   <th>Status</th>
-                  <th>Manger Remarks</th>
+                  <th>Admin Remarks</th>
                   </div>
                   <th>Requests</th>
                 </tr> 
