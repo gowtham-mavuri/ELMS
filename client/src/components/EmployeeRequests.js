@@ -83,13 +83,13 @@ const handlePageClick = (e) => {
         Unpaid Leaves Taken : {emp.unpaid_leaves} <br/>
       </div>
       <div>
-      {data&&data.map((req)=><div>   
+        
      <div class="table">
        <div id="eeee">
                   <table>   
                     <tbody>
                     <tr>
-                       <th>ReqID::&nbsp;&nbsp;</th>
+                       <th>ReqID:&nbsp;&nbsp;</th>
                        <th>From:&nbsp;&nbsp;</th>
                        <th>To:&nbsp;&nbsp;</th>
                        <th>Type:&nbsp;&nbsp;</th>
@@ -101,6 +101,7 @@ const handlePageClick = (e) => {
 
 
                     </tr> 
+                    {data&&data.map((req)=> 
                     <tr>
                         <td>{req.leave_id} </td>
                         <td>{moment(req.from_date).format('MM Do YYYY')} </td>
@@ -112,12 +113,13 @@ const handlePageClick = (e) => {
                          <td> {req.admin_remarks}</td>
                          <td>{req.branch_manager_remarks}</td>
                       </tr>
+                      )}
                     </tbody>  
                 </table>
 
                   </div>
                   </div>
-</div>)}
+
     </div>
       <div>
             <ReactPaginate
