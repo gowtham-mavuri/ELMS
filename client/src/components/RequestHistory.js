@@ -4,7 +4,7 @@ import moment from 'moment';
 import ReactPaginate from 'react-paginate';
 import axios from 'axios';
  
-import '../styles/branchTable.css'
+import '../styles/Table.css'
 
 function RequestHistory() {
   const [loading, setLoading] = useState(true);
