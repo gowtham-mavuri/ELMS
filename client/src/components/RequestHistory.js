@@ -84,6 +84,20 @@ return (
     <div>
       {error&&<p>{error}</p>}
     </div>
+    <div class="leaves-profile">
+            <div class="leave-profile">
+              <label class="leave-head">Casual Leaves Remaining</label>
+              <label class="leave-data">{casualLeaves}</label>
+            </div>
+            <div class="leave-profile">
+              <label class="leave-head">Sick Leaves Remaining</label>
+              <label class="leave-data">{sickLeaves}</label>
+            </div>
+            <div class="leave-profile">
+              <label class="leave-head">Unpaid Leaves Taken</label>
+              <label class="leave-data">{unpaidLeaves} </label>
+            </div>
+    </div>
     <div class="branch-table">
       <table>
         <tbody>
