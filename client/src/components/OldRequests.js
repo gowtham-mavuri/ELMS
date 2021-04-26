@@ -3,7 +3,7 @@ import axios from 'axios';
 import moment from 'moment';
 import ReactPaginate from 'react-paginate';
 import '../styles/pagination.css';
-import '../styles/oldReq.css'
+
 function OldRequestsBranch(props) {
   const [loading,setLoading] = useState(true);
   const [offset, setOffset] = useState(0);
@@ -76,6 +76,7 @@ useEffect(() => {
               { branches.map((branch)=><option value={branch.branch_id} id={branch.branch_id}>{branch.name}</option>) }
             </select>
         </div>
+        <div class= "branch-table">
         <table> 
             <tbody>  
               <tr>
@@ -111,6 +112,8 @@ useEffect(() => {
       )}
       </tbody>
       </table>
+        </div>
+        
       <div>
             <ReactPaginate
             previousLabel={"prev"}

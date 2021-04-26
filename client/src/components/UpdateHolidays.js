@@ -3,7 +3,6 @@ import Calendar from 'react-calendar'
 import 'react-calendar/dist/Calendar.css';
 import moment from 'moment';
 import axios from 'axios';
-import '../styles/addHolidays.css'
 
 function UpdateHolidays(){
     const [holiday,setHoliday] = useState('');
@@ -99,7 +98,6 @@ function UpdateHolidays(){
                 </div>
             </div>
                 </div>
-        
             <div class="right">
                <div id="description">
                     <label id="first">Selected Date</label>
@@ -111,19 +109,18 @@ function UpdateHolidays(){
                 </div>
                 <button id="sub" onClick={handleAdd}>Add</button>
             </div>
-            <div id="Holidays">
-        <h5>Holidays are blocked in the calendar</h5>
-        <h3>Added Holidays</h3>
-                 <div id="e">
+            </div>
+            <div id="bb">
+            <div class ="branch-table">
                 <table>
                     <tbody>
-                    <tr id="tablerow">
-                    
-                        <th id="sno">S.No</th>
-                        <th id="dat">Date</th>
-                        <th id="eve">Event</th>
+                    <tr>
+                        <th>S.No</th>
+                        <th>Date</th>
+                        <th>Event</th>
                         <th>Delete</th>
                     </tr>
+                    </tbody>
                     {holidays&&holidays.map((holiday,i)=>
                         <tr >
                             <td>{i+1}</td>
@@ -131,15 +128,12 @@ function UpdateHolidays(){
                             <td>{holiday.event}</td>
                             <td><div class="table-button" onClick={()=>handleDel(moment(holiday.date).format('YYYY-MM-DD'))} >delete</div></td>
                         </tr>
-                   
                     )}
-                    </tbody>
+                  
                 </table>
                 </div>
-                </div>
-                   
             </div>
-        </div>
+            </div>   
         
         
     )

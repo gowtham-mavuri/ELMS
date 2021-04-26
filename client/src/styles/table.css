@@ -1,24 +1,40 @@
-
-
-#e{
+#bb{
   display: flex;
-  align-content: center;
-  justify-content: center;
   padding-top: 20px;
-  overflow-x: auto;
-  
+  flex-direction: column;
 }
-#e table {
+.searchbar{
+  text-align: center;
+}
+.searchbar input[type="text"]
+{
+    width: 300px;
+    padding-left: 12px;
+    margin-right: 15px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    height: 35px;
+    border-radius: 7px;
+    font-size: 14px;
+}
+.searchbar input[type="text"]:focus{
+  outline:none;
+  border: 1px solid #555555;
+}
+.branch-table{
+  display: flex;
+  overflow-x: auto;
+}
+
+#bb table {
   background: #eafaec; 
   border-radius: 7px;
   overflow:hidden;
   border-collapse: collapse;
   margin: 1em;
   align-content: center;
-  padding-right: 10px;
-  
 }
-#e th {
+#bb th {
   color: white;
   font-size: 15px;
   font-weight: 540;
@@ -26,60 +42,51 @@
   text-align: center;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
-#e td {
+
+#bb td {
   white-space: nowrap;
   font-size: 14px;
   font-weight: 540;
-  padding: 0.65em 1em;
   text-align: center;
+  padding: 0.65em 1em;
   word-break: break-all;
-  font-family: Verdana, Geneva, Tahoma, sans-serif; 
-  
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
-#e tr {
-  border-style:hidden;
-}
-
-#e tr:nth-child(odd) {
+#bb tr:nth-child(odd){
   background-color: #4CAF50;
   color: white;
 }
-@media only screen and (max-width: 991.98px){
-  
+#bb td a{
+  background-color: #555555;
+  color: white;
 }
-@media only screen and (max-width:1125px){
-  #e{
-    display: block;
-    overflow-x: scroll;
-    left:0px;
+.table-button{
+  width: 80px;
+  background-color: #555555;
+  border-radius: 7px;
+  display: flex;
+  padding: 1px 5px;
+  align-content: center;
+  justify-content: center;
+  color: white;
+}
+#bb td button{
+  background-color: #555555;
+  border: 0px;
+  color: white;
+}
+.employees-list-top{
+  display: flex;
+  align-content: center;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+  @media only screen and (max-width:530px){
+    
+    .searchbar input[type="text"]{
+      width: 200px;
+      text-align: center;
+    }
   }
-}
-/*
-#leaves{
-  margin: 10px;
-  padding: 20px;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  background:whitesmoke;
-  float: left;
-  height: 125px;
-  width: 350px;
-  text-align: center;
-}
-#leaves:hover {
-  transform:scale(1.1);
-  border-style: solid;
-  border-width: 5px;
-  border-color: rgba(94, 96, 206);
-}
-
-#p2{
-    padding: 10px;
-    font-weight: 500;
-    font-size: 1.3em;
-    color: black;
-}
-
-
-*/
-
-
+  

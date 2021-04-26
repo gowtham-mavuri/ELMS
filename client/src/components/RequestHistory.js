@@ -4,7 +4,7 @@ import moment from 'moment';
 import ReactPaginate from 'react-paginate';
 import axios from 'axios';
  
-import '../styles/table.css'
+import '../styles/branchTable.css'
 
 function RequestHistory() {
   const [loading, setLoading] = useState(true);
@@ -62,13 +62,11 @@ if(loading)
 }
 else
 return (
-  
-  <div id="history">
-  <div class="table">
+  <div id="bb">
     <div>
       {error&&<p>{error}</p>}
     </div>
-    <div id="e">
+    <div class="branch-table">
       <table>
         <tbody>
           <tr>
@@ -82,7 +80,6 @@ return (
             <th>Admin Remarks</th>
             <th>Manager Remarks</th>
           </tr>
-         
           {data&&data.map((req)=>  
           <tr>
             <td>{req.leave_id}</td>
@@ -95,7 +92,6 @@ return (
             <td>{req.admin_remarks}</td>
             <td >{req.branch_manager_remarks}</td>
           </tr>
-         
           )}
         </tbody>
       </table>
@@ -114,7 +110,6 @@ return (
     activeClassName={"active"}
   /></div>
     
-  </div>
   </div>
 )
 }

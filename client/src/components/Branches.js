@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import BranchContainer from './BranchContainer';
-import '../styles/branchTable.css'
 import ChartDoughnut from './ChartDoughnut';
 
 function Branches() {

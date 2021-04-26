@@ -1,7 +1,6 @@
 import React from 'react';
 import {Link} from "react-router-dom";
 
-import '../styles/EmpCard.css'
 
 function EmployeeRow(props) {
     const emp = props.emp;

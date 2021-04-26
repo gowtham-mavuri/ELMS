@@ -2,7 +2,7 @@ import React,{useState} from 'react';
 import moment from 'moment';
 import {Link} from "react-router-dom";
 import axios from 'axios';
-import '../styles/Request.css'
+
 function Request2 (props)
 {
     const [req,setReq] = useState(props.req);

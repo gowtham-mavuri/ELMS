@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
-import '../styles/branchTable.css'
 import EmployeeContainer2 from './EmployeeContainer2';
 
 function Employees() {
@@ -61,19 +60,35 @@ function Employees() {
       <div>
         {error&&<p>Error Occured</p>}
       </div>
-     
-      <div class="searchbar">
+     <div class="employees-list-top">
+     <div class="dropdown-table searchbar">
             <select onChange={(e)=>setSearchBranch(e.target.value)} >
-              <option selected value="ALL" id="ALL"> ALL BRANCHES </option>
+              <option selected value="ALL" id="ALL">All Branches</option>
               { branches.map((branch)=><option value={branch.branch_id} id={branch.branch_id}>{branch.name}</option>) }
             </select>
       </div>
       <div class="searchbar">
         <input  type="text" value={searchTerm} onChange={(e)=>setSearchTerm(e.target.value)} placeholder="Search for an employee name"/>
       </div>
-      <div>
+     </div>
+     <div class ="branch-table">
+        <table>
+        <tbody>
+          <tr>
+          <th>BranchId</th>
+          <th>EmpID</th>
+          <th>Dept Code</th>
+          <th>Role</th>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Phone Number</th>
+          <th>Updates</th>
+          <th>Requests</th>           
+          </tr>
+          </tbody>
           <EmployeeContainer2 emps={dynamicSearch() } />
-      </div>
+          </table>
+        </div>
     </div>
   );
   

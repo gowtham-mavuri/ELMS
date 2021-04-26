@@ -3,7 +3,7 @@ import axios from 'axios';
 import moment from 'moment';
 import ReactPaginate from 'react-paginate';
 import '../styles/pagination.css';
-import '../styles/oldReq.css'
+
 function OldRequestsBranch(props) {
   const [loading,setLoading] = useState(true);
   const [offset, setOffset] = useState(0);
@@ -57,26 +57,23 @@ useEffect(() => {
   
   
   return (
-    <div id="oldRequests">
-      <div >
-      
-        <div class="table">
-        <div id="eeee">
-             <table> 
+    <div id="bb">
+      <div class= "branch-table">
+      <table> 
                 <tbody>  
                     <tr>
-                       <th>ReqID:&nbsp;&nbsp;</th>
-                       <th>EmpID:&nbsp;&nbsp;</th>
-                       <th>Dept Code:&nbsp;&nbsp;</th>
-                       <th>Name:&nbsp;&nbsp;</th>
-                        <th>From:&nbsp;&nbsp;</th>
-                         <th>To:&nbsp;&nbsp;</th>
-                           <th>Type:&nbsp;&nbsp;</th>
-                           <th>Days:&nbsp;&nbsp;</th>
-                           <th>Desc:&nbsp;&nbsp;</th>
-                           <th>Status:&nbsp;&nbsp;</th>
-                           <th>Admin Remarks:&nbsp;&nbsp;</th>
-                          <th> Manager Remarks:&nbsp;&nbsp;</th>
+                       <th>ReqID</th>
+                       <th>EmpID</th>
+                       <th>Dept Code</th>
+                       <th>Name</th>
+                        <th>From</th>
+                         <th>To</th>
+                           <th>Type</th>
+                           <th>Days</th>
+                           <th>Desc</th>
+                           <th>Status</th>
+                           <th>Admin Remarks</th>
+                          <th> Manager Remarks</th>
                       </tr> 
                       {data&&data.map((req)=>
                           //  {console.log(req)}
@@ -97,12 +94,8 @@ useEffect(() => {
                       )}
                  </tbody>
       </table>
-
       </div>
-      
-
-    </div>
-    </div>
+             
       <div>
             <ReactPaginate
             previousLabel={"prev"}

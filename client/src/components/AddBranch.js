@@ -4,7 +4,7 @@ import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import {yupResolver} from '@hookform/resolvers/yup';
 
-import '../styles/form.css'
+
 
 const BranchSchema = yup.object().shape({
     id : yup.number().required(),
