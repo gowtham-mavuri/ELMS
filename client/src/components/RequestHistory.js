@@ -4,7 +4,7 @@ import moment from 'moment';
 import ReactPaginate from 'react-paginate';
 import axios from 'axios';
  
-import '../styles/Table.css'
+import '../styles/table.css'
 
 function RequestHistory() {
   const [loading, setLoading] = useState(true);
@@ -143,20 +143,7 @@ return (
   />
     
   </div>
-        <div class="leaves-profile">
-            <div class="leave-profile">
-              <label class="leave-head">Casual Leaves Remaining</label>
-              <label class="leave-data">{casualLeaves}</label>
-            </div>
-            <div class="leave-profile">
-              <label class="leave-head">Sick Leaves Remaining</label>
-              <label class="leave-data">{sickLeaves}</label>
-            </div>
-            <div class="leave-profile">
-              <label class="leave-head">Unpaid Leaves Taken</label>
-              <label class="leave-data">{unpaidLeaves} </label>
-            </div>
-        </div>
+        
   </div>
 )
 }

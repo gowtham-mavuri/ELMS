@@ -1,4 +1,3 @@
-import React from 'react';
 import React,{ useState,useEffect } from 'react';
 import {
   Switch,
@@ -53,33 +52,6 @@ function EmployeeDashboard(props) {
     </div>
     </div>
    
-      <div class="sidebar" id="sidebar">
-      <div class="sidebar-inner slimscroll">
-      <a id="toggle_btn" href="javascript:void(0)">
-        <span class="bar-icon">
-          <span></span>
-          <span></span>
-          <span></span>
-        </span>
-      </a>
-      <div id="sidebar-menu" class="sidebar-menu">
-        <ul>
-          <li>
-            <Link to={`${url}/profile`}>Profile</Link>
-          </li>
-          <li>
-              <Link to={`${url}/leave`}>Apply Leave</Link>
-          </li>
-          <li>
-              <Link to={`${url}/requests`}>Leave History</Link>
-          </li>
-          <li class="sub-logout">
-              <a onClick={handleLogout}>Logout</a>
-          </li>
-        </ul>
-      </div>
-      </div>
-      </div>
     <div class="sidebar" id="sidebar" style={funwidth()}>
         <div class="sidebar-inner slimscroll">
           <a id="toggle_btn" href="javascript:void(0)" onClick={handleClick}>

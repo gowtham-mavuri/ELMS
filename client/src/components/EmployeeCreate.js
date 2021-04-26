@@ -18,7 +18,6 @@ const EmpSchema = yup.object().shape({
     phone : yup.number().required(),
     casualLeaves : yup.number().positive().integer().required(),
     sickLeaves :  yup.number().positive().integer().required(),
-    unpaidLeaves : yup.number().integer().required()
     unpaidLeaves : yup.number().integer().required(),
     email : yup.string().email("Email Required").required("Email Required"),
     password :yup.string().min(5,"Min of length 5").required("Min of length 5"),

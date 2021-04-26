@@ -18,7 +18,6 @@ const EmpSchema = yup.object().shape({
     phone : yup.number().required(),
     casualLeaves : yup.number().positive().integer().required(),
     sickLeaves :  yup.number().positive().integer().required(),
-    unpaidLeaves : yup.number().integer().required()
     unpaidLeaves : yup.number().integer().required(),
     gender : yup.mixed().oneOf(["MALE","FEMALE","OTHER"],"Select an option"),
     phone : yup.number().required("Enter phone number").typeError("Enter phone number"),

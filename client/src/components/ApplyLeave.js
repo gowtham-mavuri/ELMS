@@ -29,6 +29,7 @@ function ApplyLeave(props) {
   const [holidays,setHolidays] = useState([]);
   const [submitted,setSubmitted] = useState(false);
   const [loading,setLoading] = useState(false);
+
   const [close,setClose] = useState(true);
 
   const handleClick = () => {
@@ -113,7 +114,6 @@ function ApplyLeave(props) {
     <div class="leave">  
       <div class="top">
           <h3>Apply Leave</h3>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#leavecalender-apply" aria-controls="leavecalender-apply" aria-expanded="false" aria-label="Toggle navigation">
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#leavecalender-apply" aria-controls="leavecalender-apply" aria-expanded="false" aria-label="Toggle navigation" onClick={handleClick}>
             <span >Holidays calender</span>
           </button>
@@ -162,11 +162,9 @@ function ApplyLeave(props) {
         </form>
         </div>
       </div>
-      <div id="leavecalender-apply">
       <div id="leavecalender-apply" style={fundisplay()}>
           <Calendar />
       </div>       
-                
     </div>
   )
   
