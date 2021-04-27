@@ -9,7 +9,6 @@ import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import {yupResolver} from '@hookform/resolvers/yup';
 import moment from 'moment';
-
 import '../styles/applyLeave.css'
 
 function ApplyLeave(props) {
@@ -33,13 +32,24 @@ function ApplyLeave(props) {
   const [close,setClose] = useState(true);
 
   const handleClick = () => {
+    console.log(fundisplay);
     setClose(!close);
   }
 
   const fundisplay = () => {
     if(close)
-      return { display:"none" }
+      return { display:"none"}
+      else
+      return {
+      marginLeft: "74%"
+      }
     return {}
+  }
+  const fundisplaywrap = () => {
+    if(!close)
+      return { marginRight: "25%",marginTop:"-320px"
+      }
+        return {}
   }
 
   useEffect(()=>{
@@ -114,12 +124,16 @@ function ApplyLeave(props) {
     <div class="leave">  
       <div class="top">
           <h3>Apply Leave</h3>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#leavecalender-apply" aria-controls="leavecalender-apply" aria-expanded="false" aria-label="Toggle navigation" onClick={handleClick}>
+          <button class="navbar-toggler" type="button"  data-bs-target="#leavecalender-apply" aria-controls="leavecalender-apply" aria-expanded="false" aria-label="Toggle navigation" onClick={handleClick}>
             <span >Holidays calender</span>
           </button>
       </div>
-      <div id="wrap-apply">
-        <div>
+     
+      <div id="wrap-apply" >
+      <div id="leavecalender-apply" style={fundisplay()}>
+          <Calendar />
+      </div>
+        <div style={fundisplaywrap()}>
         <form  class="apply" onSubmit={handleSubmit(onSubmit)}>
             <div class="first-part">
             <div id="forminp-calen">
@@ -162,9 +176,6 @@ function ApplyLeave(props) {
         </form>
         </div>
       </div>
-      <div id="leavecalender-apply" style={fundisplay()}>
-          <Calendar />
-      </div>       
     </div>
   )
   

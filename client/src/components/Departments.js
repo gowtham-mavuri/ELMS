@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import DepartmentContainer from './DepartmentContainer';
-
+import "../styles/table.css"
 
 function Departments() {
   const [loading,setLoading] = useState(true);
-  const [deptList,setDeptList] = useState([]);
+  const [deptList,setDeptList] = useState([]);;
   const [error,setError] = useState(false);
   const [searchBranch,setSearchBranch] = useState("ALL");
 

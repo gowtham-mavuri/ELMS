@@ -3,6 +3,8 @@ import axios from 'axios';
 import moment from 'moment';
 import ReactPaginate from 'react-paginate';
 import '../styles/pagination.css';
+import "../styles/oldReq.css"
+import "../styles/table.css"
 
 function OldRequestsBranch(props) {
   const [loading,setLoading] = useState(true);
@@ -58,8 +60,8 @@ useEffect(() => {
   
   return (
     <div id="bb">
-      <div class= "branch-table">
-      <table> 
+      <div class= "emp-table table-responsive">
+      <table class="table"> 
                 <tbody>  
                     <tr>
                        <th>ReqID</th>

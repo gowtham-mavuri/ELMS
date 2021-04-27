@@ -53,20 +53,22 @@ function Request2 (props)
                   <td>{req.description}</td>
             
                   {(req.status==="pending")&&
-                  <div class="req-div">
-                    <div class="req-status">
-                            <select required id="status" onChange={e=>setStatus(e.target.value)}>
-                            <option hidden disabled selected value>-select-</option>
-                            <option value="accepted">Accept</option>
-                            <option value="rejected">Reject</option>
-                        </select>
-                    </div>
-                    <div class="req-remarks">
-                        <input type="text" id={req.leave_id} onChange={e=>setRemarks(e.target.value)}/>
-                    </div>
+                  <div class="req-div-admin">
+                      <div class="req-div-admin-inner">
+                        <div class="req-status">
+                                <select required id="status" onChange={e=>setStatus(e.target.value)}>
+                                <option hidden disabled selected value>-select-</option>
+                                <option value="accepted">Accept</option>
+                                <option value="rejected">Reject</option>
+                            </select>
+                        </div>
+                        <div class="req-remarks">
+                            <input type="text" id={req.leave_id} onChange={e=>setRemarks(e.target.value)}/>
+                        </div>
+                      </div>
                     <button class="table-button req-update" onClick={handleUpdate} disabled={loading}>Update Status</button>
-                    
-                    </div>}
+                    </div>
+                    }
 
                     {(req.status!=="pending")&&
                         <div class="req-div">

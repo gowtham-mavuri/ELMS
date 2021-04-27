@@ -1,6 +1,5 @@
-import React from 'react';
+import React,{useState} from 'react';
 import {
-
   Switch,
   Route,
   Link,
@@ -21,6 +20,9 @@ import AddDept from '../AddDept';
 
 function SubadminDashboard(props) {
   let { path, url } = useRouteMatch();
+  const [isNavCollapsed, setIsNavCollapsed] = useState(true);
+
+  const handleNavCollapse = () => setIsNavCollapsed(!isNavCollapsed);
 
   // handle click event of logout button
   const handleLogout = () => {   
@@ -44,13 +46,10 @@ function SubadminDashboard(props) {
       </div>
       <nav class="navbar navbar-expand-lg navbar-light " id="nav">
         <div class="container">
-          <button class="navbar-toggler a" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <button class="navbar-toggler a" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" onClick={handleNavCollapse}>
             <span class="navbar-toggler-icon"></span>
           </button>
-          <button class="navbar-toggler b" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent" >
+          <div class={`${isNavCollapsed ? 'collapse' : ''} navbar-collapse`} id="navbarSupportedContent" >
             <ul class="navbar-nav ms-auto" >
             <li class="nav-item dropdown">
             <div class="nav-link dropdown-toggle"  id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">

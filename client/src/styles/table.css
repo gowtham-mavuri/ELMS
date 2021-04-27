@@ -23,16 +23,18 @@
 }
 .branch-table{
   display: flex;
-  overflow-x: auto;
+  align-content: center;
+  justify-content: center;
 }
-
+.emp-table{
+  display: flex;
+}
 #bb table {
   background: #eafaec; 
   border-radius: 7px;
   overflow:hidden;
   border-collapse: collapse;
   margin: 1em;
-  align-content: center;
 }
 #bb th {
   color: white;
@@ -60,6 +62,13 @@
   background-color: #555555;
   color: white;
 }
+.table>:not(caption)>*>*{
+  padding:0;
+  border-bottom-width: 0px;
+}
+.table>:not(caption) .table-button{
+  background-color: #555555;
+}
 .table-button{
   width: 80px;
   background-color: #555555;
@@ -69,19 +78,38 @@
   align-content: center;
   justify-content: center;
   color: white;
+  flex-direction: row;
+  flex-wrap: nowrap;
 }
 #bb td button{
   background-color: #555555;
   border: 0px;
   color: white;
+  border-radius: 7px;
 }
+.td-update{
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+
 .employees-list-top{
   display: flex;
   align-content: center;
   justify-content: space-around;
   flex-wrap: wrap;
 }
-
+@media (max-width:990px){
+  .branch-table{
+    align-content: initial;
+    justify-content: initial;
+    width: 100%;
+    overflow-x: auto;
+  }
+  .branch-table table{
+    width: 100%;
+  }
+}
   @media only screen and (max-width:530px){
     
     .searchbar input[type="text"]{

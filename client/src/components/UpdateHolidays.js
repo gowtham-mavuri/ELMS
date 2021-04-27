@@ -3,6 +3,7 @@ import Calendar from 'react-calendar'
 import 'react-calendar/dist/Calendar.css';
 import moment from 'moment';
 import axios from 'axios';
+import "../styles/addHolidays.css"
 
 function UpdateHolidays(){
     const [holiday,setHoliday] = useState('');
@@ -126,7 +127,7 @@ function UpdateHolidays(){
                             <td>{i+1}</td>
                             <td>{moment(holiday.date).format('YYYY-MM-DD')}</td>
                             <td>{holiday.event}</td>
-                            <td><div class="table-button" onClick={()=>handleDel(moment(holiday.date).format('YYYY-MM-DD'))} >delete</div></td>
+                            <td class="td-update"><div class="table-button" onClick={()=>handleDel(moment(holiday.date).format('YYYY-MM-DD'))} >delete</div></td>
                         </tr>
                     )}
                   

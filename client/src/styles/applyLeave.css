@@ -1,7 +1,7 @@
 .leave{
-    padding: 30px 50px 20px 50px;
-    position: relative;
-    margin-left: 230px;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
 }
 .top{
     position: relative;
@@ -40,6 +40,12 @@
 }
 #wrap-apply{
     margin-top: 10px;
+
+}
+#wrap-apply,#leavecalender-apply{
+    width: 100%; 
+    flex: none;
+    box-sizing: border-box;
 }
 .apply{
     display: flex;
@@ -179,18 +185,10 @@
     box-shadow: 8px 8px 8px 8px rgb(1 1 1 / 20%);
     padding: 10px;
     border-radius: 10px;
-    width: 300px;
-    position: absolute;
-    top: 80px;
-    right: 15px;
+    width: 26%;
     background-color: white;
+}
 
-}
-@media only screen and (max-width: 991.98px){
-    .leave{
-        margin-left: 50px;
-    }
-}
 @media (max-width:840px){
     .apply{
         flex-direction: column;

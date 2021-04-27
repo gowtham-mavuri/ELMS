@@ -88,10 +88,10 @@ function Request (props)
                             <option hidden disabled selected value>-select-</option>
                             <option value="accepted">Accept</option>
                             <option value="rejected">Reject</option>
-                        </select>
+                            </select>
                         </div>
                         <div class="req-remarks-branch">
-                        <input type="text" id={req.leave_id} onChange={e=>setRemarks(e.target.value)}/>
+                           <input type="text" id={req.leave_id} onChange={e=>setRemarks(e.target.value)}/>
                       </div>
                         <button class="table-button req-update" onClick={handleUpdate} disabled={loading}>Update Status</button>
                     </div>

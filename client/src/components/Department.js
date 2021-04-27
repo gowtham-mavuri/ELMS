@@ -68,7 +68,7 @@ function Department(props) {
                 <td>{dept.code}</td>
                 <td>{dept.name}</td>
                 <td>{dept.short_name} </td>
-                <td><div class="table-button" onClick={()=>setUpdate(true)}>update</div></td>
+                <td class="td-update"><div class="table-button" onClick={()=>setUpdate(true)}>update</div></td>
                 <td><div class="table-button" onClick={handleDeleteDept}>delete</div></td>
             </tr>
         )

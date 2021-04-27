@@ -5,7 +5,7 @@ import moment from 'moment';
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import {yupResolver} from '@hookform/resolvers/yup';
-
+import "../styles/table.css"
 
 const EmpSchema = yup.object().shape({
     deptCode : yup.string().required(),

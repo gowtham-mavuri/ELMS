@@ -3,6 +3,8 @@ import axios from 'axios';
 import moment from 'moment';
 import ReactPaginate from 'react-paginate';
 import '../styles/pagination.css';
+import "../styles/oldReq.css"
+import "../styles/table.css"
 
 function OldRequestsBranch(props) {
   const [loading,setLoading] = useState(true);
@@ -76,8 +78,8 @@ useEffect(() => {
               { branches.map((branch)=><option value={branch.branch_id} id={branch.branch_id}>{branch.name}</option>) }
             </select>
         </div>
-        <div class= "branch-table">
-        <table> 
+        <div class= "emp-table table-responsive">
+        <table class="table"> 
             <tbody>  
               <tr>
                 <th>ReqID</th>

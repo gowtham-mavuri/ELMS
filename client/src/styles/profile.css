@@ -101,7 +101,7 @@
   flex-wrap: wrap;
 }
 .leave-profile{
-  border: 1px solid #ccc;
+  box-shadow: 3px 3px 3px 3px rgb(1 1 1 / 20%);
   border-radius: 7px;
   width: 230px;
   padding: 10px;

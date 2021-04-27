@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Request from './Request';
+import "../styles/oldReq.css"
+import "../styles/table.css"
+import "../styles/newRequest.css"
 
 function RequestsBranch(props) {
   const [loading,setLoading] = useState(true);
@@ -33,8 +36,8 @@ function RequestsBranch(props) {
       {!reqs.length&&<div>
         <h1>NO NEW REQUESTS</h1>
         </div>}
-        <div class="branch-table">
-              <table>   
+        <div class="emp-table table-responsive">
+              <table class="table">   
                 <tr>
                   <th>ReqID</th>
                   <th>EmpID</th>

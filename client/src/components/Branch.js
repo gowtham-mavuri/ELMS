@@ -35,7 +35,7 @@ function Branch(props) {
             <td>{b.branch_id}</td>
             <td>{b.name}</td>
             <td>{b.location}</td>
-            <td><div class="table-button"><Link to={`/AdminDashboard/update/${b.branch_id}`}>Update</Link></div></td>
+            <td class="td-update"><div class="table-button"><Link to={`/AdminDashboard/update/${b.branch_id}`}>Update</Link></div></td>
             <td><div class="table-button"><button onClick={handleDelete} disabled={loading}>Delete</button></div></td>
         </tr>
     )

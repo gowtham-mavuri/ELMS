@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import EmployeeContainer from './EmployeeContainer';
+import "../styles/table.css"
 
 function EmployessBranch(props) {
   const [loading,setLoading] = useState(true);
@@ -37,8 +38,8 @@ function EmployessBranch(props) {
       <div class="searchbar">
         <input  type="text" value={searchTerm} onChange={(e)=>setSearchTerm(e.target.value)} placeholder="Search for an employee name"/>
       </div>
-      <div class ="branch-table">
-      <table>
+      <div class ="emp-table table-responsive">
+      <table class="table">
           <tbody>
             <tr>
             <th>EmpId</th>

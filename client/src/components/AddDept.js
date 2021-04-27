@@ -3,7 +3,7 @@ import axios from 'axios';
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import {yupResolver} from '@hookform/resolvers/yup';
-
+import "../styles/form.css"
 
 const DeptSchema = yup.object().shape({
     code : yup.number().required(),

@@ -99,11 +99,3 @@ function EmployeeDashboard(props) {
 }
  
 export default EmployeeDashboard;
-/*
-<div class="sidebar" id="sidebar">
-    <div class="slimScrollDiv" style="position: relative;overflow: hidden;width: 100%;height: 508px;">
-      <div class="sidebar-inner slimscroll" style="overflow: hidden;width: 100%;height: 508px;">
-        <div id="sidebar-menu" class="sidebar-menu">
-
-        
-*/

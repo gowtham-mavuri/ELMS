@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import BranchContainer from './BranchContainer';
 import ChartDoughnut from './ChartDoughnut';
+import "../styles/table.css"
 
 function Branches() {
   const [loading,setLoading] = useState(true);
@@ -97,9 +98,9 @@ function Branches() {
         </table>
       </div>
       </div>
-      <div>
+      {/*<div>
         <ChartDoughnut data={data}/>
-      </div>
+      </div>*/}
     </div>
   );
   

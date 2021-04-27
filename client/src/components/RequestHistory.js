@@ -98,8 +98,8 @@ return (
               <label class="leave-data">{unpaidLeaves} </label>
             </div>
     </div>
-    <div class="branch-table">
-      <table>
+    <div class="emp-table table-responsive">
+      <table class="table">
         <tbody>
           <tr>
            <th>Request ID</th> 

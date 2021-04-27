@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import RequestContainer from './RequestContainer';
-
+import "../styles/oldReq.css"
+import "../styles/table.css"
+import "../styles/newRequest.css"
 
 function Requests() {
   const [loading,setLoading] = useState(true);
@@ -59,8 +61,8 @@ function Requests() {
                 { branches.map((branch)=><option value={branch.branch_id} id={branch.branch_id}>{branch.name}</option>) }
               </select>
         </div>
-        <div class="branch-table">
-              <table>   
+        <div class="emp-table table-responsive">
+              <table class="table">   
                 <tr>
                   <th>ReqID</th>
                   <th>EmpID</th>

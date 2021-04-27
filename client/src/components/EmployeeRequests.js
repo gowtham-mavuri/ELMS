@@ -3,7 +3,7 @@ import moment from 'moment';
 import ReactPaginate from 'react-paginate';
 import axios from 'axios';
 import '../styles/pagination.css';
-
+import "../styles/table.css"
 
 function EmployeeRequests(props) {
   var empId=props.match.params.emp_id;
@@ -82,8 +82,8 @@ const handlePageClick = (e) => {
         Casual Leaves Remaining : {emp.casual_leaves} <br/>
         Unpaid Leaves Taken : {emp.unpaid_leaves} <br/>
       </div>
-     <div class="branch-table">
-                  <table>   
+     <div class="emp-table table-responsive">
+                  <table class="table">   
                     <tbody>
                     <tr>
                        <th>ReqID</th>
