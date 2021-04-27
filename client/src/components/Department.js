@@ -59,7 +59,6 @@ function Department(props) {
                 <td><input type="text" value={deptShortName} onChange={e=>setDeptShortName(e.target.value)} /> </td>
                 <td><input class="table-button" value="Update" onClick={handleUpdateDept} /></td>
                 <td><div class="table-button" disabled={true} onClick={handleDeleteDept}>delete</div></td>
-                <td><div class="table-button" disabled={true} >delete</div></td>
             </tr>
         )
     else

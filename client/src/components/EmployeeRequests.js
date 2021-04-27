@@ -73,14 +73,33 @@ const handlePageClick = (e) => {
   
   return (
     <div id="bb">
-      <div>
-        Emp ID : {emp.emp_id} <br/>
-        Name : {emp.first_name + emp.last_name} <br/>
-        Branch : {emp.name} <br/>
-        Department : {emp.short_name} <br/>
-        Sick Leaves Remaining : {emp.sick_leaves} <br/>
-        Casual Leaves Remaining : {emp.casual_leaves} <br/>
-        Unpaid Leaves Taken : {emp.unpaid_leaves} <br/>
+      <div class="emp-req-details">
+        <div class="emp-req-details-left">
+        <li><div class="title-emp"><label>EmpID</label></div>
+            <div class="text-emp">{emp.emp_id}</div>
+        </li>
+        <li><div class="title-emp"><label>Name</label></div>
+            <div class="text-emp">{emp.first_name + emp.last_name}</div>
+        </li>
+        <li><div class="title-emp"><label>Branch</label></div>
+            <div class="text-emp">{emp.name}</div>
+        </li>
+        <li><div class="title-emp"><label>Department</label></div>
+            <div class="text-emp">{emp.short_name}</div>
+        </li>
+        </div>
+        <div class="emp-req-details-right">
+        <li><div class="title-emp"><label>Sick Leaves Remaining</label></div>
+            <div class="text-emp">{emp.sick_leaves}</div>
+        </li>
+        <li><div class="title-emp"><label>Casual Leaves Remaining</label></div>
+            <div class="text-emp">{emp.casual_leaves}</div>
+        </li>
+        <li><div class="title-emp"><label> Unpaid Leaves Taken</label></div>
+            <div class="text-emp">{emp.unpaid_leaves}</div>
+        </li>
+        </div>
+        
       </div>
      <div class="emp-table table-responsive">
                   <table class="table">   
