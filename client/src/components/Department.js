@@ -55,8 +55,8 @@ function Department(props) {
         return (
             <tr>
                 <td>{dept.code}</td>
-                <td><input type="text" value={deptName} onChange={e=>setDeptName(e.target.value)} /></td>
-                <td><input type="text" value={deptShortName} onChange={e=>setDeptShortName(e.target.value)} /> </td>
+                <td class="table-form"><input type="text" value={deptName} onChange={e=>setDeptName(e.target.value)} /></td>
+                <td class="table-form"><input type="text" value={deptShortName} onChange={e=>setDeptShortName(e.target.value)} /> </td>
                 <td><input class="table-button" value="Update" onClick={handleUpdateDept} /></td>
                 <td><div class="table-button" disabled={true} onClick={handleDeleteDept}>delete</div></td>
             </tr>

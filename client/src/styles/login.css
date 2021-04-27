@@ -2,28 +2,25 @@
 {
     margin: 0;
     padding: 0;
-	background-image: url('https://media.istockphoto.com/photos/logistics-and-transportation-of-container-cargo-ship-and-cargo-plane-picture-id968819844?k=6&m=968819844&s=612x612&w=0&h=CXlUEFBuiL97uRN5mg17YOxl2tJdlyli5gjHDYggyF8=');
+	background-image: url('https://news.lenovo.com/wp-content/uploads/2020/10/cq5dam.web_.1280.1280-1.jpeg');
+	background-repeat: repeat-y;
 	background-size: cover;
-	font-family:sans-serif;
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .wrapper1 {
-	padding-top: 5%;
-	padding-bottom: 12%;
-    height: 100%;
-    width: 100%;
-	padding-left: 0px;
-	padding-right: 43px;
-    align-items: stretch;
+	display: flex;
+	align-content: center;
+	justify-content: center;
+	height: 100%;
+	padding: 4.58%;
 }
 #loginbox{
 	background: rgba(0, 0, 0, 0.5);
 	box-shadow: 5px 5px 5px rgba(5, 3, 3, 0.8);
 	width: 400px;
 	height: 500px;
-	padding-top: 56px;
-	padding-left: 45px;
-	
+	padding: 55px 20px 20px 20px;
 }
 
 #loginbox h4{
@@ -32,16 +29,16 @@
 	text-align:center;
 }
 .loginform{
-	padding-top: 20px;
+	padding:20px 30px 10px 30px;
 }
 #box select:required:invalid {
 	color:black;
   }
 #box select{
 	margin-top: 8px;
-	width: 310px;
+	width: 300px;
 	height: 30px;
-	border-radius: 0px;
+	border-radius: 5px;
 	border-color:white;
 	font-size: 14px;
 }
@@ -52,41 +49,45 @@
 
 #box label{
 	padding-top: 10px;
-	font-size: 21px;
+	font-size: 20px;
 	color:white;
 }
 
-.loginform input[type="text"], input[type="password"]
+#box input[type="text"], input[type="password"]
 {
+	padding: 5px;
 	border: none;
 	border-bottom: 2px solid #fff;
 	background: transparent;
 	outline: none;
 	height: 30px;
-	width: 310px;
+	width: 300px;
 	font-size:16px;
 	color:white;
-	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+#box input[type="password"]{
+	border-radius: 5px;
 }
 
 #loginbutton[type="submit"]{
-	width: 310px;
+	width: 300px;
 	border:none;
 	outline:none;
 	height:40px;
 	background-color:teal;
 	color:white;
 	font-size:18px;
+	border-radius: 5px;
 }
-
+#box ::placeholder{
+   color:#ccc;
+}
 #box select:focus{
 	border:none;
 	outline: 0.8 solid #7490db;
 }
-#box input[type="password"]:focus {
-	border-bottom: 2px solid #7490db;
-	
-}
+
 #box input[type="text"]:focus{
 	border-bottom: 2px solid #7490db;
 }

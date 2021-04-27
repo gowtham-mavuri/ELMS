@@ -68,13 +68,11 @@ function Login(props)
   return (
     <div id="loginbody">
     <div className="wrapper1">
-		<div id="loginbox"class="container-fluid ">
+		<div id="loginbox">
 			<h4>Login</h4>
 				<form className="loginform" onSubmit={handleSubmit(onSubmit)}>
-          
 					<div id="box">
 						<label>Role</label>
-						<br></br>
 						<select name="role" onChange={e=>setRole(e.target.value)} ref={register} required>
 							<option disabled hidden selected value="">--select an option--</option>
 							<option id="op1" value="admin">Admin@HR</option>
@@ -86,7 +84,6 @@ function Login(props)
         { role=="subadmin"&& 
           <div id="box">
 						<label>Select Branch</label>
-						<br></br>
 						<select  name="branch" ref={register} >
               <option hidden disabled selected value> -- select an option -- </option>
               { branches.map((branch)=><option value={branch.branch_id} id={branch.branch_id}>{branch.name}</option>) }
@@ -97,7 +94,7 @@ function Login(props)
         
 				{ role=="employee" &&	<div id="box">
               <label>Username</label>
-              <input type="text" name="username" placeholder="Enter Username" ref={register} />
+              <input type="text" name="username" ref={register} />
               {errors.username && <p>{errors.username.message}</p>}
 				  </div>
         }

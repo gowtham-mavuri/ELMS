@@ -24,6 +24,14 @@
     display: flex;
     flex-direction: column;
 }
+.table-form input[type="text"]{
+    width: 200px;
+    padding: 12px 20px;
+    margin-right: 15px;
+    border: 1px solid #ccc;
+    height: 30px;
+    border-radius: 7px;
+}
 .emp-req-details{  
     list-style:none;
     display: flex;

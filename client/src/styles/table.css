@@ -81,6 +81,9 @@
   flex-direction: row;
   flex-wrap: nowrap;
 }
+.table-button:hover{
+  cursor: pointer;
+}
 #bb td button{
   background-color: #555555;
   border: 0px;
