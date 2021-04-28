@@ -132,6 +132,7 @@ a{
        text-align: center;
       width: 100%;
       background-color: #eafaec;
+     
    }
    .dropdown-menu li a{
     padding: 1px;
@@ -153,6 +154,7 @@ a{
     
     .navbar-nav{
         background-color: #4CAF50;
+        border-bottom: 1px solid #eafaec;
     }
     .container{
         min-width: 100%;

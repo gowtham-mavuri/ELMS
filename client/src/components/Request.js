@@ -83,7 +83,8 @@ function Request (props)
              
                 {(req.status==="pending")&&
                  <div class="req-div">
-                       <div class="req-status-branch">
+                     <div class="req-div-admin-inner">
+                     <div class="req-status-branch">
                             <select required  onChange={e=>setStatus(e.target.value)}>
                             <option hidden disabled selected value>-select-</option>
                             <option value="accepted">Accept</option>
@@ -93,6 +94,7 @@ function Request (props)
                         <div class="req-remarks-branch">
                            <input type="text" id={req.leave_id} onChange={e=>setRemarks(e.target.value)}/>
                       </div>
+                     </div>
                         <button class="table-button req-update" onClick={handleUpdate} disabled={loading}>Update Status</button>
                     </div>
                     }

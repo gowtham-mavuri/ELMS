@@ -14,7 +14,7 @@ import EmployeeUpdate from '../EmployeeUpdate';
 import EmployeeCreate from '../EmployeeCreate';
 import EmployeeRequests from '../EmployeeRequests';
 
-import '../sidebar copy.css'
+import '../navbar.css'
 import logo from '../logopic.png'
 import AddDept from '../AddDept';
 

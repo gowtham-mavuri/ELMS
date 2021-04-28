@@ -38,19 +38,20 @@ function ApplyLeave(props) {
 
   const fundisplay = () => {
     if(close)
-      return { display:"none"}
+      return { display:"none",width:"0"}
       else
-      return {
-      marginLeft: "74%"
-      }
     return {}
   }
   const fundisplaywrap = () => {
     if(!close)
-      return { marginRight: "25%",marginTop:"-320px"
+      return { width:"72.8%"
       }
         return {}
   }
+
+ 
+  
+
 
   useEffect(()=>{
     axios.post('http://localhost:5000/admin/holidaysGet',{
@@ -124,16 +125,12 @@ function ApplyLeave(props) {
     <div class="leave">  
       <div class="top">
           <h3>Apply Leave</h3>
-          <button class="navbar-toggler" type="button"  data-bs-target="#leavecalender-apply" aria-controls="leavecalender-apply" aria-expanded="false" aria-label="Toggle navigation" onClick={handleClick}>
-            <span >Holidays calender</span>
-          </button>
+          <button class="navbar-toggler button-left" type="button"  data-bs-target="#leavecalender-apply" aria-controls="leavecalender-apply" aria-expanded="false" aria-label="Toggle navigation"  onClick={handleClick}>
+            <div>Holidays calender</div>
+        </button>
       </div>
-     
       <div id="wrap-apply" >
-      <div id="leavecalender-apply" style={fundisplay()}>
-          <Calendar />
-      </div>
-        <div style={fundisplaywrap()}>
+        <div class="wrap-apply-inner" style={fundisplaywrap()}>
         <form  class="apply" onSubmit={handleSubmit(onSubmit)}>
             <div class="first-part">
             <div id="forminp-calen">
@@ -174,6 +171,9 @@ function ApplyLeave(props) {
               </div> 
             </div>       
         </form>
+        </div>
+        <div id="leavecalender-apply" style={fundisplay()}>
+          <Calendar />
         </div>
       </div>
     </div>

@@ -100,7 +100,7 @@ function Login(props)
         }
 		      <div id="box">
               <label>Password</label>
-              <input type="password" name="password" placeholder="Enter password"  ref={register}/>
+              <input type="password" name="password" ref={register}/>
               {errors.password && <p>{errors.password.message}</p>}
           </div>
           {error&&<p>{error}</p>}

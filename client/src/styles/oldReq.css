@@ -32,6 +32,10 @@
     height: 30px;
     border-radius: 7px;
 }
+.table-form input[type="text"]:focus{
+    outline:none;
+    border: 1px solid #555555;
+}
 .emp-req-details{  
     list-style:none;
     display: flex;

@@ -15,7 +15,7 @@ import AddEmployee from '../AddEmployee';
 import UpdateEmployee from '../UpdateEmployee';
 import AddBranch from '../AddBranch';
 import OldRequests from '../OldRequests';
-import '../sidebar copy.css'
+import '../navbar.css'
 import logo from '../logopic.png'
 import Employees from '../Employees';
 import Requests from '../Requests';

@@ -43,6 +43,7 @@
   padding: 0.5em 1em;
   text-align: center;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
+  border:0px;
 }
 
 #bb td {
@@ -53,6 +54,7 @@
   padding: 0.65em 1em;
   word-break: break-all;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
+  border:none;
 }
 #bb tr:nth-child(odd){
   background-color: #4CAF50;
@@ -80,6 +82,7 @@
   color: white;
   flex-direction: row;
   flex-wrap: nowrap;
+ 
 }
 .table-button:hover{
   cursor: pointer;
