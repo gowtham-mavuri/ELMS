@@ -20,6 +20,7 @@ import logo from '../logopic.png'
 import Employees from '../Employees';
 import Requests from '../Requests';
 import EmployeeRequests from '../EmployeeRequests';
+import AdminToday from '../AdminToday';
 
 
 
@@ -93,6 +94,7 @@ function AdminDashboard(props) {
             Requests
           </div>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <li><Link  to={`${url}/Today`}>Today</Link></li>
             <li><Link  to={`${url}/Reqs`}>New Requests</Link></li>
             <li><Link  to={`${url}/OldReqs`}>Old Requests</Link></li>
           </ul>
@@ -130,6 +132,9 @@ function AdminDashboard(props) {
               </Route>
               <Route path={`${path}/addEmp`}>
                 <AddEmployee />
+              </Route>
+              <Route path={`${path}/Today`}>
+                <AdminToday />
               </Route>
               <Route path={`${path}/Reqs`}>
                 <Requests />

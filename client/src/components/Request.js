@@ -13,32 +13,37 @@ function Request (props)
     const branchId=props.branchId;
 
     const handleUpdate = () => {
-        setLoading(true);
-        var from=moment(req.from_date).format('YYYY-MM-DD')
-        var to = moment(req.to_date).format('YYYY-MM-DD')
-        from = moment(from,'YYYY-MM-DD');
-        to = moment(to,'YYYY-MM-DD');
-        var days=to.diff(from,'days')+1;
-        axios.post('http://localhost:5000/branch/reqUpdate',{
-            token:localStorage.getItem('token'),
-            reqId:req.leave_id,
-            days,
-            status,
-            remarks
-        }).then(res=>{
-            if(res.data.error)
-            {
-                console.log(res.data.error);
-            }
-            else
-            {
-                setReq(res.data.result[0]);
-            }
+        if(status==="accepted"||status==="rejected")
+        {
+            setLoading(true);
+            var from=moment(req.from_date).format('YYYY-MM-DD')
+            var to = moment(req.to_date).format('YYYY-MM-DD')
+            from = moment(from,'YYYY-MM-DD');
+            to = moment(to,'YYYY-MM-DD');
+            var days=to.diff(from,'days')+1;
+            axios.post('http://localhost:5000/branch/reqUpdate',{
+                token:localStorage.getItem('token'),
+                reqId:req.leave_id,
+                days,
+                status,
+                remarks
+            }).then(res=>{
+                if(res.data.error)
+                {
+                    console.log(res.data.error);
+                }
+                else
+                {
+                    setReq(res.data.result[0]);
+                }
+                setLoading(false);
+            }).catch(err=>{
+            console.log(err);
             setLoading(false);
-        }).catch(err=>{
-          console.log(err);
-          setLoading(false);
-        })
+            })
+        }
+        else
+            alert("Select an option")
 
     }
 

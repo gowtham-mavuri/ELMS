@@ -25,7 +25,6 @@ function AddDepartment(props) {
     useEffect(()=>{
         setLoading(true);
         axios.get('http://localhost:5000/admin/fetchBranches').then(res=>{
-        console.log(res.data.result)
             setBranches(res.data.result);
             setLoading(false);
         }).catch(err=>{

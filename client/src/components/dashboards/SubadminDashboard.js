@@ -17,6 +17,7 @@ import EmployeeRequests from '../EmployeeRequests';
 import '../navbar.css'
 import logo from '../logopic.png'
 import AddDept from '../AddDept';
+import SubadminToday from '../SubadminToday';
 
 function SubadminDashboard(props) {
   let { path, url } = useRouteMatch();
@@ -76,6 +77,7 @@ function SubadminDashboard(props) {
                 Requests
               </div>
               <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><Link to={`${url}/today`}>Today</Link></li>
                 <li><Link to={`${url}/requests`}>New Leave Requests</Link></li>
                 <li><Link to={`${url}/oldrequests`}>Old leave Requests</Link></li>
               </ul>
@@ -93,7 +95,7 @@ function SubadminDashboard(props) {
               <Route path={`${path}/departments`} component={DepartmentsBranch} />
 
               <Route path={`${path}/empList`} component={EmployeesBranch} />
- 
+              <Route path={`${path}/today`} component={SubadminToday} />
               <Route path={`${path}/requests`} component={RequestBranch} />
               <Route path={`${path}/oldrequests`} component={OldRequestBranch} />
 

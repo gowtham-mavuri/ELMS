@@ -26,8 +26,10 @@ router.post('/deptAdd',utils.verifyToken,dept.add_department);
 router.post('/depts',utils.verifyToken,dept.department_list_all);
 router.post('/dept',utils.verifyToken,dept.department_list);
 router.post('/emps',utils.verifyToken,emp.emp_list_all);
+router.post('/totalEmps',utils.verifyToken,emp.emp_count_all);
 
 router.post('/reqUpdate',utils.verifyToken,request.put_request_admin);
 router.post('/reqs',utils.verifyToken,request.request_list_all_pending);
+router.post('/reqsToday',utils.verifyToken,request.request_list_all_today);
 
 module.exports = router;

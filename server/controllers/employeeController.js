@@ -24,6 +24,45 @@ exports.emp_list=(req,res)=>{
     })
 }
 
+exports.emp_count=(req,res)=>{
+    var branchId;
+    if(req.user.role === "admin")
+        branchId = req.body.id;
+    else 
+        branchId= req.user.id;
+    const q="SELECT COUNT(*) as count FROM employee WHERE branch_id=? ";
+    db.query(q,[branchId]).then((result)=>{
+        result=JSON.parse(JSON.stringify(result[0]));
+        res.send({
+            error:false,
+            result
+        });
+    }).catch(err=>{
+        console.log(err.sqlMessage);
+        res.send({
+            error:true,
+            message:err.sqlMessage
+        });
+    })
+}
+
+exports.emp_count_all=(req,res)=>{
+    const q="SELECT COUNT(*) as count FROM employee";
+    db.query(q).then((result)=>{
+        result=JSON.parse(JSON.stringify(result[0]));
+        res.send({
+            error:false,
+            result
+        });
+    }).catch(err=>{
+        console.log(err.sqlMessage);
+        res.send({
+            error:true,
+            message:err.sqlMessage
+        });
+    })
+}
+
 exports.emp_list_all=(req,res)=>{
     const q="SELECT * FROM employee ORDER BY dept_code";
     db.query(q).then((result)=>{

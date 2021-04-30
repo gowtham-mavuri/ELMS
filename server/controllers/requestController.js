@@ -66,6 +66,47 @@ exports.request_list=(req,res)=>{
     })
 }
 
+exports.request_list_today=(req,res)=>{
+    var role = req.user.role;
+    var branchId;
+    if(role === "subadmin")
+         branchId=req.user.id;
+    else if(role === "admin")
+        branchId=req.body.id;
+    var status = "pending"
+    const q="SELECT * FROM leave_request JOIN employee ON employee.emp_id = leave_request.emp_id JOIN department ON employee.dept_code=department.code WHERE employee.branch_id=? AND DATE(leave_request.from_date)<=DATE(NOW()) AND DATE(leave_request.to_date)>=DATE(NOW()) ORDER BY leave_request.from_date DESC";
+    db.query(q,[branchId]).then(result=>{
+        result=JSON.parse(JSON.stringify(result[0]));
+        res.send({
+            error:false,
+            result
+        });
+    }).catch(err=>{
+        console.log(err.sqlMessage);
+        res.send({
+            error:true,
+            message:err.sqlMessage
+        });
+    })
+}
+
+exports.request_list_all_today=(req,res)=>{
+    const q="SELECT * FROM leave_request JOIN employee ON employee.emp_id = leave_request.emp_id JOIN department ON employee.dept_code=department.code WHERE  DATE(leave_request.from_date)<=DATE(NOW()) AND DATE(leave_request.to_date)>=DATE(NOW()) ORDER BY leave_request.from_date DESC";
+    db.query(q).then(result=>{
+        result=JSON.parse(JSON.stringify(result[0]));
+        res.send({
+            error:false,
+            result
+        });
+    }).catch(err=>{
+        console.log(err.sqlMessage);
+        res.send({
+            error:true,
+            message:err.sqlMessage
+        });
+    })
+}
+
 exports.request_list_pending=(req,res)=>{
     var role = req.user.role;
     var branchId;

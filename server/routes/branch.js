@@ -11,7 +11,7 @@ var req = require('../controllers/requestController');
 
 //routes from /branch
 
-
+router.post('/totalEmps',utils.verifyToken,emp.emp_count);
 router.post('/emps',utils.verifyToken,emp.emp_list);
 router.post('/emp',utils.verifyToken,emp.emp_id);
 router.post('/empUpdate',utils.verifyToken,emp.put_emp);
@@ -27,6 +27,7 @@ router.post('/deldept',utils.verifyToken,dept.del_department);
 
 router.post('/empReqs',utils.verifyToken,req.req_list_emp);
 router.post('/reqs',utils.verifyToken,req.request_list);
+router.post('/reqsToday',utils.verifyToken,req.request_list_today);
 router.post('/reqs/pending',utils.verifyToken,req.request_list_pending);
 router.post('/reqUpdate',utils.verifyToken,req.put_request);//req_id also affects to change leave counts
 router.post('/reqUpdateRemarks',utils.verifyToken,req.put_request_remarks);

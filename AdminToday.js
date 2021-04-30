@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import RequestContainer from './RequestContainer';
+import TodayContainer from './TodayContainer';
 import "../styles/oldReq.css"
 import "../styles/table.css"
 import "../styles/NewRequest.css"
@@ -25,7 +25,7 @@ function Requests() {
     },[])
 
   useEffect(()=>{
-    axios.post('http://localhost:5000/admin/reqs',{
+    axios.post('http://localhost:5000/admin/reqsToday',{
         token:localStorage.getItem('token')
     }).then(res=>{
             setReqList(res.data.result);
@@ -61,27 +61,8 @@ function Requests() {
                 { branches.map((branch)=><option value={branch.branch_id} id={branch.branch_id}>{branch.name}</option>) }
               </select>
         </div>
-        <div class="emp-table table-responsive">
-              <table class="table">   
-                <tr>
-                  <th>ReqID</th>
-                  <th>EmpID</th>
-                  <th>Dept Code</th>
-                  <th>Name</th>
-                  <th>From</th>
-                  <th>To</th>
-                  <th>Type</th>
-                  <th>Days</th>
-                  <th>Description</th>
-                  <div class="together-head">
-                  <th>Status</th>
-                  <th>Admin Remarks</th>
-                  </div>
-                  <th>Requests</th>
-                </tr> 
-                <RequestContainer reqList={dynamicSearch() } />
-            </table>
-        </div>
+
+        <TodayContainer reqList={dynamicSearch()} branchId={searchBranch} />
       </div>
     </div>
   );
