@@ -26,7 +26,6 @@ function Departments() {
     axios.post('http://localhost:5000/admin/depts',{
         token:localStorage.getItem('token')
     }).then(res=>{
-        console.log(res.data.result)
             setDeptList(res.data.result);
             setLoading(false);
         }).catch(err=>{
@@ -38,7 +37,6 @@ function Departments() {
   },[])
 
   const dynamicSearch = () => {
-      console.log(deptList)
     if(searchBranch==="ALL")
       return deptList;
     return deptList.filter(dept =>dept.branch_id==searchBranch)

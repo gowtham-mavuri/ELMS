@@ -39,7 +39,7 @@ function Requests() {
 
   const dynamicSearch = () => {
     if(searchBranch==="ALL")
-      return reqList;
+      return [];
     return reqList.filter(req =>req.branch_id==searchBranch)
   }
 
@@ -57,7 +57,7 @@ function Requests() {
       <div id="bb">
         <div class="dropdown-table searchbar">
               <select onChange={(e)=>setSearchBranch(e.target.value)} >
-                <option selected value="ALL" id="ALL">All branches</option>
+                <option selected hidden disabled value="ALL" id="ALL"> Select a branch </option>
                 { branches.map((branch)=><option value={branch.branch_id} id={branch.branch_id}>{branch.name}</option>) }
               </select>
         </div>

@@ -9,32 +9,13 @@ function TodayContainer(props) {
     const [employeesOnLeave,setEmployeesOnLeave] = useState(0);
     const [loading,setLoading] = useState(false)
 
-    const empOnLeave = (data) => {
-        var empIds = data.map((req)=>req.emp_id)
-        var uniqueEmpIds = [...new Set(empIds)]
-        return uniqueEmpIds.length
-    }
-
 
     useEffect(()=>{
-        setEmployeesOnLeave(empOnLeave(reqs))
-        if(props.branchId==="ALL")
-        {
-            console.log("ENTERED")
-            axios.post('http://localhost:5000/admin/totalEmps',{
-              token:localStorage.getItem('token')
-            }).then(res=>{     
-                setTotalEmps(res.data.result[0].count);
-                
-                setLoading(false);
-            }).catch(err=>{
-              console.log(err);
-              setLoading(false);
-            })
-            
-        }
-        else
-        {
+        setLoading(true)
+        var empIds = props.reqList.map((req)=>req.emp_id)
+        var uniqueEmpIds = [...new Set(empIds)]
+        setEmployeesOnLeave(uniqueEmpIds.length)
+     
             axios.post('http://localhost:5000/branch/totalEmps',{
               token:localStorage.getItem('token'),
               id:props.branchId
@@ -45,7 +26,6 @@ function TodayContainer(props) {
               console.log(err);
               setLoading(false);
             })
-        }
                 // eslint-disable-next-line
     },[props.branchId])
 
@@ -54,7 +34,7 @@ function TodayContainer(props) {
 
     return (
         <div>
-            <div class="leaves-profile">
+            {props.branchId!=="ALL"&&<div class="leaves-profile">
                 <div class="leave-profile">
                 <label class="leave-head">Total Employees</label>
                 <label class="leave-data">{totalEmps}</label>
@@ -67,7 +47,7 @@ function TodayContainer(props) {
                 <label class="leave-head">Employees on leave</label>
                 <label class="leave-data">{employeesOnLeave}</label>
                 </div> 
-            </div>
+            </div>}
             <div class="emp-table table-responsive">
                 <table class="table">   
                     <tr>
