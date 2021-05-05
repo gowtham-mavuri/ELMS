@@ -77,7 +77,7 @@ function SubadminDashboard(props) {
                 Requests
               </div>
               <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <li><Link to={`${url}/today`}>Today</Link></li>
+              <li><Link to={`${url}/today`}>Employess on leave</Link></li>
                 <li><Link to={`${url}/requests`}>New Leave Requests</Link></li>
                 <li><Link to={`${url}/oldrequests`}>Old leave Requests</Link></li>
               </ul>

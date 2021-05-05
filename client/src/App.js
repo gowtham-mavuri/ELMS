@@ -9,23 +9,14 @@ import {PrivateRoute} from './components/PrivateRoute';
  
 function App() {
     return (
-    <div >
       <BrowserRouter>
-        <div>
-          <div >
-
-          </div>
-          <div >
             <Switch>
               <Route exact path="/" component={Login} />
               <PrivateRoute path="/AdminDashboard" component={AdminDashboard} />
               <PrivateRoute path="/SubadminDashboard" component={SubadminDashboard} />
               <PrivateRoute path="/EmployeeDashboard" component={EmployeeDashboard} />
             </Switch>
-          </div>
-        </div>
       </BrowserRouter>
-    </div>
   );
 }
  

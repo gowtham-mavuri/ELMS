@@ -94,9 +94,9 @@ function AdminDashboard(props) {
             Requests
           </div>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <li><Link  to={`${url}/Today`}>Today</Link></li>
-            <li><Link  to={`${url}/Reqs`}>New Requests</Link></li>
-            <li><Link  to={`${url}/OldReqs`}>Old Requests</Link></li>
+          <li><Link  to={`${url}/Today`}>Leaves Today</Link></li>
+            <li><Link  to={`${url}/Reqs`}>New Leave Requests</Link></li>
+            <li><Link  to={`${url}/OldReqs`}>Old Leave Requests</Link></li>
           </ul>
         </li>
         <li class="nav-item">

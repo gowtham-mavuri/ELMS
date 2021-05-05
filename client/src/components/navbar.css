@@ -1,9 +1,9 @@
 a{
     text-decoration: none;
   }
-  a:hover{
+a:hover{
       text-decoration: none;
-  }
+}
 .header-admin {
     background: white;
     border-bottom: 1px solid transparent;

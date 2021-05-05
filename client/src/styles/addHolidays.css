@@ -6,7 +6,7 @@
     display: flex;
     align-content: center;
     justify-content: center; 
-        flex-wrap: wrap;
+    flex-wrap: wrap;
 }
 .full h3{
     text-align: center;

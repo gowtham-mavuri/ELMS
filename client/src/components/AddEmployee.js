@@ -75,7 +75,8 @@ function AddEmployee(props) {
     }
     
     if(added)
-        return <div>Added Successfully</div>
+        return <div id="formbox">
+        <h3>Employee Added Successfully</h3></div>
     return (
         <div id="formbox"> 
         <h3>Add Employee</h3> 
@@ -171,7 +172,7 @@ function AddEmployee(props) {
                         {errors.sickLeaves && <p>{errors.sickLeaves.message}</p>}
                     </div>
                     <div id="forminp">
-                        <label>Unpaid leaves remaining</label>
+                        <label>Loss of Pay (LOP)</label>
                         <input type="number" name="unpaidLeaves" ref={register} />
                         {errors.unpaidLeaves && <p>{errors.unpaidLeaves.message}</p>}
                     </div>

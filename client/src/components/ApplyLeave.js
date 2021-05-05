@@ -118,8 +118,8 @@ function ApplyLeave(props) {
 
 
   if(submitted)
-  return <div>SUBMITTED YOUR REQUEST SUCCESSFULLY  :~)
-
+  return <div id="formbox">
+    <h3>Submitted Request Successfully</h3>
   </div>
   return (
     <div class="leave">  

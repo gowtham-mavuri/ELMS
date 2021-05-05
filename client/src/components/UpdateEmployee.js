@@ -143,8 +143,8 @@ function EmployeeUpdate(props) {
     }
 
     if(deleted)
-        return <div>
-            <h1>Employee is Deleted  :~(</h1>
+        return <div id="formbox">
+            <h3>Deleted Employee Successfully</h3>
         </div>
 
     return (
@@ -236,7 +236,7 @@ function EmployeeUpdate(props) {
                         {errors.sickLeaves && <p>{errors.sickLeaves.message}</p>}
                     </div>
                     <div id="forminp">
-                        <label>Unpaid leaves remaining</label>
+                        <label>Loss of Pay (LOP)</label>
                         <input type="number" name="unpaidLeaves" ref={register} />
                         {errors.unpaidLeaves && <p>{errors.unpaidLeaves.message}</p>}
                     </div>

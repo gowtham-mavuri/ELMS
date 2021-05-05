@@ -3,7 +3,7 @@ import axios from 'axios';
 import Request from './Request';
 import "../styles/oldReq.css"
 import "../styles/table.css"
-import "../styles/NewRequest.css"
+import "../styles/newRequest.css"
 
 function RequestsBranch(props) {
   const [loading,setLoading] = useState(true);

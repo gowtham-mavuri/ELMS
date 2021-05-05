@@ -76,7 +76,7 @@ function Request2 (props)
                     }
 
                     {(req.status!=="pending")&&
-                        <div class="req-div">
+                        <div class="req-div-after">
                         <div class="req-status-after">
                         <label>{req.status}</label>                
                         </div>

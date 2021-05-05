@@ -94,7 +94,7 @@ return (
               <label class="leave-data">{sickLeaves}</label>
             </div>
             <div class="leave-profile">
-              <label class="leave-head">Unpaid Leaves Taken</label>
+              <label class="leave-head">Loss of Pay ( LOP )</label>
               <label class="leave-data">{unpaidLeaves} </label>
             </div>
     </div>

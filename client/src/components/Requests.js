@@ -3,7 +3,7 @@ import axios from 'axios';
 import RequestContainer from './RequestContainer';
 import "../styles/oldReq.css"
 import "../styles/table.css"
-import "../styles/NewRequest.css"
+import "../styles/newRequest.css"
 
 function Requests() {
   const [loading,setLoading] = useState(true);

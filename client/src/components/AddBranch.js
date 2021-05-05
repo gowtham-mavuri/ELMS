@@ -42,7 +42,8 @@ function AddBranch(props) {
     }
 
     if(added)
-        return <div>Added {branch} Branch Succesfully</div>
+        return <div id="formbox">
+            <h3>Added {branch} Branch Succesfully</h3></div>
     if(loading)
         return <div>Loading</div>
     return (

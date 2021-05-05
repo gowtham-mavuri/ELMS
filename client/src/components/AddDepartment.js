@@ -53,7 +53,8 @@ function AddDepartment(props) {
     }
 
     if(added)
-        return <div>Added Department Succesfully</div>
+        return <div id="formbox">
+            <h3>Added Department Succesfully</h3></div>
     if(loading)
         return <div>Loading</div>
     return (
