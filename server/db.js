@@ -4,8 +4,9 @@ mysql.configure(
     {
         user:"root",
         host:"localhost",
-        password:"Annavaram@123",
-        database:"elms",
+        password:"1234",
+        database:"elmsdb",
+     /*   password:"1234", */
         timezone:'utc'
     }
 );
