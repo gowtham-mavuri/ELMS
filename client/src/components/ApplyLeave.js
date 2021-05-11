@@ -38,17 +38,20 @@ function ApplyLeave(props) {
 
   const fundisplay = () => {
     if(close)
-      return { display:"none",width:"0"}
+      return { display:"none"}
       else
     return {}
   }
   const fundisplaywrap = () => {
-    if(!close)
-      return { width:"72.8%"
-      }
-        return {}
+    if(close)
+      return { width:"100%"
+      } 
   }
-
+  const fundisplayfirst = () => {
+    if(!close)
+      return { marginLeft : "25px"}
+    
+  }
  
   
 
@@ -132,7 +135,7 @@ function ApplyLeave(props) {
       <div id="wrap-apply" >
         <div class="wrap-apply-inner" style={fundisplaywrap()}>
         <form  class="apply" onSubmit={handleSubmit(onSubmit)}>
-            <div class="first-part">
+            <div class="first-part" >
             <div id="forminp-calen">
                 <label>Select start and end date</label>
                 <div class="calen">
@@ -153,7 +156,7 @@ function ApplyLeave(props) {
                 </div>
               </div>   
             </div>
-            <div class="second-part">
+            <div class="second-part" style={fundisplayfirst()}>
               <div id="forminp-apply">
                   <label>Type</label>
                       <select required name="type" ref={register}>

@@ -45,14 +45,19 @@
     background-color: white;
     float: left;
     margin-top: 20px;
+    height: 358px;
+}
+#wrap-apply{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+    margin-top: 10px;
 }
 .wrap-apply-inner{
     float: left;
     margin-right:20px;
-    width: 100%;
-}
-#wrap-apply{
-    margin-top: 10px;
 }
 .apply{
     display: flex;
@@ -190,6 +195,7 @@
     .apply{
         flex-direction: column;
         align-content: center;
+        justify-content: center;
     }
     .top{
         flex-direction: column;
@@ -197,6 +203,9 @@
     .top button{
         position: relative;
         right: 10px;
+    }
+    .wrap-apply-inner{
+        clear: both;
     }
     
 }
